@@ -2,12 +2,12 @@
 # one, add it in the other. Panel language is Polish (the owner's language).
 backend:
   name: github
-  repo: maksjach/portfolio # owner/repo — update to the real GitHub repository
+  repo: MvxJ/PorfolioMj # owner/repo (from git remote)
   branch: main
   # OAuth is handled by Cloudflare Pages Functions in THIS project
   # (functions/auth.js + functions/callback.js) — no separate worker / subdomain.
   # base_url = the site's own origin; auth_endpoint = the /auth function.
-  base_url: https://maks.dev # change to your real domain (or *.pages.dev)
+  base_url: https://maksymilianjachymczak.pages.dev # change to your real domain (or *.pages.dev)
   auth_endpoint: auth
 
 # Lets you edit content locally with no GitHub login while running

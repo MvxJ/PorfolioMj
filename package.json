@@ -3,7 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
-  "description": "Personal portfolio for Maks Jachymczak — trilingual (PL/EN/UK) Astro site, content-managed via Sveltia CMS, deployed on Cloudflare.",
+  "description": "Personal portfolio for Maksymilian Jachymczak — trilingual (PL/EN/UK) Astro site, content-managed via Sveltia CMS, deployed on Cloudflare.",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

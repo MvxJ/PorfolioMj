@@ -21,7 +21,7 @@ if (!project) return Astro.redirect('/404');
 const t = useT(locale);
 const site = await getSite();
 const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
-const name = site?.name ?? 'Maks Jachymczak';
+const name = site?.name ?? 'Maksymilian Jachymczak';
 
 const projTitle = localize(project.data.title, locale) ?? slug;
 const desc = localize(project.data.desc, locale) ?? '';

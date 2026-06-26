@@ -15,7 +15,7 @@ const t = useT(locale);
 const site = await getSite();
 const projects = await getProjects();
 const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
-const name = site?.name ?? 'Maks Jachymczak';
+const name = site?.name ?? 'Maksymilian Jachymczak';
 
 const title = `${t('nav.projects')} — ${name}`;
 const description = `${name} — ${t('sections.projectsEyebrow')}: ${projects

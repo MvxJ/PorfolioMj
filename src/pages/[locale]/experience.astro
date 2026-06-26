@@ -15,7 +15,7 @@ const t = useT(locale);
 const site = await getSite();
 const roles = await getExperience();
 const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
-const name = site?.name ?? 'Maks Jachymczak';
+const name = site?.name ?? 'Maksymilian Jachymczak';
 
 const title = `${t('nav.experience')} — ${name}`;
 const companies = roles.map((r) => r.data.company).join(', ');

@@ -17,7 +17,7 @@ const t = useT(locale);
 const about = await getAbout();
 const site = await getSite();
 const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
-const name = site?.name ?? 'Maks Jachymczak';
+const name = site?.name ?? 'Maksymilian Jachymczak';
 
 const title = `${t('nav.about')} — ${name}`;
 const bio = localize(about?.bio, locale) ?? '';

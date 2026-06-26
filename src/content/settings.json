@@ -10,7 +10,7 @@
     "defaultLanguage": "pl"
   },
   "site": {
-    "name": "Maks Jachymczak",
+    "name": "Maksymilian Jachymczak",
     "role": {
       "pl": "Senior Software Engineer",
       "en": "Senior Software Engineer",
@@ -25,9 +25,9 @@
   },
   "seo": {
     "defaultTitle": {
-      "pl": "Maks Jachymczak — Senior Software Engineer",
-      "en": "Maks Jachymczak — Senior Software Engineer",
-      "uk": "Maks Jachymczak — Senior Software Engineer"
+      "pl": "Maksymilian Jachymczak — Senior Software Engineer",
+      "en": "Maksymilian Jachymczak — Senior Software Engineer",
+      "uk": "Maksymilian Jachymczak — Senior Software Engineer"
     },
     "defaultDescription": {
       "pl": "Senior Software Engineer specjalizujący się w backendzie (PHP, Symfony, Python, FastAPI). Buduję solidne, skalowalne systemy i API. Warszawa, Polska.",

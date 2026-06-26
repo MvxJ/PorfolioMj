@@ -1,4 +1,4 @@
-# Portfolio — Maks Jachymczak
+# Portfolio — Maksymilian Jachymczak
 
 Trilingual (PL / EN / UK) portfolio built with **Astro**, content-managed through the
 lightweight, git-based **Sveltia CMS** (`/admin`), deployed on **Cloudflare**.
