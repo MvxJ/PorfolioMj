@@ -1,0 +1,33 @@
+---
+import type { Locale } from '../../i18n';
+import { LOCALES, useT } from '../../i18n';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ExperienceList from '../../components/sections/ExperienceList.astro';
+import { getSite, getExperience } from '../../lib/content';
+import { breadcrumbLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useT(locale);
+const site = await getSite();
+const roles = await getExperience();
+const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
+const name = site?.name ?? 'Maks Jachymczak';
+
+const title = `${t('nav.experience')} — ${name}`;
+const companies = roles.map((r) => r.data.company).join(', ');
+const description = `${name} — ${t('sections.experienceTitle')}: ${companies}.`.slice(0, 155);
+
+const jsonLd = [
+  breadcrumbLd([
+    { name: name, url: `${origin}/${locale}` },
+    { name: t('nav.experience'), url: `${origin}/${locale}/experience` },
+  ]),
+];
+---
+<PageLayout title={title} description={description} barePath="experience" locale={locale} jsonLd={jsonLd}>
+  <ExperienceList locale={locale} />
+</PageLayout>

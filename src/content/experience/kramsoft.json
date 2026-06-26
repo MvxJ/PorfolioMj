@@ -1,0 +1,44 @@
+{
+  "order": 3,
+  "company": "Kramsoft",
+  "logo": "/assets/images/tech/logo-kramsoft.svg",
+  "initials": "KS",
+  "color": "#0EA5E9",
+  "from": "2020-01",
+  "to": "2021-05",
+  "location": "Warszawa, Polska",
+  "type": "fullTime",
+  "tech": ["PHP", "Symfony", "MySQL", "JavaScript", "Git"],
+  "position": {
+    "pl": "Backend Developer",
+    "en": "Backend Developer",
+    "uk": "Backend Developer"
+  },
+  "shortDesc": {
+    "pl": "Tworzenie aplikacji webowych i systemów wewnętrznych dla klientów biznesowych.",
+    "en": "Building web applications and internal systems for business clients.",
+    "uk": "Створення веб-застосунків і внутрішніх систем для бізнес-клієнтів."
+  },
+  "fullDesc": {
+    "pl": "Odpowiadałem za rozwój aplikacji webowych w Symfony, projektowanie baz danych i implementację logiki biznesowej dla klientów z różnych branż.",
+    "en": "I developed Symfony web applications, designed databases and implemented business logic for clients across several industries.",
+    "uk": "Розробляв веб-застосунки на Symfony, проєктував бази даних і реалізовував бізнес-логіку для клієнтів із різних галузей."
+  },
+  "achievements": {
+    "pl": [
+      "Wdrożenie kilku systemów wewnętrznych od podstaw",
+      "Refaktoryzacja starszego kodu i poprawa jego utrzymywalności",
+      "Bliska współpraca z klientami przy zbieraniu wymagań"
+    ],
+    "en": [
+      "Shipped several internal systems from scratch",
+      "Refactored legacy code and improved maintainability",
+      "Worked closely with clients to gather requirements"
+    ],
+    "uk": [
+      "Випустив кілька внутрішніх систем з нуля",
+      "Рефакторив застарілий код і покращував його підтримуваність",
+      "Тісно співпрацював із клієнтами для збору вимог"
+    ]
+  }
+}

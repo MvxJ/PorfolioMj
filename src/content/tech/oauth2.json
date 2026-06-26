@@ -1,0 +1,9 @@
+{
+  "order": 8,
+  "name": "OAuth2",
+  "color": "#EB5424",
+  "fg": "#ffffff",
+  "abbr": "O2",
+  "category": "backend",
+  "logo": null
+}

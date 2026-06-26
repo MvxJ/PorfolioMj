@@ -1,0 +1,9 @@
+{
+  "order": 20,
+  "name": "Linux",
+  "color": "#FCC624",
+  "fg": "#111827",
+  "abbr": "Lx",
+  "category": "tools",
+  "logo": "/assets/images/tech/linux.png"
+}

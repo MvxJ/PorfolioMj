@@ -1,0 +1,9 @@
+{
+  "order": 1,
+  "name": "PHP",
+  "color": "#777BB4",
+  "fg": "#ffffff",
+  "abbr": "Ph",
+  "category": "backend",
+  "logo": "/assets/images/tech/php.png"
+}

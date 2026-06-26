@@ -1,0 +1,28 @@
+---
+/* TechStripSection.astro — homepage strip of all tech entries that have a logo. */
+import type { Locale } from '../../i18n';
+import { useT } from '../../i18n';
+import { getTech } from '../../lib/content';
+import BaseSection from '../BaseSection.astro';
+import TechIcon from '../primitives/TechIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const tech = (await getTech()).filter((entry) => entry.data.logo);
+---
+<BaseSection id="tech" bg="subtle" pad="md" labelledby="tech-title">
+  <div class="section-head" style="text-align:center;">
+    <p class="eyebrow aos">{t('sections.techEyebrow')}</p>
+    <h2 class="section-title aos" id="tech-title">{t('sections.techTitle')}</h2>
+  </div>
+  <div class="tech-strip">
+    {tech.map((entry, i) => (
+      <div class="stagger-item aos" style={`transition-delay:${i * 40}ms`}>
+        <TechIcon name={entry.data.name} />
+      </div>
+    ))}
+  </div>
+</BaseSection>

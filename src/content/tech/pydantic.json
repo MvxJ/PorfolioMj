@@ -1,0 +1,9 @@
+{
+  "order": 6,
+  "name": "Pydantic",
+  "color": "#E92063",
+  "fg": "#ffffff",
+  "abbr": "Pd",
+  "category": "backend",
+  "logo": null
+}

@@ -1,0 +1,66 @@
+---
+/* ExperienceList.astro — prepares pre-localized data and renders the
+   ExperienceAccordion island (expand/collapse, first open by default). */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { getExperience, getTech, localizeArr } from '../../lib/content';
+import { fmtDate } from '../../lib/dates';
+import BaseSection from '../BaseSection.astro';
+import ExperienceAccordion from '../islands/ExperienceAccordion.tsx';
+import type { ExpItem, TechMeta } from '../islands/ExperienceAccordion.tsx';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const roles = await getExperience();
+const tech = await getTech();
+
+const techMap = new Map<string, TechMeta>();
+for (const entry of tech) {
+  techMap.set(entry.data.name.toLowerCase(), {
+    name: entry.data.name,
+    logo: entry.data.logo ?? null,
+    color: entry.data.color,
+    fg: entry.data.fg,
+  });
+}
+const resolveTech = (name: string): TechMeta =>
+  techMap.get(name.toLowerCase()) ?? { name, logo: null, color: '#6366f1', fg: '#ffffff' };
+
+const items: ExpItem[] = roles.map((r) => {
+  const d = r.data;
+  const isPresent = !d.to;
+  const dates = `${fmtDate(d.from, locale)} — ${isPresent ? t('experience.present') : fmtDate(d.to, locale)}`;
+  return {
+    company: d.company,
+    logo: d.logo ?? null,
+    initials: d.initials,
+    color: d.color,
+    dates,
+    location: d.location,
+    typeLabel: t(`experience.${d.type}`),
+    isPresent,
+    position: localize(d.position, locale) ?? '',
+    fullDesc: localize(d.fullDesc, locale) ?? '',
+    achievements: localizeArr(d.achievements, locale),
+    tech: d.tech.map(resolveTech),
+  };
+});
+
+const labels = {
+  keyAchievements: t('experience.keyAchievements'),
+  technologies: t('experience.technologies'),
+  present: t('experience.present'),
+};
+---
+<BaseSection id="experience" pad="xl" labelledby="experience-title">
+  <div class="section-head">
+    <p class="eyebrow aos">{t('sections.experienceEyebrow')}</p>
+    <h2 class="section-title aos" id="experience-title">{t('sections.experienceTitle')}</h2>
+  </div>
+  <div class="aos">
+    <ExperienceAccordion client:visible items={items} labels={labels} />
+  </div>
+</BaseSection>

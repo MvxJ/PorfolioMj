@@ -1,0 +1,82 @@
+---
+/* ProjectDetail.astro — back link, header, hero image, overview + highlights,
+   sticky tech box, gallery grid. */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { localizeArr } from '../../lib/content';
+import { localizedPath } from '../../lib/routing';
+import type { CollectionEntry } from 'astro:content';
+import BaseSection from '../BaseSection.astro';
+import Icon from '../primitives/Icon.astro';
+import TechIcon from '../primitives/TechIcon.astro';
+import Badge from '../primitives/Badge.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  locale: Locale;
+}
+const { project, locale } = Astro.props;
+const t = useT(locale);
+const d = project.data;
+const title = localize(d.title, locale) ?? '';
+const role = localize(d.role, locale) ?? '';
+const desc = localize(d.desc, locale) ?? '';
+const highlights = localizeArr(d.highlights, locale);
+---
+<BaseSection pad="xl" class="project-detail" style={`--accent:${d.accent}`}>
+  <a class="detail-back" href={localizedPath(locale, 'projects')}>
+    <Icon name="arrow" size={16} />
+    <span>{t('actions.backToProjects')}</span>
+  </a>
+
+  <div class="detail-head">
+    <div class="detail-meta">
+      <Badge variant="year">{d.year}</Badge>
+    </div>
+    <h1 class="detail-title">{title}</h1>
+    <p class="detail-role">{role}</p>
+  </div>
+
+  <div class="detail-hero">
+    <img src={d.cover} alt={title} width="1280" height="720" decoding="async" />
+  </div>
+
+  <div class="detail-grid">
+    <div class="detail-overview">
+      <h2 class="exp-section-label">{t('projects.overview')}</h2>
+      <p>{desc}</p>
+
+      {highlights.length > 0 && (
+        <>
+          <h2 class="exp-section-label">{t('projects.highlights')}</h2>
+          <ul class="detail-highlights">
+            {highlights.map((h) => <li>{h}</li>)}
+          </ul>
+        </>
+      )}
+    </div>
+
+    <aside class="detail-aside">
+      <h3>{t('projects.technologies')}</h3>
+      <div>
+        {d.tech.map((name) => (
+          <span class="tech-chip">
+            <TechIcon name={name} />
+            {name}
+          </span>
+        ))}
+      </div>
+    </aside>
+  </div>
+
+  {d.gallery.length > 0 && (
+    <>
+      <h2 class="exp-section-label" style="margin-top:3rem;">{t('projects.gallery')}</h2>
+      <div class="gallery">
+        {d.gallery.map((src, i) => (
+          <img src={src} alt={`${title} — ${i + 1}`} loading="lazy" decoding="async" width="640" height="400" />
+        ))}
+      </div>
+    </>
+  )}
+</BaseSection>

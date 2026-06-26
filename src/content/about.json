@@ -1,0 +1,26 @@
+{
+  "bio": {
+    "pl": "Jestem Senior Software Engineerem z wieloletnim doświadczeniem w budowaniu systemów backendowych dla e-commerce, SaaS i integracji.\n\nNa co dzień pracuję głównie w ekosystemie PHP/Symfony oraz Python/FastAPI, projektując API, architekturę usług i integracje, które muszą działać niezawodnie pod obciążeniem. Lubię czysty kod, przemyślaną architekturę i automatyzację, która oszczędza czas zespołu.\n\nPoza pracą interesuję się systemami opartymi na AI i protokołami agentowymi (MCP) — eksploruję, jak łączyć klasyczny backend z nową generacją narzędzi.",
+    "en": "I'm a senior software engineer with years of experience building backend systems for e-commerce, SaaS and integrations.\n\nDay to day I work mostly in the PHP/Symfony and Python/FastAPI ecosystems, designing APIs, service architecture and integrations that have to stay reliable under load. I care about clean code, deliberate architecture and the automation that gives a team its time back.\n\nOutside of work I'm drawn to AI-driven systems and agent protocols (MCP) — exploring how to connect classic backend engineering with the next generation of tooling.",
+    "uk": "Я Senior-інженер-програміст із багаторічним досвідом створення бекенд-систем для e-commerce, SaaS та інтеграцій.\n\nЩодня працюю переважно в екосистемах PHP/Symfony та Python/FastAPI, проєктуючи API, архітектуру сервісів та інтеграції, які мають залишатися надійними під навантаженням. Ціную чистий код, продуману архітектуру й автоматизацію, що повертає команді час.\n\nПоза роботою захоплююся системами на основі AI та агентними протоколами (MCP) — досліджую, як поєднати класичний бекенд із новим поколінням інструментів."
+  },
+  "locationValue": {
+    "pl": "Warszawa, Polska",
+    "en": "Warsaw, Poland",
+    "uk": "Варшава, Польща"
+  },
+  "stats": [
+    {
+      "value": "6+",
+      "label": { "pl": "Lat doświadczenia", "en": "Years of experience", "uk": "Років досвіду" }
+    },
+    {
+      "value": "30+",
+      "label": { "pl": "Zrealizowanych projektów", "en": "Projects delivered", "uk": "Реалізованих проєктів" }
+    },
+    {
+      "value": "20+",
+      "label": { "pl": "Technologii w stosie", "en": "Technologies in the stack", "uk": "Технологій у стеку" }
+    }
+  ]
+}

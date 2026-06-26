@@ -1,0 +1,9 @@
+{
+  "order": 9,
+  "name": "GraphQL",
+  "color": "#E10098",
+  "fg": "#ffffff",
+  "abbr": "GQ",
+  "category": "backend",
+  "logo": "/assets/images/tech/graphql.png"
+}

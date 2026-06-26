@@ -1,0 +1,40 @@
+---
+/* Icon.astro — inlines an SVG from src/assets/icons by name. Inherits
+   currentColor so it can be styled via CSS `color`. Flags keep their own colors. */
+interface Props {
+  name: string;
+  size?: number | string;
+  class?: string;
+  title?: string;
+}
+const { name, size = 20, class: className = '', title } = Astro.props;
+
+const files = import.meta.glob<string>('../../assets/icons/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+
+const match = files[`../../assets/icons/${name}.svg`];
+if (!match) {
+  throw new Error(`Icon "${name}" not found in src/assets/icons/`);
+}
+
+const dim = typeof size === 'number' ? `${size}px` : size;
+// strip the hard-coded width/height/xmlns from the source, keep viewBox + paths
+let inner = match
+  .replace(/<svg[^>]*>/, '')
+  .replace(/<\/svg>/, '');
+const viewBox = match.match(/viewBox="([^"]+)"/)?.[1] ?? '0 0 16 16';
+---
+<svg
+  class={`icon ${className}`}
+  width={dim}
+  height={dim}
+  viewBox={viewBox}
+  fill={match.includes('fill="currentColor"') ? 'currentColor' : 'none'}
+  role={title ? 'img' : undefined}
+  aria-hidden={title ? undefined : 'true'}
+  aria-label={title}
+  set:html={inner}
+/>

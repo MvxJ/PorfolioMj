@@ -1,0 +1,107 @@
+---
+/* Navigation.astro — fixed nav with logo, links, theme toggle, language
+   switcher and a mobile hamburger menu. Adds a bottom border after 50px scroll. */
+import type { Locale } from '../../i18n';
+import { useT, LOCALE_NAMES, LOCALES } from '../../i18n';
+import { localizedPath, stripLocale } from '../../lib/routing';
+import { getSite } from '../../lib/content';
+import Icon from '../primitives/Icon.astro';
+import ThemeToggle from '../islands/ThemeToggle.tsx';
+import LangSwitcher from '../islands/LangSwitcher.tsx';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const site = await getSite();
+
+const current = stripLocale(Astro.url.pathname);
+const links = [
+  { key: 'home', path: '', icon: 'nav-home' },
+  { key: 'about', path: 'about', icon: 'nav-about' },
+  { key: 'experience', path: 'experience', icon: 'nav-experience' },
+  { key: 'projects', path: 'projects', icon: 'nav-projects' },
+  { key: 'contact', path: 'contact', icon: 'nav-contact' },
+];
+const isActive = (path: string) =>
+  path === '' ? current === '' : current === path || current.startsWith(path + '/');
+
+// inline flag markup for the LangSwitcher island
+const flagFiles = import.meta.glob<string>('../../assets/icons/flag-*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const flags = Object.fromEntries(
+  LOCALES.map((l) => [l, flagFiles[`../../assets/icons/flag-${l}.svg`] ?? '']),
+) as Record<Locale, string>;
+const names = LOCALE_NAMES;
+---
+<header class="nav" id="site-nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href={localizedPath(locale, '')} aria-label={site?.name}>
+      MJ<span class="dot">.</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      {links.map((l) => (
+        <a
+          class="nav-link"
+          href={localizedPath(locale, l.path)}
+          aria-current={isActive(l.path) ? 'page' : undefined}
+        >
+          <Icon name={l.icon} size={16} />
+          <span>{t(`nav.${l.key}`)}</span>
+        </a>
+      ))}
+    </nav>
+
+    <div class="nav-actions">
+      <LangSwitcher client:idle current={locale} flags={flags} names={names} label={t('a11y.changeLanguage')} />
+      <ThemeToggle client:load label={t('a11y.toggleTheme')} />
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label={t('a11y.openMenu')} aria-expanded="false" aria-controls="mobile-menu">
+        <Icon name="hamburger" size={22} />
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+    {links.map((l) => (
+      <a
+        class="nav-link"
+        href={localizedPath(locale, l.path)}
+        aria-current={isActive(l.path) ? 'page' : undefined}
+      >
+        <Icon name={l.icon} size={18} />
+        <span>{t(`nav.${l.key}`)}</span>
+      </a>
+    ))}
+  </nav>
+</header>
+
+<script is:inline>
+  (function () {
+    var nav = document.getElementById('site-nav');
+    var toggle = document.getElementById('nav-toggle');
+    var menu = document.getElementById('mobile-menu');
+    function onScroll() {
+      if (!nav) return;
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    if (toggle && menu) {
+      toggle.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          menu.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+</script>

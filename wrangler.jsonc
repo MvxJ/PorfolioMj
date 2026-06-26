@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "maks-portfolio",
+  "compatibility_date": "2026-01-01",
+  // Pure static build — the Worker only serves prebuilt assets from ./dist.
+  "assets": {
+    "directory": "./dist"
+  }
+}

@@ -1,0 +1,45 @@
+---
+/* HeroSection.astro — greeting, name, role (typewriter when energetic/playful),
+   tagline, CTAs and scroll indicator. */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { localizedPath } from '../../lib/routing';
+import { getHero, getSite, getAppearance } from '../../lib/content';
+import Button from '../primitives/Button.astro';
+import Typewriter from '../islands/Typewriter.tsx';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const hero = await getHero();
+const site = await getSite();
+const appearance = await getAppearance();
+
+const greeting = localize(hero?.greeting, locale) ?? '';
+const role = localize(hero?.role, locale) ?? '';
+const tagline = localize(hero?.tagline, locale) ?? '';
+const name = site?.name ?? 'Maks Jachymczak';
+const ctaProjects = localize(hero?.ctaProjects, locale) ?? t('actions.viewProjects');
+const ctaContact = localize(hero?.ctaContact, locale) ?? t('actions.getInTouch');
+
+const animate = appearance.animations && appearance.animStyle !== 'subtle';
+---
+<section class="hero" aria-label={name}>
+  <div class="container">
+    <div class="hero-inner">
+      <p class="hero-greeting aos">{greeting}</p>
+      <h1 class="hero-name aos">{name}</h1>
+      <p class="hero-role aos">
+        {animate ? <Typewriter client:load text={role} /> : role}
+      </p>
+      <p class="hero-tagline aos">{tagline}</p>
+      <div class="hero-ctas aos">
+        <Button href={localizedPath(locale, 'projects')} variant="primary">{ctaProjects}</Button>
+        <Button href={localizedPath(locale, 'contact')} variant="secondary" arrow={false}>{ctaContact}</Button>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-indicator" href="#tech" aria-hidden="true" tabindex="-1"></a>
+</section>

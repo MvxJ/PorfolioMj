@@ -1,0 +1,32 @@
+---
+import type { Locale } from '../../i18n';
+import { LOCALES, localize } from '../../i18n';
+import PageLayout from '../../layouts/PageLayout.astro';
+import HeroSection from '../../components/sections/HeroSection.astro';
+import TechStripSection from '../../components/sections/TechStripSection.astro';
+import FeaturedProjectsSection from '../../components/sections/FeaturedProjectsSection.astro';
+import { getHero, getSite, getSeoDefaults } from '../../lib/content';
+import { websiteLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const hero = await getHero();
+const site = await getSite();
+const seoDefaults = await getSeoDefaults();
+const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
+
+const name = site?.name ?? 'Maks Jachymczak';
+const role = localize(site?.role, locale) ?? 'Senior Software Engineer';
+const title = `${name} — ${role}`;
+const description = localize(hero?.tagline, locale) ?? localize(seoDefaults?.defaultDescription, locale) ?? '';
+
+const jsonLd = [websiteLd(name, `${origin}/${locale}`, locale, `${origin}/${locale}`)];
+---
+<PageLayout title={title} description={description} barePath="" locale={locale} type="profile" jsonLd={jsonLd}>
+  <HeroSection locale={locale} />
+  <TechStripSection locale={locale} />
+  <FeaturedProjectsSection locale={locale} />
+</PageLayout>

@@ -1,0 +1,43 @@
+{
+  "order": 2,
+  "year": "2024",
+  "accent": "#06b6d4",
+  "tech": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "OAuth2"],
+  "cover": "/assets/images/projects/p2-cover.png",
+  "gallery": ["/assets/images/projects/p2-1.png", "/assets/images/projects/p2-2.png"],
+  "title": {
+    "pl": "Usługa API Gateway",
+    "en": "API Gateway Service",
+    "uk": "Сервіс API Gateway"
+  },
+  "role": {
+    "pl": "Backend Engineer",
+    "en": "Backend Engineer",
+    "uk": "Backend Engineer"
+  },
+  "desc": {
+    "pl": "Centralna brama API agregująca wiele mikroserwisów za jednym, bezpiecznym interfejsem. Uwierzytelnianie OAuth2, limity zapytań i obserwowalność end-to-end.",
+    "en": "A central API gateway aggregating multiple microservices behind a single, secure interface. OAuth2 authentication, rate limiting and end-to-end observability.",
+    "uk": "Центральний API-шлюз, що агрегує кілька мікросервісів за єдиним безпечним інтерфейсом. Автентифікація OAuth2, обмеження запитів і наскрізна спостережуваність."
+  },
+  "highlights": {
+    "pl": [
+      "Routing i agregacja odpowiedzi z kilkunastu mikroserwisów",
+      "Uwierzytelnianie OAuth2 oraz rate limiting per-klient",
+      "Asynchroniczne FastAPI obsługujące wysoki ruch przy niskim opóźnieniu",
+      "Pełna obserwowalność: metryki, logi i tracing requestów"
+    ],
+    "en": [
+      "Routing and response aggregation across a dozen microservices",
+      "OAuth2 authentication and per-client rate limiting",
+      "Async FastAPI serving high traffic at low latency",
+      "Full observability: metrics, logs and request tracing"
+    ],
+    "uk": [
+      "Маршрутизація та агрегація відповідей десятка мікросервісів",
+      "Автентифікація OAuth2 та обмеження запитів для кожного клієнта",
+      "Асинхронний FastAPI для високого трафіку з низькою затримкою",
+      "Повна спостережуваність: метрики, логи та трасування запитів"
+    ]
+  }
+}

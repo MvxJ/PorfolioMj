@@ -1,0 +1,9 @@
+{
+  "order": 17,
+  "name": "Redis",
+  "color": "#DC382D",
+  "fg": "#ffffff",
+  "abbr": "Rd",
+  "category": "database",
+  "logo": "/assets/images/tech/redis.png"
+}

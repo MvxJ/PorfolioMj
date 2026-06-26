@@ -1,0 +1,27 @@
+{
+  "greeting": {
+    "pl": "Cześć, jestem",
+    "en": "Hi, I'm",
+    "uk": "Привіт, я"
+  },
+  "role": {
+    "pl": "Senior Software Engineer",
+    "en": "Senior Software Engineer",
+    "uk": "Senior Software Engineer"
+  },
+  "tagline": {
+    "pl": "Projektuję i buduję solidne systemy backendowe oraz API. Łączę PHP i Symfony z Pythonem i FastAPI, by dostarczać wydajne, skalowalne i utrzymywalne rozwiązania.",
+    "en": "I design and build robust backend systems and APIs. I pair PHP and Symfony with Python and FastAPI to ship fast, scalable and maintainable software.",
+    "uk": "Проєктую та створюю надійні бекенд-системи та API. Поєдную PHP і Symfony з Python та FastAPI, щоб постачати швидкі, масштабовані й підтримувані рішення."
+  },
+  "ctaProjects": {
+    "pl": "Zobacz projekty",
+    "en": "View Projects",
+    "uk": "Переглянути проєкти"
+  },
+  "ctaContact": {
+    "pl": "Napisz do mnie",
+    "en": "Get in Touch",
+    "uk": "Зв'язатися"
+  }
+}

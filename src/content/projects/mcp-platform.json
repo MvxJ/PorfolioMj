@@ -1,0 +1,43 @@
+{
+  "order": 4,
+  "year": "2025",
+  "accent": "#8b5cf6",
+  "tech": ["Python", "FastAPI", "FastMCP", "Pydantic", "PostgreSQL", "Docker"],
+  "cover": "/assets/images/projects/p4-cover.png",
+  "gallery": ["/assets/images/projects/p4-1.png", "/assets/images/projects/p4-2.png"],
+  "title": {
+    "pl": "Platforma integracji MCP",
+    "en": "MCP Integration Platform",
+    "uk": "Платформа інтеграції MCP"
+  },
+  "role": {
+    "pl": "Backend & AI Engineer",
+    "en": "Backend & AI Engineer",
+    "uk": "Backend & AI Engineer"
+  },
+  "desc": {
+    "pl": "Platforma udostępniająca narzędzia i dane firmowe agentom AI przez Model Context Protocol. Bezpieczne serwery MCP łączące modele językowe z systemami wewnętrznymi.",
+    "en": "A platform that exposes company tools and data to AI agents through the Model Context Protocol. Secure MCP servers bridging language models with internal systems.",
+    "uk": "Платформа, що надає інструменти й дані компанії AI-агентам через Model Context Protocol. Безпечні MCP-сервери, що з'єднують мовні моделі з внутрішніми системами."
+  },
+  "highlights": {
+    "pl": [
+      "Serwery MCP udostępniające narzędzia i zasoby agentom AI",
+      "Walidacja danych i typowanie kontraktów z Pydantic",
+      "Bezpieczna autoryzacja dostępu agentów do systemów wewnętrznych",
+      "Konteneryzacja i wdrożenia gotowe na produkcję"
+    ],
+    "en": [
+      "MCP servers exposing tools and resources to AI agents",
+      "Data validation and contract typing with Pydantic",
+      "Secure authorisation of agent access to internal systems",
+      "Containerised, production-ready deployments"
+    ],
+    "uk": [
+      "MCP-сервери, що надають інструменти й ресурси AI-агентам",
+      "Валідація даних і типізація контрактів за допомогою Pydantic",
+      "Безпечна авторизація доступу агентів до внутрішніх систем",
+      "Контейнеризовані, готові до продакшну розгортання"
+    ]
+  }
+}

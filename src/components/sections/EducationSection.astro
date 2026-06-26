@@ -1,0 +1,51 @@
+---
+/* EducationSection.astro — education timeline + certification badges. */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { getEducation, getCerts } from '../../lib/content';
+import BaseSection from '../BaseSection.astro';
+import Icon from '../primitives/Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const education = await getEducation();
+const certs = await getCerts();
+---
+<BaseSection id="education" pad="xl" labelledby="education-title">
+  <div class="section-head">
+    <p class="eyebrow aos">{t('sections.educationEyebrow')}</p>
+    <h2 class="section-title aos" id="education-title">{t('sections.educationTitle')}</h2>
+  </div>
+
+  <div class="edu-grid">
+    <div class="edu-col aos">
+      <p class="exp-section-label">{t('education.education')}</p>
+      <div class="edu-list">
+        {education.map((entry) => (
+          <div class="edu-item">
+            <p class="edu-year">{entry.data.year}</p>
+            <h3 class="edu-degree">{localize(entry.data.degree, locale)}</h3>
+            <p class="edu-inst">{localize(entry.data.institution, locale)}</p>
+            <p class="edu-desc">{localize(entry.data.desc, locale)}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="cert-col aos">
+      <p class="exp-section-label">{t('education.certifications')}</p>
+      <div class="certs-list">
+        {certs.map((cert) => (
+          <div class="cert-item">
+            <Icon name="star" size={20} />
+            <span class="cert-name">{cert.data.name}</span>
+            <span class="cert-year">{cert.data.year}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseSection>

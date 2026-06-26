@@ -1,0 +1,9 @@
+{
+  "order": 13,
+  "name": "Vue",
+  "color": "#4FC08D",
+  "fg": "#ffffff",
+  "abbr": "Vu",
+  "category": "frontend",
+  "logo": "/assets/images/tech/vue.png"
+}

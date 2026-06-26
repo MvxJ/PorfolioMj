@@ -1,0 +1,153 @@
+---
+/* BaseLayout.astro — global <html>/<head>, fonts, tokens, body shell, SEO,
+   site-wide Person JSON-LD, and the pre-paint theme/lang script. */
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/components.css';
+
+import type { Locale } from '../i18n';
+import { getAppearance, getSite, getSeoDefaults, getTech, getEducation } from '../lib/content';
+import { localize } from '../i18n';
+import { fontVars, googleFontsHref, bodyAttrs } from '../lib/theme';
+import { buildSeo, personLd } from '../lib/seo';
+
+interface Props {
+  title: string;
+  description: string;
+  barePath?: string;
+  locale: Locale;
+  type?: 'website' | 'article' | 'profile';
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: unknown[];
+  bodyClass?: string;
+}
+
+const {
+  title,
+  description,
+  barePath = '',
+  locale,
+  type = 'website',
+  ogImage,
+  noindex = false,
+  jsonLd = [],
+  bodyClass = '',
+} = Astro.props;
+
+const site = Astro.site?.toString() ?? 'https://maks.dev';
+const appearance = await getAppearance();
+const siteData = await getSite();
+const seoDefaults = await getSeoDefaults();
+
+const seo = buildSeo({
+  title,
+  description,
+  barePath,
+  locale,
+  site,
+  type,
+  ogImage: ogImage ?? seoDefaults?.ogImage,
+  noindex,
+});
+
+const attrs = bodyAttrs(appearance);
+const styleVar = `--accent:${appearance.accent};${fontVars(appearance.fontPairing)}`;
+const fontsHref = googleFontsHref(appearance.fontPairing);
+
+// site-wide Person structured data
+const tech = await getTech();
+const education = await getEducation();
+const person = personLd({
+  name: siteData?.name ?? 'Maks Jachymczak',
+  jobTitle: localize(siteData?.role, locale) ?? 'Senior Software Engineer',
+  url: `${site}/${locale}`,
+  email: siteData?.email,
+  sameAs: siteData?.socials.map((s) => s.url),
+  knowsAbout: tech.map((t) => t.data.name),
+  alumniOf: education.map((e) => localize(e.data.institution, locale) ?? '').filter(Boolean),
+});
+
+const allLd = [person, ...jsonLd];
+---
+<!doctype html>
+<html lang={locale} class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{seo.title}</title>
+    <meta name="description" content={seo.description} />
+    <meta name="author" content={siteData?.name} />
+    <meta name="theme-color" content={appearance.accent} />
+    <meta name="robots" content={seo.noindex ? 'noindex,nofollow' : 'index,follow'} />
+
+    <link rel="canonical" href={seo.canonical} />
+    {seo.alternates.map((a) => (
+      <link rel="alternate" hreflang={a.locale} href={a.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={seo.alternates.find((a) => a.locale === 'pl')?.href} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={seo.type} />
+    <meta property="og:title" content={seo.title} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:site_name" content={siteData?.name} />
+    <meta property="og:locale" content={seo.ogLocale} />
+    {seo.ogLocaleAlternates.map((l) => (
+      <meta property="og:locale:alternate" content={l} />
+    ))}
+    <meta property="og:image" content={seo.ogImageAbs} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={seo.title} />
+    <meta name="twitter:description" content={seo.description} />
+    <meta name="twitter:image" content={seo.ogImageAbs} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href={fontsHref} />
+
+    <!-- structured data -->
+    {allLd.map((ld) => (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(ld)} />
+    ))}
+
+    <!-- pre-paint: apply visitor overrides before first paint (no FOUC) -->
+    <script is:inline>
+      (function () {
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'minimal' || t === 'dark' || t === 'editorial') {
+            document.body && (document.body.dataset.theme = t);
+            document.documentElement.dataset.theme = t;
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body data-theme={attrs['data-theme']} data-animations={attrs['data-animations']} data-anim-style={attrs['data-anim-style']} data-hover={attrs['data-hover']} data-anim-bg={attrs['data-anim-bg']} class={bodyClass} style={styleVar}>
+    <!-- re-apply theme override now that <body> exists (pre-paint, no FOUC) -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'minimal' || t === 'dark' || t === 'editorial') {
+            document.body.dataset.theme = t;
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <slot />
+  </body>
+</html>

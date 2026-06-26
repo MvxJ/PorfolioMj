@@ -1,0 +1,9 @@
+{
+  "order": 10,
+  "name": "JavaScript",
+  "color": "#F7DF1E",
+  "fg": "#111827",
+  "abbr": "JS",
+  "category": "frontend",
+  "logo": "/assets/images/tech/javascript.png"
+}

@@ -1,0 +1,62 @@
+---
+/* AboutSection.astro — photo (placeholder or CMS photo), bio, location, 3 stats. */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { getAbout, getAppearance } from '../../lib/content';
+import BaseSection from '../BaseSection.astro';
+import Icon from '../primitives/Icon.astro';
+import CountUp from '../islands/CountUp.tsx';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const about = await getAbout();
+const appearance = await getAppearance();
+
+const bio = localize(about?.bio, locale) ?? '';
+const location = localize(about?.locationValue, locale) ?? '';
+const stats = about?.stats ?? [];
+const photo = about?.photo;
+const countUp = appearance.animations && appearance.animStyle !== 'subtle';
+
+const paragraphs = bio.split('\n\n').filter(Boolean);
+---
+<BaseSection id="about" pad="xl" labelledby="about-title">
+  <div class="section-head">
+    <p class="eyebrow aos">{t('sections.aboutEyebrow')}</p>
+    <h2 class="section-title aos" id="about-title">{t('sections.aboutTitle')}</h2>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-photo aos">
+      {photo ? (
+        <img src={photo} alt={t('sections.aboutEyebrow')} loading="lazy" />
+      ) : (
+        <Icon name="person" size="45%" class="placeholder" />
+      )}
+    </div>
+
+    <div class="about-text aos">
+      {paragraphs.map((p) => <p class="about-bio">{p}</p>)}
+      {location && (
+        <p class="about-location">
+          <Icon name="pin" size={16} />
+          <span>{location}</span>
+        </p>
+      )}
+
+      <div class="stats">
+        {stats.map((s) => (
+          <div class="stat-card aos">
+            <div class="stat-value">
+              {countUp ? <CountUp client:visible value={s.value} /> : s.value}
+            </div>
+            <div class="stat-label">{localize(s.label, locale)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</BaseSection>

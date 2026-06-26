@@ -1,0 +1,32 @@
+{
+  "name": "maks-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal portfolio for Maks Jachymczak — trilingual (PL/EN/UK) Astro site, content-managed via Sveltia CMS, deployed on Cloudflare.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "cms:proxy": "decap-server",
+    "dev:cms": "concurrently -n astro,cms -c blue,magenta \"astro dev\" \"decap-server\"",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.0",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.0.3",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "concurrently": "^10.0.3",
+    "decap-server": "^3.9.1",
+    "typescript": "^5.9.0"
+  }
+}

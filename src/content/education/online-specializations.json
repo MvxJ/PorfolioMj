@@ -1,0 +1,19 @@
+{
+  "order": 2,
+  "year": "2020 — obecnie",
+  "degree": {
+    "pl": "Kształcenie ustawiczne",
+    "en": "Continuous learning",
+    "uk": "Безперервне навчання"
+  },
+  "institution": {
+    "pl": "Kursy i specjalizacje online",
+    "en": "Online courses & specialisations",
+    "uk": "Онлайн-курси та спеціалізації"
+  },
+  "desc": {
+    "pl": "Stałe podnoszenie kwalifikacji w zakresie architektury backendu, Pythona, systemów AI i protokołów agentowych.",
+    "en": "Ongoing upskilling in backend architecture, Python, AI systems and agent protocols.",
+    "uk": "Постійне підвищення кваліфікації в архітектурі бекенду, Python, AI-системах та агентних протоколах."
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "order": 2,
+  "company": "ActiveCampaign",
+  "logo": "/assets/images/tech/logo-activecampaign.svg",
+  "initials": "AC",
+  "color": "#356AE6",
+  "from": "2021-06",
+  "to": "2022-12",
+  "location": "Zdalnie",
+  "type": "fullTime",
+  "tech": ["PHP", "Python", "MySQL", "Redis", "Docker", "REST API"],
+  "position": {
+    "pl": "Software Engineer",
+    "en": "Software Engineer",
+    "uk": "Software Engineer"
+  },
+  "shortDesc": {
+    "pl": "Praca nad funkcjami platformy automatyzacji marketingu obsługującej miliony użytkowników.",
+    "en": "Working on features for a marketing-automation platform serving millions of users.",
+    "uk": "Робота над функціями платформи автоматизації маркетингу, що обслуговує мільйони користувачів."
+  },
+  "fullDesc": {
+    "pl": "Rozwijałem usługi backendowe platformy automatyzacji marketingu działającej w dużej skali. Skupiałem się na wydajności, niezawodności API oraz integracjach z systemami zewnętrznymi.",
+    "en": "I developed backend services for a large-scale marketing-automation platform, focusing on performance, API reliability and integrations with external systems.",
+    "uk": "Розробляв бекенд-сервіси для масштабної платформи автоматизації маркетингу, зосереджуючись на продуктивності, надійності API та інтеграціях."
+  },
+  "achievements": {
+    "pl": [
+      "Optymalizacja krytycznych endpointów obsługujących duży ruch",
+      "Współtworzenie integracji z popularnymi systemami CRM i e-commerce",
+      "Praca w międzynarodowym, w pełni zdalnym zespole"
+    ],
+    "en": [
+      "Optimised critical high-traffic endpoints",
+      "Co-built integrations with popular CRM and e-commerce systems",
+      "Worked in an international, fully remote team"
+    ],
+    "uk": [
+      "Оптимізував критичні високонавантажені ендпоінти",
+      "Співстворював інтеграції з популярними CRM та e-commerce системами",
+      "Працював у міжнародній повністю віддаленій команді"
+    ]
+  }
+}

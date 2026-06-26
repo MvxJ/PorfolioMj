@@ -1,0 +1,7 @@
+---
+/* Root redirect to the default locale. The CMS default language could differ,
+   but URLs always prefix the locale; /pl is the canonical default entry. */
+import { getAppearance } from '../lib/content';
+const appearance = await getAppearance();
+return Astro.redirect(`/${appearance.defaultLanguage}`, 302);
+---

@@ -1,0 +1,9 @@
+{
+  "order": 19,
+  "name": "Git",
+  "color": "#F05032",
+  "fg": "#ffffff",
+  "abbr": "Gt",
+  "category": "tools",
+  "logo": "/assets/images/tech/git.png"
+}

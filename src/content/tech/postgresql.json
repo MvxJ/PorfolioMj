@@ -1,0 +1,9 @@
+{
+  "order": 16,
+  "name": "PostgreSQL",
+  "color": "#336791",
+  "fg": "#ffffff",
+  "abbr": "Pg",
+  "category": "database",
+  "logo": "/assets/images/tech/postgresql.png"
+}

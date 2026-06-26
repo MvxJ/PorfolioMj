@@ -1,0 +1,65 @@
+---
+/* PageLayout.astro — extends BaseLayout with the page chrome: navigation,
+   animated background, main content slot, footer, cursor glow and scroll-to-top. */
+import type { Locale } from '../i18n';
+import { useT } from '../i18n';
+import BaseLayout from './BaseLayout.astro';
+import Navigation from '../components/sections/Navigation.astro';
+import Footer from '../components/sections/Footer.astro';
+import AnimatedBg from '../components/islands/AnimatedBg.tsx';
+import CursorGlow from '../components/islands/CursorGlow.tsx';
+import ScrollToTop from '../components/islands/ScrollToTop.tsx';
+import { getAppearance } from '../lib/content';
+
+interface Props {
+  title: string;
+  description: string;
+  barePath?: string;
+  locale: Locale;
+  type?: 'website' | 'article' | 'profile';
+  ogImage?: string;
+  noindex?: boolean;
+  jsonLd?: unknown[];
+}
+const props = Astro.props;
+const { locale } = props;
+const t = useT(locale);
+const appearance = await getAppearance();
+const bgMode = appearance.animatedBg; // raw; the island resolves `auto` from the theme
+const showGlow = appearance.animations && appearance.hoverEffect !== 'none';
+---
+<BaseLayout {...props}>
+  {appearance.animations && bgMode !== 'none' && <AnimatedBg client:idle mode={bgMode} />}
+  {showGlow && <CursorGlow client:idle />}
+  <div class="page-shell">
+    <Navigation locale={locale} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+  </div>
+  <ScrollToTop client:idle label={t('actions.scrollTop')} />
+</BaseLayout>
+
+<script>
+  // Scroll-reveal: add .aos-vis when an .aos element enters the viewport.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const off = document.body.dataset.animations === 'false';
+  const els = document.querySelectorAll<HTMLElement>('.aos');
+  if (reduce || off || !('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('aos-vis'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('aos-vis');
+            obs.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
+    );
+    els.forEach((el) => io.observe(el));
+  }
+</script>

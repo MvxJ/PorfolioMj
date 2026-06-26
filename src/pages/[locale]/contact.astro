@@ -1,0 +1,35 @@
+---
+import type { Locale } from '../../i18n';
+import { LOCALES, useT, localize } from '../../i18n';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ContactSection from '../../components/sections/ContactSection.astro';
+import { getSite, getContact, getAbout } from '../../lib/content';
+import { breadcrumbLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useT(locale);
+const site = await getSite();
+const contact = await getContact();
+const about = await getAbout();
+const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
+const name = site?.name ?? 'Maks Jachymczak';
+
+const title = `${t('nav.contact')} — ${name}`;
+const location = localize(about?.locationValue, locale) ?? '';
+const intro = localize(contact?.intro, locale) ?? '';
+const description = `${intro} ${location}`.replace(/\s+/g, ' ').trim().slice(0, 155);
+
+const jsonLd = [
+  breadcrumbLd([
+    { name: name, url: `${origin}/${locale}` },
+    { name: t('nav.contact'), url: `${origin}/${locale}/contact` },
+  ]),
+];
+---
+<PageLayout title={title} description={description} barePath="contact" locale={locale} jsonLd={jsonLd}>
+  <ContactSection locale={locale} />
+</PageLayout>

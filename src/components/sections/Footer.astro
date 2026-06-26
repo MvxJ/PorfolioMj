@@ -1,0 +1,70 @@
+---
+/* Footer.astro — brand, navigation column, social links, copyright. */
+import type { Locale } from '../../i18n';
+import { useT } from '../../i18n';
+import { localizedPath } from '../../lib/routing';
+import { getSite } from '../../lib/content';
+import Icon from '../primitives/Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const site = await getSite();
+const year = 2026;
+
+const navLinks = ['home', 'about', 'experience', 'projects', 'contact'] as const;
+const navPaths: Record<(typeof navLinks)[number], string> = {
+  home: '',
+  about: 'about',
+  experience: 'experience',
+  projects: 'projects',
+  contact: 'contact',
+};
+
+const socialIcon = (label: string) => {
+  const l = label.toLowerCase();
+  if (l.includes('github')) return 'github';
+  if (l.includes('linkedin')) return 'linkedin';
+  return 'arrow';
+};
+---
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="nav-logo" href={localizedPath(locale, '')}>MJ<span class="dot">.</span></a>
+        <p class="footer-tagline">{t('footer.tagline')}</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>{t('footer.navigation')}</h4>
+        {navLinks.map((key) => (
+          <a href={localizedPath(locale, navPaths[key])}>{t(`nav.${key}`)}</a>
+        ))}
+      </div>
+
+      <div class="footer-col">
+        <h4>{t('footer.elsewhere')}</h4>
+        {site?.email && (
+          <a href={`mailto:${site.email}`}>Email</a>
+        )}
+        {site?.socials.map((s) => (
+          <a href={s.url} target="_blank" rel="noopener noreferrer">{s.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {year} {site?.name}. {t('footer.rights')}</span>
+      <span class="footer-socials" style="display:flex;gap:.6rem;align-items:center;">
+        {site?.socials.map((s) => (
+          <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+            <Icon name={socialIcon(s.label)} size={18} />
+          </a>
+        ))}
+      </span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,85 @@
+/* English UI microcopy. */
+import type { Dict } from './pl';
+
+const en: Dict = {
+  nav: {
+    home: 'Home',
+    about: 'About',
+    experience: 'Experience',
+    projects: 'Projects',
+    contact: 'Contact',
+    skills: 'Skills',
+    education: 'Education',
+  },
+  actions: {
+    viewProjects: 'View Projects',
+    getInTouch: 'Get in Touch',
+    viewDetails: 'View details',
+    viewAll: 'View all projects',
+    backToProjects: 'Back to projects',
+    showDetails: 'Show details',
+    hideDetails: 'Hide details',
+    scrollTop: 'Back to top',
+  },
+  sections: {
+    techEyebrow: 'Tech stack',
+    techTitle: 'Technologies I work with',
+    featuredEyebrow: 'Selected work',
+    featuredTitle: 'Recent projects',
+    aboutEyebrow: 'About',
+    aboutTitle: 'A bit about me',
+    skillsEyebrow: 'Skills',
+    skillsTitle: 'What I do',
+    educationEyebrow: 'Education',
+    educationTitle: 'Education & certifications',
+    experienceEyebrow: 'Career',
+    experienceTitle: 'Work experience',
+    projectsEyebrow: 'Portfolio',
+    projectsTitle: 'Projects',
+    contactEyebrow: 'Contact',
+    contactTitle: "Let's talk",
+  },
+  skills: {
+    backend: 'Backend',
+    frontend: 'Frontend',
+    database: 'Databases',
+    tools: 'Tools & DevOps',
+  },
+  experience: {
+    role: 'Role',
+    technologies: 'Technologies',
+    keyAchievements: 'Key achievements',
+    present: 'Present',
+    fullTime: 'Full-time',
+    partTime: 'Part-time',
+    contract: 'Contract',
+  },
+  projects: {
+    overview: 'Overview',
+    highlights: 'Highlights',
+    gallery: 'Gallery',
+    technologies: 'Technologies',
+    role: 'Role',
+    year: 'Year',
+  },
+  education: {
+    education: 'Education',
+    certifications: 'Certifications',
+  },
+  footer: {
+    tagline: 'Software engineer building robust, scalable backend systems.',
+    navigation: 'Navigation',
+    elsewhere: 'Find me',
+    rights: 'All rights reserved.',
+    builtWith: 'Built with Astro',
+  },
+  a11y: {
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    toggleTheme: 'Toggle theme',
+    changeLanguage: 'Change language',
+    viewProject: 'View project',
+  },
+};
+
+export default en;

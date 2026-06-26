@@ -1,0 +1,194 @@
+# Sveltia CMS config. MUST mirror src/content.config.ts — if you add a field in
+# one, add it in the other. Panel language is Polish (the owner's language).
+backend:
+  name: github
+  repo: maksjach/portfolio # owner/repo — update to the real GitHub repository
+  branch: main
+  # OAuth is handled by Cloudflare Pages Functions in THIS project
+  # (functions/auth.js + functions/callback.js) — no separate worker / subdomain.
+  # base_url = the site's own origin; auth_endpoint = the /auth function.
+  base_url: https://maks.dev # change to your real domain (or *.pages.dev)
+  auth_endpoint: auth
+
+# Lets you edit content locally with no GitHub login while running
+# `npm run dev` + `npm run cms:proxy`. Sveltia ignores this in production.
+local_backend: true
+
+media_folder: "public/assets/images/uploads"
+public_folder: "/assets/images/uploads"
+
+i18n:
+  structure: single_file
+  locales: [pl, en, uk]
+  default_locale: pl
+
+collections:
+  # ---------- SINGLETONS ----------
+  - name: settings
+    label: "Ustawienia witryny"
+    files:
+      - name: settings
+        label: "Wygląd, dane, SEO"
+        file: "src/content/settings.json"
+        fields:
+          - label: "Wygląd"
+            name: appearance
+            widget: object
+            fields:
+              - { label: "Motyw", name: theme, widget: select, options: [minimal, dark, editorial], default: minimal }
+              - { label: "Kolor akcentu", name: accent, widget: color, default: "#6366f1" }
+              - { label: "Typografia", name: fontPairing, widget: select, options: [grotesk, mono, serif, bold], default: mono }
+              - { label: "Animacje", name: animations, widget: boolean, default: true }
+              - { label: "Styl animacji", name: animStyle, widget: select, options: [subtle, energetic, playful], default: energetic }
+              - { label: "Hover kart", name: hoverEffect, widget: select, options: [none, lift, tilt, glow], default: tilt }
+              - label: "Animowane tło"
+                name: animatedBg
+                widget: select
+                default: auto
+                options:
+                  - { label: "Auto (motyw)", value: auto }
+                  - { label: "Brak", value: none }
+                  - { label: "Aurora", value: aurora }
+                  - { label: "Mesh", value: mesh }
+                  - { label: "Siatka", value: grid }
+              - { label: "Język domyślny", name: defaultLanguage, widget: select, options: [pl, en, uk], default: pl }
+          - label: "Dane"
+            name: site
+            widget: object
+            fields:
+              - { label: "Imię i nazwisko", name: name, widget: string }
+              - { label: "Rola", name: role, widget: string, i18n: true }
+              - { label: "Domena", name: domain, widget: string }
+              - { label: "Email", name: email, widget: string }
+              - label: "Social media"
+                name: socials
+                widget: list
+                fields:
+                  - { label: "Etykieta", name: label, widget: string }
+                  - { label: "URL", name: url, widget: string }
+          - label: "SEO"
+            name: seo
+            widget: object
+            fields:
+              - { label: "Domyślny tytuł", name: defaultTitle, widget: string, i18n: true }
+              - { label: "Domyślny opis", name: defaultDescription, widget: text, i18n: true }
+              - { label: "Obraz OG", name: ogImage, widget: image }
+
+      - name: hero
+        label: "Hero"
+        file: "src/content/hero.json"
+        i18n: true
+        fields:
+          - { label: "Powitanie", name: greeting, widget: string, i18n: true }
+          - { label: "Rola", name: role, widget: string, i18n: true }
+          - { label: "Tagline", name: tagline, widget: text, i18n: true }
+          - { label: "CTA — projekty", name: ctaProjects, widget: string, i18n: true }
+          - { label: "CTA — kontakt", name: ctaContact, widget: string, i18n: true }
+
+      - name: about
+        label: "O mnie"
+        file: "src/content/about.json"
+        i18n: true
+        fields:
+          - { label: "Bio", name: bio, widget: text, i18n: true }
+          - { label: "Lokalizacja", name: locationValue, widget: string, i18n: true }
+          - { label: "Zdjęcie", name: photo, widget: image, required: false }
+          - label: "Statystyki"
+            name: stats
+            widget: list
+            fields:
+              - { label: "Wartość", name: value, widget: string }
+              - { label: "Etykieta", name: label, widget: string, i18n: true }
+
+      - name: contact
+        label: "Kontakt"
+        file: "src/content/contact.json"
+        i18n: true
+        fields:
+          - { label: "Wstęp", name: intro, widget: text, i18n: true }
+
+  # ---------- COLLECTIONS ----------
+  - name: projects
+    label: "Projekty"
+    label_singular: "Projekt"
+    folder: "src/content/projects"
+    create: true
+    format: json
+    i18n: true
+    identifier_field: title
+    fields:
+      - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Tytuł", name: title, widget: string, i18n: true }
+      - { label: "Rok", name: year, widget: string }
+      - { label: "Rola", name: role, widget: string, i18n: true }
+      - { label: "Opis", name: desc, widget: text, i18n: true }
+      - { label: "Akcent", name: accent, widget: color, default: "#6366f1" }
+      - { label: "Technologie", name: tech, widget: list, allow_add: true }
+      - { label: "Okładka", name: cover, widget: image }
+      - { label: "Galeria", name: gallery, widget: list, field: { label: Obraz, name: image, widget: image } }
+      - { label: "Highlighty", name: highlights, widget: list, i18n: true, field: { label: Punkt, name: item, widget: string } }
+
+  - name: experience
+    label: "Doświadczenie"
+    label_singular: "Stanowisko"
+    folder: "src/content/experience"
+    create: true
+    format: json
+    i18n: true
+    identifier_field: company
+    fields:
+      - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Firma", name: company, widget: string }
+      - { label: "Logo", name: logo, widget: image, required: false }
+      - { label: "Inicjały", name: initials, widget: string }
+      - { label: "Kolor", name: color, widget: color }
+      - { label: "Od (RRRR-MM)", name: from, widget: string }
+      - { label: "Do (RRRR-MM, puste = obecnie)", name: to, widget: string, required: false }
+      - { label: "Lokalizacja", name: location, widget: string }
+      - { label: "Typ", name: type, widget: select, options: [fullTime, partTime, contract] }
+      - { label: "Technologie", name: tech, widget: list, allow_add: true }
+      - { label: "Stanowisko", name: position, widget: string, i18n: true }
+      - { label: "Opis krótki", name: shortDesc, widget: text, i18n: true }
+      - { label: "Opis pełny", name: fullDesc, widget: text, i18n: true }
+      - { label: "Osiągnięcia", name: achievements, widget: list, i18n: true, field: { label: Punkt, name: item, widget: string } }
+
+  - name: education
+    label: "Edukacja"
+    label_singular: "Wpis"
+    folder: "src/content/education"
+    create: true
+    format: json
+    i18n: true
+    fields:
+      - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Rok", name: year, widget: string }
+      - { label: "Tytuł / stopień", name: degree, widget: string, i18n: true }
+      - { label: "Instytucja", name: institution, widget: string, i18n: true }
+      - { label: "Opis", name: desc, widget: string, i18n: true }
+
+  - name: certs
+    label: "Certyfikaty"
+    label_singular: "Certyfikat"
+    folder: "src/content/certs"
+    create: true
+    format: json
+    fields:
+      - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Nazwa", name: name, widget: string }
+      - { label: "Rok", name: year, widget: string }
+
+  - name: tech
+    label: "Technologie"
+    label_singular: "Technologia"
+    folder: "src/content/tech"
+    create: true
+    format: json
+    identifier_field: name
+    fields:
+      - { label: "Nazwa", name: name, widget: string }
+      - { label: "Kolor", name: color, widget: color }
+      - { label: "Kolor tekstu", name: fg, widget: color, default: "#ffffff" }
+      - { label: "Monogram (2 litery)", name: abbr, widget: string }
+      - { label: "Kategoria", name: category, widget: select, options: [backend, frontend, database, tools] }
+      - { label: "Logo", name: logo, widget: image, required: false }
+      - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }

@@ -1,0 +1,60 @@
+---
+import type { Locale } from '../../../i18n';
+import { LOCALES, useT, localize } from '../../../i18n';
+import PageLayout from '../../../layouts/PageLayout.astro';
+import ProjectDetail from '../../../components/sections/ProjectDetail.astro';
+import { getProjects, getProject, getSite } from '../../../lib/content';
+import { breadcrumbLd, creativeWorkLd } from '../../../lib/seo';
+
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return LOCALES.flatMap((locale) =>
+    projects.map((p) => ({ params: { locale, slug: p.id } })),
+  );
+}
+
+const locale = Astro.params.locale as Locale;
+const slug = Astro.params.slug as string;
+const project = await getProject(slug);
+if (!project) return Astro.redirect('/404');
+
+const t = useT(locale);
+const site = await getSite();
+const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
+const name = site?.name ?? 'Maks Jachymczak';
+
+const projTitle = localize(project.data.title, locale) ?? slug;
+const desc = localize(project.data.desc, locale) ?? '';
+const title = `${projTitle} — ${name}`;
+const description = desc.replace(/\s+/g, ' ').slice(0, 155);
+const url = `${origin}/${locale}/projects/${slug}`;
+
+const jsonLd = [
+  breadcrumbLd([
+    { name: name, url: `${origin}/${locale}` },
+    { name: t('nav.projects'), url: `${origin}/${locale}/projects` },
+    { name: projTitle, url },
+  ]),
+  creativeWorkLd({
+    name: projTitle,
+    description: desc,
+    keywords: project.data.tech,
+    dateCreated: project.data.year,
+    url,
+    image: `${origin}${project.data.cover}`,
+    authorName: name,
+    authorUrl: `${origin}/${locale}`,
+  }),
+];
+---
+<PageLayout
+  title={title}
+  description={description}
+  barePath={`projects/${slug}`}
+  locale={locale}
+  type="article"
+  ogImage={project.data.cover}
+  jsonLd={jsonLd}
+>
+  <ProjectDetail project={project} locale={locale} />
+</PageLayout>

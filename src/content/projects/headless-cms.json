@@ -1,0 +1,43 @@
+{
+  "order": 3,
+  "year": "2023",
+  "accent": "#10b981",
+  "tech": ["PHP", "Symfony", "GraphQL", "PostgreSQL", "React"],
+  "cover": "/assets/images/projects/p3-cover.png",
+  "gallery": ["/assets/images/projects/p3-1.png", "/assets/images/projects/p3-2.png"],
+  "title": {
+    "pl": "Headless CMS",
+    "en": "Headless CMS",
+    "uk": "Headless CMS"
+  },
+  "role": {
+    "pl": "Full-stack Developer",
+    "en": "Full-stack Developer",
+    "uk": "Full-stack Developer"
+  },
+  "desc": {
+    "pl": "System zarządzania treścią z API GraphQL, dzięki któremu zespoły mogą publikować treści do dowolnego frontendu. Elastyczny model treści i panel oparty na React.",
+    "en": "A content management system with a GraphQL API that lets teams publish to any frontend. A flexible content model and a React-based editing panel.",
+    "uk": "Система керування контентом із GraphQL API, що дає змогу командам публікувати контент на будь-який фронтенд. Гнучка модель контенту та панель на React."
+  },
+  "highlights": {
+    "pl": [
+      "Elastyczne, definiowane przez użytkownika typy treści",
+      "API GraphQL z precyzyjną kontrolą pobieranych pól",
+      "Panel edycyjny w React z podglądem na żywo",
+      "Wersjonowanie treści i obsługa wielu języków"
+    ],
+    "en": [
+      "Flexible, user-defined content types",
+      "GraphQL API with precise field-level fetching",
+      "React editing panel with live preview",
+      "Content versioning and multi-language support"
+    ],
+    "uk": [
+      "Гнучкі типи контенту, що визначаються користувачем",
+      "GraphQL API з точним вибором полів",
+      "Панель редагування на React із попереднім переглядом наживо",
+      "Версіонування контенту та підтримка кількох мов"
+    ]
+  }
+}

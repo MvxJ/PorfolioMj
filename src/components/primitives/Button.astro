@@ -1,0 +1,31 @@
+---
+/* Button.astro — renders an <a> (when href) or <button>, with optional arrow icon. */
+import Icon from './Icon.astro';
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary';
+  arrow?: boolean;
+  class?: string;
+  type?: 'button' | 'submit';
+  ariaLabel?: string;
+}
+const {
+  href,
+  variant = 'primary',
+  arrow = true,
+  class: className = '',
+  type = 'button',
+  ariaLabel,
+} = Astro.props;
+const cls = `btn btn-${variant} ${className}`.trim();
+const Tag = href ? 'a' : 'button';
+---
+<Tag
+  class={cls}
+  href={href}
+  type={href ? undefined : type}
+  aria-label={ariaLabel}
+>
+  <slot />
+  {arrow && <Icon name="arrow" size={16} />}
+</Tag>

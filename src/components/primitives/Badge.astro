@@ -1,0 +1,10 @@
+---
+/* Badge.astro — small pill (year, "Present", etc.). */
+interface Props {
+  variant?: 'present' | 'year' | 'plain';
+  class?: string;
+}
+const { variant = 'plain', class: className = '' } = Astro.props;
+const cls = `badge ${variant !== 'plain' ? `badge--${variant}` : ''} ${className}`.trim();
+---
+<span class={cls}><slot /></span>

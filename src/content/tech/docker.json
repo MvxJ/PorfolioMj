@@ -1,0 +1,9 @@
+{
+  "order": 18,
+  "name": "Docker",
+  "color": "#2496ED",
+  "fg": "#ffffff",
+  "abbr": "Dk",
+  "category": "tools",
+  "logo": "/assets/images/tech/docker.png"
+}

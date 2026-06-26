@@ -1,0 +1,85 @@
+/* Ukrainian UI microcopy. */
+import type { Dict } from './pl';
+
+const uk: Dict = {
+  nav: {
+    home: 'Головна',
+    about: 'Про мене',
+    experience: 'Досвід',
+    projects: 'Проєкти',
+    contact: 'Контакти',
+    skills: 'Навички',
+    education: 'Освіта',
+  },
+  actions: {
+    viewProjects: 'Переглянути проєкти',
+    getInTouch: "Зв'язатися",
+    viewDetails: 'Детальніше',
+    viewAll: 'Усі проєкти',
+    backToProjects: 'Назад до проєктів',
+    showDetails: 'Показати деталі',
+    hideDetails: 'Сховати деталі',
+    scrollTop: 'Догори',
+  },
+  sections: {
+    techEyebrow: 'Технології',
+    techTitle: 'Технології, з якими я працюю',
+    featuredEyebrow: 'Вибрані роботи',
+    featuredTitle: 'Останні проєкти',
+    aboutEyebrow: 'Про мене',
+    aboutTitle: 'Трохи про мене',
+    skillsEyebrow: 'Навички',
+    skillsTitle: 'Чим я займаюся',
+    educationEyebrow: 'Освіта',
+    educationTitle: 'Освіта та сертифікати',
+    experienceEyebrow: "Кар'єра",
+    experienceTitle: 'Досвід роботи',
+    projectsEyebrow: 'Портфоліо',
+    projectsTitle: 'Проєкти',
+    contactEyebrow: 'Контакти',
+    contactTitle: 'Поговорімо',
+  },
+  skills: {
+    backend: 'Backend',
+    frontend: 'Frontend',
+    database: 'Бази даних',
+    tools: 'Інструменти та DevOps',
+  },
+  experience: {
+    role: 'Посада',
+    technologies: 'Технології',
+    keyAchievements: 'Ключові досягнення',
+    present: 'дотепер',
+    fullTime: 'Повна зайнятість',
+    partTime: 'Часткова зайнятість',
+    contract: 'Контракт',
+  },
+  projects: {
+    overview: 'Огляд',
+    highlights: 'Основне',
+    gallery: 'Галерея',
+    technologies: 'Технології',
+    role: 'Роль',
+    year: 'Рік',
+  },
+  education: {
+    education: 'Освіта',
+    certifications: 'Сертифікати',
+  },
+  footer: {
+    tagline: 'Інженер-програміст, який створює надійні та масштабовані бекенд-системи.',
+    navigation: 'Навігація',
+    elsewhere: 'Знайти мене',
+    rights: 'Усі права захищено.',
+    builtWith: 'Створено на Astro',
+  },
+  a11y: {
+    openMenu: 'Відкрити меню',
+    closeMenu: 'Закрити меню',
+    toggleTheme: 'Змінити тему',
+    changeLanguage: 'Змінити мову',
+    viewProject: 'Переглянути проєкт',
+  },
+};
+
+export default uk;

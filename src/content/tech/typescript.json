@@ -1,0 +1,9 @@
+{
+  "order": 11,
+  "name": "TypeScript",
+  "color": "#3178C6",
+  "fg": "#ffffff",
+  "abbr": "TS",
+  "category": "frontend",
+  "logo": "/assets/images/tech/typescript.png"
+}

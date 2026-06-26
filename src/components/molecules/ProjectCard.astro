@@ -1,0 +1,41 @@
+---
+/* ProjectCard.astro — project image, year, title, role, desc, tech chips, link.
+   Reused by FeaturedProjects and ProjectsGrid. */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { localizedPath } from '../../lib/routing';
+import type { CollectionEntry } from 'astro:content';
+import Icon from '../primitives/Icon.astro';
+import TechIcon from '../primitives/TechIcon.astro';
+import Badge from '../primitives/Badge.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  locale: Locale;
+}
+const { project, locale } = Astro.props;
+const t = useT(locale);
+const d = project.data;
+const title = localize(d.title, locale) ?? '';
+const role = localize(d.role, locale) ?? '';
+const desc = localize(d.desc, locale) ?? '';
+const href = localizedPath(locale, `projects/${project.id}`);
+---
+<article class="project-card" style={`--accent:${d.accent}`}>
+  <a class="project-card-media" href={href} aria-label={`${t('a11y.viewProject')}: ${title}`} tabindex="-1">
+    <img src={d.cover} alt={title} loading="lazy" decoding="async" width="640" height="360" />
+    <span class="project-card-year"><Badge variant="year">{d.year}</Badge></span>
+  </a>
+  <div class="project-card-body">
+    <h3 class="project-card-title"><a href={href}>{title}</a></h3>
+    <p class="project-card-role">{role}</p>
+    <p class="project-card-desc">{desc}</p>
+    <div class="project-card-tech">
+      {d.tech.slice(0, 5).map((name) => <TechIcon name={name} />)}
+    </div>
+    <a class="project-link" href={href} aria-label={`${t('actions.viewDetails')}: ${title}`}>
+      <span>{t('actions.viewDetails')}</span>
+      <Icon name="arrow" size={15} />
+    </a>
+  </div>
+</article>

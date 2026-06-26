@@ -1,0 +1,9 @@
+{
+  "order": 4,
+  "name": "FastAPI",
+  "color": "#009688",
+  "fg": "#ffffff",
+  "abbr": "FA",
+  "category": "backend",
+  "logo": "/assets/images/tech/fastapi.png"
+}

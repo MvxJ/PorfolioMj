@@ -1,0 +1,9 @@
+{
+  "order": 12,
+  "name": "React",
+  "color": "#61DAFB",
+  "fg": "#111827",
+  "abbr": "Re",
+  "category": "frontend",
+  "logo": "/assets/images/tech/react.png"
+}

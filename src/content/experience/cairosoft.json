@@ -1,0 +1,44 @@
+{
+  "order": 5,
+  "company": "Cairosoft",
+  "logo": "/assets/images/tech/logo-cairosoft.svg",
+  "initials": "CS",
+  "color": "#F97316",
+  "from": "2017-06",
+  "to": "2018-08",
+  "location": "Warszawa, Polska",
+  "type": "fullTime",
+  "tech": ["PHP", "JavaScript", "MySQL", "Git", "Linux"],
+  "position": {
+    "pl": "Junior Software Developer",
+    "en": "Junior Software Developer",
+    "uk": "Junior Software Developer"
+  },
+  "shortDesc": {
+    "pl": "Pierwsze komercyjne doświadczenie w tworzeniu aplikacji webowych.",
+    "en": "First commercial experience building web applications.",
+    "uk": "Перший комерційний досвід створення веб-застосунків."
+  },
+  "fullDesc": {
+    "pl": "Rozpocząłem karierę, ucząc się tworzenia aplikacji webowych w PHP, pracy z bazami danych i kontroli wersji w realnym środowisku produkcyjnym.",
+    "en": "I started my career learning to build PHP web applications, work with databases and use version control in a real production environment.",
+    "uk": "Розпочав кар'єру, вивчаючи створення PHP веб-застосунків, роботу з базами даних і контроль версій у реальному продакшн-середовищі."
+  },
+  "achievements": {
+    "pl": [
+      "Szybkie wdrożenie się w stos technologiczny zespołu",
+      "Współudział w utrzymaniu i rozwoju istniejących aplikacji",
+      "Zbudowanie solidnych podstaw inżynierii oprogramowania"
+    ],
+    "en": [
+      "Ramped up quickly on the team's technology stack",
+      "Helped maintain and extend existing applications",
+      "Built solid software-engineering fundamentals"
+    ],
+    "uk": [
+      "Швидко опанував технологічний стек команди",
+      "Допомагав підтримувати й розширювати наявні застосунки",
+      "Сформував міцні основи інженерії програмного забезпечення"
+    ]
+  }
+}

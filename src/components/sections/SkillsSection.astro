@@ -1,0 +1,38 @@
+---
+/* SkillsSection.astro — 4 category cards (backend/frontend/database/tools),
+   each listing its tech chips. Categories derived from the tech collection. */
+import type { Locale } from '../../i18n';
+import { useT } from '../../i18n';
+import { getTechByCategory } from '../../lib/content';
+import BaseSection from '../BaseSection.astro';
+import TechIcon from '../primitives/TechIcon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const groups = (await getTechByCategory()).filter((g) => g.items.length > 0);
+---
+<BaseSection id="skills" bg="subtle" pad="xl" labelledby="skills-title">
+  <div class="section-head">
+    <p class="eyebrow aos">{t('sections.skillsEyebrow')}</p>
+    <h2 class="section-title aos" id="skills-title">{t('sections.skillsTitle')}</h2>
+  </div>
+
+  <div class="skills-grid">
+    {groups.map((group) => (
+      <div class="skill-card aos">
+        <h3 class="skill-card-title">{t(`skills.${group.category}`)}</h3>
+        <div class="skill-card-chips">
+          {group.items.map((item) => (
+            <span class="tech-chip">
+              <TechIcon name={item.data.name} />
+              {item.data.name}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseSection>

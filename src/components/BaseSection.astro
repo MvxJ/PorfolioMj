@@ -1,0 +1,35 @@
+---
+/* BaseSection.astro — inherited section shell: bg / width / padding / id / label.
+   Every content section composes this; spacing & width behaviour live here once. */
+interface Props {
+  bg?: 'none' | 'subtle' | 'card' | 'accent' | 'contrast';
+  width?: 'narrow' | 'normal' | 'wide' | 'full';
+  pad?: 'sm' | 'md' | 'lg' | 'xl';
+  id?: string;
+  label?: string;
+  class?: string;
+  labelledby?: string;
+  style?: string;
+}
+const {
+  bg = 'none',
+  width = 'normal',
+  pad = 'lg',
+  id,
+  label,
+  labelledby,
+  class: className = '',
+  style,
+} = Astro.props;
+---
+<section
+  id={id}
+  data-screen-label={label}
+  aria-labelledby={labelledby}
+  class={`section bg-${bg} w-${width} pad-${pad} ${className}`.trim()}
+  style={style}
+>
+  <div class="container">
+    <slot />
+  </div>
+</section>

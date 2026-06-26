@@ -1,0 +1,24 @@
+# build output
+dist/
+.output/
+
+# astro
+.astro/
+
+# dependencies
+node_modules/
+
+# cloudflare / wrangler
+.wrangler/
+
+# logs & env
+*.log
+.env
+.env.production
+.dev.vars
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
+/.claude

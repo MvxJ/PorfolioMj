@@ -1,0 +1,9 @@
+{
+  "order": 14,
+  "name": "jQuery",
+  "color": "#0769AD",
+  "fg": "#ffffff",
+  "abbr": "jQ",
+  "category": "frontend",
+  "logo": "/assets/images/tech/jquery.png"
+}

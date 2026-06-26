@@ -1,0 +1,9 @@
+{
+  "order": 2,
+  "name": "Symfony",
+  "color": "#000000",
+  "fg": "#ffffff",
+  "abbr": "Sy",
+  "category": "backend",
+  "logo": "/assets/images/tech/symfony.png"
+}

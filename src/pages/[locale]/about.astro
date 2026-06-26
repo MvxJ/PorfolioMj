@@ -1,0 +1,37 @@
+---
+import type { Locale } from '../../i18n';
+import { LOCALES, localize, useT } from '../../i18n';
+import PageLayout from '../../layouts/PageLayout.astro';
+import AboutSection from '../../components/sections/AboutSection.astro';
+import SkillsSection from '../../components/sections/SkillsSection.astro';
+import EducationSection from '../../components/sections/EducationSection.astro';
+import { getAbout, getSite } from '../../lib/content';
+import { breadcrumbLd } from '../../lib/seo';
+
+export function getStaticPaths() {
+  return LOCALES.map((locale) => ({ params: { locale } }));
+}
+
+const locale = Astro.params.locale as Locale;
+const t = useT(locale);
+const about = await getAbout();
+const site = await getSite();
+const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
+const name = site?.name ?? 'Maks Jachymczak';
+
+const title = `${t('nav.about')} — ${name}`;
+const bio = localize(about?.bio, locale) ?? '';
+const description = bio.replace(/\s+/g, ' ').slice(0, 155);
+
+const jsonLd = [
+  breadcrumbLd([
+    { name: name, url: `${origin}/${locale}` },
+    { name: t('nav.about'), url: `${origin}/${locale}/about` },
+  ]),
+];
+---
+<PageLayout title={title} description={description} barePath="about" locale={locale} jsonLd={jsonLd}>
+  <AboutSection locale={locale} />
+  <SkillsSection locale={locale} />
+  <EducationSection locale={locale} />
+</PageLayout>

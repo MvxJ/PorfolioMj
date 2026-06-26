@@ -1,0 +1,19 @@
+{
+  "order": 1,
+  "year": "2016 — 2020",
+  "degree": {
+    "pl": "Informatyka, studia inżynierskie",
+    "en": "BSc in Computer Science",
+    "uk": "Бакалавр з комп'ютерних наук"
+  },
+  "institution": {
+    "pl": "Politechnika Warszawska",
+    "en": "Warsaw University of Technology",
+    "uk": "Варшавська політехніка"
+  },
+  "desc": {
+    "pl": "Specjalizacja w inżynierii oprogramowania, bazach danych i systemach rozproszonych.",
+    "en": "Specialisation in software engineering, databases and distributed systems.",
+    "uk": "Спеціалізація з інженерії програмного забезпечення, баз даних і розподілених систем."
+  }
+}

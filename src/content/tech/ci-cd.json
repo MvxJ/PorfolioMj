@@ -1,0 +1,9 @@
+{
+  "order": 21,
+  "name": "CI/CD",
+  "color": "#2088FF",
+  "fg": "#ffffff",
+  "abbr": "CI",
+  "category": "tools",
+  "logo": null
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#7C3AED"></rect>
+  <polygon points="20,42 32,22 44,42" fill="none" stroke="white" stroke-width="3.5" stroke-linejoin="round"></polygon>
+  <text x="32" y="56" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle" opacity="0.85">VIRTUA</text>
+</svg>

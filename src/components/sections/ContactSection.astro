@@ -1,0 +1,56 @@
+---
+/* ContactSection.astro — intro + contact link tiles (email + socials).
+   No form backend — link tiles only, per spec. */
+import type { Locale } from '../../i18n';
+import { useT, localize } from '../../i18n';
+import { getContact, getSite } from '../../lib/content';
+import BaseSection from '../BaseSection.astro';
+import Icon from '../primitives/Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const contact = await getContact();
+const site = await getSite();
+const intro = localize(contact?.intro, locale) ?? '';
+
+type Tile = { label: string; value: string; href: string; icon: string };
+const tiles: Tile[] = [];
+if (site?.email) {
+  tiles.push({ label: 'Email', value: site.email, href: `mailto:${site.email}`, icon: 'mail' });
+}
+for (const s of site?.socials ?? []) {
+  const l = s.label.toLowerCase();
+  const icon = l.includes('github') ? 'github' : l.includes('linkedin') ? 'linkedin' : 'arrow';
+  const value = s.url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+  tiles.push({ label: s.label, value, href: s.url, icon });
+}
+---
+<BaseSection id="contact" pad="xl" labelledby="contact-title">
+  <div class="section-head">
+    <p class="eyebrow aos">{t('sections.contactEyebrow')}</p>
+    <h2 class="section-title aos" id="contact-title">{t('sections.contactTitle')}</h2>
+  </div>
+
+  <p class="contact-intro aos">{intro}</p>
+
+  <div class="contact-tiles">
+    {tiles.map((tile) => (
+      <a
+        class="contact-tile aos"
+        href={tile.href}
+        target={tile.href.startsWith('mailto:') ? undefined : '_blank'}
+        rel={tile.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+      >
+        <span class="contact-tile-icon"><Icon name={tile.icon} size={22} /></span>
+        <span>
+          <span class="contact-tile-label">{tile.label}</span><br />
+          <span class="contact-tile-value">{tile.value}</span>
+        </span>
+        <Icon name="arrow" size={16} class="arrow" />
+      </a>
+    ))}
+  </div>
+</BaseSection>

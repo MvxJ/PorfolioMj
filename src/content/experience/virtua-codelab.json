@@ -1,0 +1,44 @@
+{
+  "order": 4,
+  "company": "Virtua Codelab",
+  "logo": "/assets/images/tech/logo-virtua.svg",
+  "initials": "VC",
+  "color": "#7C3AED",
+  "from": "2018-09",
+  "to": "2019-12",
+  "location": "Warszawa, Polska",
+  "type": "contract",
+  "tech": ["PHP", "JavaScript", "jQuery", "MySQL", "Linux"],
+  "position": {
+    "pl": "Full-stack Developer",
+    "en": "Full-stack Developer",
+    "uk": "Full-stack Developer"
+  },
+  "shortDesc": {
+    "pl": "Realizacja projektów webowych end-to-end — od backendu po frontend.",
+    "en": "Delivering web projects end to end — from backend to frontend.",
+    "uk": "Реалізація веб-проєктів від початку до кінця — від бекенду до фронтенду."
+  },
+  "fullDesc": {
+    "pl": "Pracowałem nad projektami webowymi w modelu full-stack, łącząc backend w PHP z interaktywnym frontendem. Brałem udział w całym cyklu wytwarzania oprogramowania.",
+    "en": "I worked on full-stack web projects, pairing PHP backends with interactive frontends and taking part in the full software-development lifecycle.",
+    "uk": "Працював над full-stack веб-проєктами, поєднуючи PHP-бекенд з інтерактивним фронтендом і беручи участь у повному циклі розробки."
+  },
+  "achievements": {
+    "pl": [
+      "Dostarczenie wielu projektów klienckich na czas",
+      "Budowa responsywnych interfejsów i integracji API",
+      "Zdobycie szerokiego doświadczenia full-stack na wczesnym etapie kariery"
+    ],
+    "en": [
+      "Delivered numerous client projects on time",
+      "Built responsive interfaces and API integrations",
+      "Gained broad full-stack experience early in my career"
+    ],
+    "uk": [
+      "Вчасно реалізував численні клієнтські проєкти",
+      "Створював адаптивні інтерфейси та інтеграції API",
+      "Здобув широкий full-stack досвід на початку кар'єри"
+    ]
+  }
+}

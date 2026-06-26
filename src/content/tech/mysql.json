@@ -1,0 +1,9 @@
+{
+  "order": 15,
+  "name": "MySQL",
+  "color": "#4479A1",
+  "fg": "#ffffff",
+  "abbr": "My",
+  "category": "database",
+  "logo": "/assets/images/tech/mysql.png"
+}

@@ -1,0 +1,32 @@
+---
+/* TechIcon.astro — renders a technology's brand logo (white chip) or, when no
+   logo exists, a colored monogram chip from its tech-collection metadata. */
+import { getTechByName } from '../../lib/content';
+
+interface Props {
+  name: string;
+  class?: string;
+}
+const { name, class: className = '' } = Astro.props;
+const entry = await getTechByName(name);
+const data = entry?.data;
+const logo = data?.logo ?? null;
+const abbr = data?.abbr ?? name.slice(0, 2);
+const color = data?.color ?? '#6366f1';
+const fg = data?.fg ?? '#ffffff';
+---
+{
+  logo ? (
+    <span class={`tech-ico tech-ico--logo ${className}`} title={name}>
+      <img src={logo} alt={`${name} logo`} loading="lazy" decoding="async" />
+    </span>
+  ) : (
+    <span
+      class={`tech-ico ${className}`}
+      title={name}
+      style={`background:${color};color:${fg};`}
+    >
+      {abbr}
+    </span>
+  )
+}

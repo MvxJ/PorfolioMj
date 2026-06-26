@@ -1,0 +1,44 @@
+{
+  "order": 1,
+  "company": "Crehler",
+  "logo": "/assets/images/tech/logo-crehler.svg",
+  "initials": "CR",
+  "color": "#1A1A2E",
+  "from": "2023-01",
+  "to": null,
+  "location": "Warszawa, Polska",
+  "type": "fullTime",
+  "tech": ["PHP", "Symfony", "Vue", "MySQL", "Redis", "Docker"],
+  "position": {
+    "pl": "Senior Software Engineer",
+    "en": "Senior Software Engineer",
+    "uk": "Senior Software Engineer"
+  },
+  "shortDesc": {
+    "pl": "Rozwój i utrzymanie wtyczek oraz integracji e-commerce dla platformy Shopware.",
+    "en": "Building and maintaining e-commerce plugins and integrations on the Shopware platform.",
+    "uk": "Розробка та підтримка плагінів і інтеграцій e-commerce на платформі Shopware."
+  },
+  "fullDesc": {
+    "pl": "Projektuję i wdrażam wtyczki oraz integracje dla sklepów opartych na Shopware i Symfony. Odpowiadam za architekturę rozwiązań, jakość kodu i mentoring młodszych członków zespołu.",
+    "en": "I design and ship plugins and integrations for Shopware/Symfony-based stores. I own solution architecture, code quality, and the mentoring of junior team members.",
+    "uk": "Проєктую та впроваджую плагіни й інтеграції для магазинів на базі Shopware/Symfony. Відповідаю за архітектуру рішень, якість коду та менторство молодших колег."
+  },
+  "achievements": {
+    "pl": [
+      "Dostarczenie kilkunastu wtyczek produkcyjnych dla klientów e-commerce",
+      "Wprowadzenie standardów kodu i przeglądów (code review) w zespole",
+      "Integracje z zewnętrznymi API płatności, ERP i logistyki"
+    ],
+    "en": [
+      "Delivered a dozen production plugins for e-commerce clients",
+      "Introduced coding standards and code-review practices in the team",
+      "Built integrations with external payment, ERP and logistics APIs"
+    ],
+    "uk": [
+      "Випустив десяток продакшн-плагінів для e-commerce клієнтів",
+      "Запровадив стандарти коду та практики code review в команді",
+      "Створив інтеграції із зовнішніми API платежів, ERP та логістики"
+    ]
+  }
+}

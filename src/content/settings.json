@@ -1,0 +1,39 @@
+{
+  "appearance": {
+    "theme": "minimal",
+    "accent": "#6366f1",
+    "fontPairing": "mono",
+    "animations": true,
+    "animStyle": "energetic",
+    "hoverEffect": "tilt",
+    "animatedBg": "auto",
+    "defaultLanguage": "pl"
+  },
+  "site": {
+    "name": "Maks Jachymczak",
+    "role": {
+      "pl": "Senior Software Engineer",
+      "en": "Senior Software Engineer",
+      "uk": "Senior Software Engineer"
+    },
+    "domain": "maks.dev",
+    "email": "m.jachymczak@gmail.com",
+    "socials": [
+      { "label": "GitHub", "url": "https://github.com/maksjach" },
+      { "label": "LinkedIn", "url": "https://linkedin.com/in/maksjach" }
+    ]
+  },
+  "seo": {
+    "defaultTitle": {
+      "pl": "Maks Jachymczak — Senior Software Engineer",
+      "en": "Maks Jachymczak — Senior Software Engineer",
+      "uk": "Maks Jachymczak — Senior Software Engineer"
+    },
+    "defaultDescription": {
+      "pl": "Senior Software Engineer specjalizujący się w backendzie (PHP, Symfony, Python, FastAPI). Buduję solidne, skalowalne systemy i API. Warszawa, Polska.",
+      "en": "Senior software engineer specialising in backend development (PHP, Symfony, Python, FastAPI). I build robust, scalable systems and APIs. Warsaw, Poland.",
+      "uk": "Senior-інженер-програміст, що спеціалізується на бекенді (PHP, Symfony, Python, FastAPI). Створюю надійні масштабовані системи та API. Варшава, Польща."
+    },
+    "ogImage": "/assets/images/og-default.png"
+  }
+}

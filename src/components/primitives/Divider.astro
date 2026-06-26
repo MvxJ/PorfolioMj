@@ -1,0 +1,8 @@
+---
+/* Divider.astro — horizontal rule using the section-divider token. */
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+<hr class={`section-divider ${className}`.trim()} />

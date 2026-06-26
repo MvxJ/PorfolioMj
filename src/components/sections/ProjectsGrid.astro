@@ -1,0 +1,37 @@
+---
+/* ProjectsGrid.astro — all projects rendered as ProjectCard. */
+import type { Locale } from '../../i18n';
+import { useT } from '../../i18n';
+import { getProjects, getAppearance } from '../../lib/content';
+import BaseSection from '../BaseSection.astro';
+import ProjectCard from '../molecules/ProjectCard.astro';
+import TiltCard from '../islands/TiltCard.tsx';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useT(locale);
+const projects = await getProjects();
+const appearance = await getAppearance();
+const useTilt = appearance.animations && appearance.hoverEffect === 'tilt';
+---
+<BaseSection id="projects" pad="xl" labelledby="projects-title">
+  <div class="section-head">
+    <p class="eyebrow aos">{t('sections.projectsEyebrow')}</p>
+    <h2 class="section-title aos" id="projects-title">{t('sections.projectsTitle')}</h2>
+  </div>
+  <div class="card-grid">
+    {projects.map((project) => (
+      <div class="aos">
+        {useTilt ? (
+          <TiltCard client:visible>
+            <ProjectCard project={project} locale={locale} />
+          </TiltCard>
+        ) : (
+          <ProjectCard project={project} locale={locale} />
+        )}
+      </div>
+    ))}
+  </div>
+</BaseSection>

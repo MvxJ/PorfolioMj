@@ -1,0 +1,43 @@
+{
+  "order": 1,
+  "year": "2024",
+  "accent": "#6366f1",
+  "tech": ["PHP", "Symfony", "MySQL", "Redis", "Docker"],
+  "cover": "/assets/images/projects/p1-cover.png",
+  "gallery": ["/assets/images/projects/p1-1.png", "/assets/images/projects/p1-2.png"],
+  "title": {
+    "pl": "Platforma E-Commerce",
+    "en": "E-Commerce Platform",
+    "uk": "Платформа E-Commerce"
+  },
+  "role": {
+    "pl": "Lead Backend Developer",
+    "en": "Lead Backend Developer",
+    "uk": "Lead Backend Developer"
+  },
+  "desc": {
+    "pl": "Skalowalna platforma sprzedażowa obsługująca tysiące zamówień dziennie. Zaprojektowałem architekturę domeny, warstwę API oraz integracje z systemami płatności i logistyki.",
+    "en": "A scalable commerce platform handling thousands of orders a day. I designed the domain architecture, the API layer and the integrations with payment and logistics providers.",
+    "uk": "Масштабована торгова платформа, що обробляє тисячі замовлень на день. Я спроєктував доменну архітектуру, рівень API та інтеграції з платіжними й логістичними системами."
+  },
+  "highlights": {
+    "pl": [
+      "Modułowa architektura domenowa oparta na Symfony i DDD",
+      "Optymalizacja zapytań i cache Redis — skrócenie czasu odpowiedzi o 60%",
+      "Integracje z bramkami płatności i kurierami przez kolejki asynchroniczne",
+      "Pełne pokrycie testami krytycznych ścieżek zakupowych"
+    ],
+    "en": [
+      "Modular domain architecture built on Symfony and DDD",
+      "Query optimisation and Redis caching — 60% faster response times",
+      "Payment-gateway and courier integrations via async queues",
+      "Full test coverage of the critical checkout paths"
+    ],
+    "uk": [
+      "Модульна доменна архітектура на основі Symfony та DDD",
+      "Оптимізація запитів і кешування Redis — на 60% швидший відгук",
+      "Інтеграції з платіжними шлюзами та кур'єрами через асинхронні черги",
+      "Повне покриття тестами критичних шляхів оформлення замовлення"
+    ]
+  }
+}
