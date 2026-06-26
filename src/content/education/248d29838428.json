@@ -1,0 +1,19 @@
+{
+  "pl": {
+    "order": 1,
+    "year": "2024 - 2026",
+    "degree": "Magister",
+    "institution": "Wyższa Szkoła Bankowości i Informatyki (WSEI) - Przekształcone na Uniwersytet DSW Ideis Kraków",
+    "desc": "Studia magisterskie z obszaru Informatyki stosowanej"
+  },
+  "en": {
+    "degree": "Magister",
+    "institution": "Wyższa Szkoła Bankowości i Informatyki (WSEI) - Przekształcone na Uniwersytet DSW Ideis Kraków",
+    "desc": "Studia magisterskie z obszaru Informatyki stosowanej"
+  },
+  "uk": {
+    "degree": "Magister",
+    "institution": "Wyższa Szkoła Bankowości i Informatyki (WSEI) - Przekształcone na Uniwersytet DSW Ideis Kraków",
+    "desc": "Studia magisterskie z obszaru Informatyki stosowanej"
+  }
+}
