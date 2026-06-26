@@ -1,0 +1,51 @@
+name: Build
+
+# Runs on every push to the main branch (incl. merges) and on pull requests
+# targeting main. Acts as a CI quality gate: it type-checks and builds the static
+# site before it reaches Cloudflare. Cloudflare Pages still does the actual deploy
+# automatically on push — this workflow makes sure a broken commit never ships.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # allow manual runs from the Actions tab
+
+# Cancel an in-progress run if a newer commit is pushed to the same ref.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Type-check & build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run check
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+          if-no-files-found: error
