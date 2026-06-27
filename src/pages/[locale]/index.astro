@@ -19,9 +19,9 @@ const seoDefaults = await getSeoDefaults();
 const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
 
 const name = site?.name ?? 'Maksymilian Jachymczak';
-const role = localize(site?.role, locale) ?? 'Senior Software Engineer';
+const role = site?.role ?? 'Senior Software Engineer';
 const title = `${name} — ${role}`;
-const description = localize(hero?.tagline, locale) ?? localize(seoDefaults?.defaultDescription, locale) ?? '';
+const description = localize(hero?.tagline, locale) ?? seoDefaults?.defaultDescription ?? '';
 
 const jsonLd = [websiteLd(name, `${origin}/${locale}`, locale, `${origin}/${locale}`)];
 ---

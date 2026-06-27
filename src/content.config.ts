@@ -5,17 +5,27 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro:schema';
 import { file, glob } from 'astro/loaders';
 
-/* ----------------------------- shared shapes ---------------------------- */
-const i18nStr = z.object({
-  pl: z.string(),
-  en: z.string().optional(),
-  uk: z.string().optional(),
-});
-const i18nArr = z.object({
-  pl: z.array(z.string()),
-  en: z.array(z.string()).optional(),
-  uk: z.array(z.string()).optional(),
-});
+/* ----------------------------- shared shapes ----------------------------
+   Localized fields are stored as { pl, en, uk } objects (via explicit object
+   widgets in Sveltia — no Sveltia i18n machinery). The schemas are TOLERANT:
+   they also accept a plain string / string[] so a field that ever gets saved
+   un-localized never breaks the build. localize() normalizes both shapes. */
+const i18nStr = z.union([
+  z.string(),
+  z.object({
+    pl: z.string().optional(),
+    en: z.string().optional(),
+    uk: z.string().optional(),
+  }),
+]);
+const i18nArr = z.union([
+  z.array(z.string()),
+  z.object({
+    pl: z.array(z.string()).optional(),
+    en: z.array(z.string()).optional(),
+    uk: z.array(z.string()).optional(),
+  }),
+]);
 const base = z.object({
   order: z.number().default(0),
 });
@@ -42,14 +52,18 @@ const settings = defineCollection({
     }),
     site: z.object({
       name: z.string(),
-      role: i18nStr,
+      // Non-localized: identical across locales and used as a global default/SEO
+      // value. Keeping it a plain string avoids fragile nested-i18n in the CMS.
+      role: z.string(),
       domain: z.string(),
       email: z.string(),
       socials: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
     }),
     seo: z.object({
-      defaultTitle: i18nStr,
-      defaultDescription: i18nStr,
+      // Non-localized fallbacks — per-page titles/descriptions are generated from
+      // localized content (hero/about) + i18n dictionaries, so these are just defaults.
+      defaultTitle: z.string(),
+      defaultDescription: z.string(),
       ogImage: z.string().default('/assets/images/og-default.png'),
     }),
   }),

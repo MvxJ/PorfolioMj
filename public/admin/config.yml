@@ -1,26 +1,25 @@
 # Sveltia CMS config. MUST mirror src/content.config.ts — if you add a field in
 # one, add it in the other. Panel language is Polish (the owner's language).
+#
+# i18n NOTE: we do NOT use Sveltia's built-in i18n (structure/locales). Instead
+# every translatable field is an explicit `object` widget with pl/en/uk subfields.
+# This stores one predictable shape — { "pl": "...", "en": "...", "uk": "..." } —
+# that matches src/content.config.ts and never flattens on save.
 backend:
   name: github
   repo: MvxJ/PorfolioMj # owner/repo (from git remote)
   branch: main
-  # OAuth is handled by Cloudflare Pages Functions in THIS project
+  # OAuth handled by Cloudflare Pages Functions in THIS project
   # (functions/auth.js + functions/callback.js) — no separate worker / subdomain.
-  # base_url = the site's own origin; auth_endpoint = the /auth function.
-  base_url: https://maksymilianjachymczak.pages.dev # change to your real domain (or *.pages.dev)
+  base_url: https://maksymilianjachymczak.pages.dev # your production origin
   auth_endpoint: auth
 
 # Lets you edit content locally with no GitHub login while running
-# `npm run dev` + `npm run cms:proxy`. Sveltia ignores this in production.
+# `npm run dev` + `npm run cms:proxy`.
 local_backend: true
 
 media_folder: "public/assets/images/uploads"
 public_folder: "/assets/images/uploads"
-
-i18n:
-  structure: single_file
-  locales: [pl, en, uk]
-  default_locale: pl
 
 collections:
   # ---------- SINGLETONS ----------
@@ -57,7 +56,7 @@ collections:
             widget: object
             fields:
               - { label: "Imię i nazwisko", name: name, widget: string }
-              - { label: "Rola", name: role, widget: string, i18n: true }
+              - { label: "Rola", name: role, widget: string }
               - { label: "Domena", name: domain, widget: string }
               - { label: "Email", name: email, widget: string }
               - label: "Social media"
@@ -70,42 +69,93 @@ collections:
             name: seo
             widget: object
             fields:
-              - { label: "Domyślny tytuł", name: defaultTitle, widget: string, i18n: true }
-              - { label: "Domyślny opis", name: defaultDescription, widget: text, i18n: true }
+              - { label: "Domyślny tytuł", name: defaultTitle, widget: string }
+              - { label: "Domyślny opis", name: defaultDescription, widget: text }
               - { label: "Obraz OG", name: ogImage, widget: image }
 
       - name: hero
         label: "Hero"
         file: "src/content/hero.json"
-        i18n: true
         fields:
-          - { label: "Powitanie", name: greeting, widget: string, i18n: true }
-          - { label: "Rola", name: role, widget: string, i18n: true }
-          - { label: "Tagline", name: tagline, widget: text, i18n: true }
-          - { label: "CTA — projekty", name: ctaProjects, widget: string, i18n: true }
-          - { label: "CTA — kontakt", name: ctaContact, widget: string, i18n: true }
+          - label: "Powitanie"
+            name: greeting
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: string }
+              - { label: "English", name: en, widget: string, required: false }
+              - { label: "Українська", name: uk, widget: string, required: false }
+          - label: "Rola"
+            name: role
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: string }
+              - { label: "English", name: en, widget: string, required: false }
+              - { label: "Українська", name: uk, widget: string, required: false }
+          - label: "Tagline"
+            name: tagline
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: text }
+              - { label: "English", name: en, widget: text, required: false }
+              - { label: "Українська", name: uk, widget: text, required: false }
+          - label: "CTA — projekty"
+            name: ctaProjects
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: string }
+              - { label: "English", name: en, widget: string, required: false }
+              - { label: "Українська", name: uk, widget: string, required: false }
+          - label: "CTA — kontakt"
+            name: ctaContact
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: string }
+              - { label: "English", name: en, widget: string, required: false }
+              - { label: "Українська", name: uk, widget: string, required: false }
 
       - name: about
         label: "O mnie"
         file: "src/content/about.json"
-        i18n: true
         fields:
-          - { label: "Bio", name: bio, widget: text, i18n: true }
-          - { label: "Lokalizacja", name: locationValue, widget: string, i18n: true }
+          - label: "Bio"
+            name: bio
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: text }
+              - { label: "English", name: en, widget: text, required: false }
+              - { label: "Українська", name: uk, widget: text, required: false }
+          - label: "Lokalizacja"
+            name: locationValue
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: string }
+              - { label: "English", name: en, widget: string, required: false }
+              - { label: "Українська", name: uk, widget: string, required: false }
           - { label: "Zdjęcie", name: photo, widget: image, required: false }
           - label: "Statystyki"
             name: stats
             widget: list
             fields:
               - { label: "Wartość", name: value, widget: string }
-              - { label: "Etykieta", name: label, widget: string, i18n: true }
+              - label: "Etykieta"
+                name: label
+                widget: object
+                fields:
+                  - { label: "Polski", name: pl, widget: string }
+                  - { label: "English", name: en, widget: string, required: false }
+                  - { label: "Українська", name: uk, widget: string, required: false }
 
       - name: contact
         label: "Kontakt"
         file: "src/content/contact.json"
-        i18n: true
         fields:
-          - { label: "Wstęp", name: intro, widget: text, i18n: true }
+          - label: "Wstęp"
+            name: intro
+            widget: object
+            fields:
+              - { label: "Polski", name: pl, widget: text }
+              - { label: "English", name: en, widget: text, required: false }
+              - { label: "Українська", name: uk, widget: text, required: false }
 
   # ---------- COLLECTIONS ----------
   - name: projects
@@ -114,19 +164,42 @@ collections:
     folder: "src/content/projects"
     create: true
     format: json
-    i18n: true
     identifier_field: title
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
-      - { label: "Tytuł", name: title, widget: string, i18n: true }
+      - label: "Tytuł"
+        name: title
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
       - { label: "Rok", name: year, widget: string }
-      - { label: "Rola", name: role, widget: string, i18n: true }
-      - { label: "Opis", name: desc, widget: text, i18n: true }
+      - label: "Rola"
+        name: role
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
+      - label: "Opis"
+        name: desc
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: text }
+          - { label: "English", name: en, widget: text, required: false }
+          - { label: "Українська", name: uk, widget: text, required: false }
       - { label: "Akcent", name: accent, widget: color, default: "#6366f1" }
       - { label: "Technologie", name: tech, widget: list, allow_add: true }
       - { label: "Okładka", name: cover, widget: image }
       - { label: "Galeria", name: gallery, widget: list, field: { label: Obraz, name: image, widget: image } }
-      - { label: "Highlighty", name: highlights, widget: list, i18n: true, field: { label: Punkt, name: item, widget: string } }
+      - label: "Highlighty"
+        name: highlights
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: list, field: { label: Punkt, name: item, widget: string } }
+          - { label: "English", name: en, widget: list, required: false, field: { label: Item, name: item, widget: string } }
+          - { label: "Українська", name: uk, widget: list, required: false, field: { label: Пункт, name: item, widget: string } }
 
   - name: experience
     label: "Doświadczenie"
@@ -134,7 +207,6 @@ collections:
     folder: "src/content/experience"
     create: true
     format: json
-    i18n: true
     identifier_field: company
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
@@ -147,10 +219,34 @@ collections:
       - { label: "Lokalizacja", name: location, widget: string }
       - { label: "Typ", name: type, widget: select, options: [fullTime, partTime, contract] }
       - { label: "Technologie", name: tech, widget: list, allow_add: true }
-      - { label: "Stanowisko", name: position, widget: string, i18n: true }
-      - { label: "Opis krótki", name: shortDesc, widget: text, i18n: true }
-      - { label: "Opis pełny", name: fullDesc, widget: text, i18n: true }
-      - { label: "Osiągnięcia", name: achievements, widget: list, i18n: true, field: { label: Punkt, name: item, widget: string } }
+      - label: "Stanowisko"
+        name: position
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
+      - label: "Opis krótki"
+        name: shortDesc
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: text }
+          - { label: "English", name: en, widget: text, required: false }
+          - { label: "Українська", name: uk, widget: text, required: false }
+      - label: "Opis pełny"
+        name: fullDesc
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: text }
+          - { label: "English", name: en, widget: text, required: false }
+          - { label: "Українська", name: uk, widget: text, required: false }
+      - label: "Osiągnięcia"
+        name: achievements
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: list, field: { label: Punkt, name: item, widget: string } }
+          - { label: "English", name: en, widget: list, required: false, field: { label: Item, name: item, widget: string } }
+          - { label: "Українська", name: uk, widget: list, required: false, field: { label: Пункт, name: item, widget: string } }
 
   - name: education
     label: "Edukacja"
@@ -158,13 +254,30 @@ collections:
     folder: "src/content/education"
     create: true
     format: json
-    i18n: true
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
       - { label: "Rok", name: year, widget: string }
-      - { label: "Tytuł / stopień", name: degree, widget: string, i18n: true }
-      - { label: "Instytucja", name: institution, widget: string, i18n: true }
-      - { label: "Opis", name: desc, widget: string, i18n: true }
+      - label: "Tytuł / stopień"
+        name: degree
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
+      - label: "Instytucja"
+        name: institution
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
+      - label: "Opis"
+        name: desc
+        widget: object
+        fields:
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
 
   - name: certs
     label: "Certyfikaty"

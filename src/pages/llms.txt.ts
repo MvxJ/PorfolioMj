@@ -19,7 +19,7 @@ export const GET: APIRoute = async ({ site }) => {
   const tech = await getTech();
   
   const name = s?.name ?? 'Maksymilian Jachymczak';
-  const role = localize(s?.role, 'en') ?? 'Senior Software Engineer';
+  const role = s?.role ?? 'Senior Software Engineer';
   const tagline = localize(hero?.tagline, 'en') ?? '';
   const stack = tech.map((t) => t.data.name).join(', ');
 

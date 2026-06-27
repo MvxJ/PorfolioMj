@@ -39,11 +39,13 @@ export function useT(locale: Locale) {
   return (path: string) => t(locale, path);
 }
 
-/** Resolve a localized CMS field, falling back to PL. */
-export function localize<T>(
-  field: { pl: T; en?: T; uk?: T } | undefined | null,
+/** Resolve a localized CMS string field, falling back to PL → EN → UK.
+ *  Tolerates a plain string (returned as-is) for un-localized/legacy content. */
+export function localize(
+  field: string | { pl?: string; en?: string; uk?: string } | undefined | null,
   locale: Locale,
-): T | undefined {
-  if (!field) return undefined;
-  return field[locale] ?? field.pl;
+): string | undefined {
+  if (field == null) return undefined;
+  if (typeof field === 'string') return field;
+  return field[locale] ?? field.pl ?? field.en ?? field.uk ?? undefined;
 }

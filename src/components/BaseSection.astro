@@ -10,6 +10,8 @@ interface Props {
   class?: string;
   labelledby?: string;
   style?: string;
+  /** grow to fill the leftover viewport height + vertically center content */
+  fill?: boolean;
 }
 const {
   bg = 'none',
@@ -20,13 +22,14 @@ const {
   labelledby,
   class: className = '',
   style,
+  fill = false,
 } = Astro.props;
 ---
 <section
   id={id}
   data-screen-label={label}
   aria-labelledby={labelledby}
-  class={`section bg-${bg} w-${width} pad-${pad} ${className}`.trim()}
+  class={`section bg-${bg} w-${width} pad-${pad} ${fill ? 'section--fill' : ''} ${className}`.trim()}
   style={style}
 >
   <div class="container">

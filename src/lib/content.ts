@@ -78,11 +78,13 @@ export async function getTechByCategory() {
   }));
 }
 
-/* ----------------------------- localized arrays ------------------------- */
+/* ----------------------------- localized arrays -------------------------
+   Tolerant of both a plain T[] and a { pl, en, uk } object of arrays. */
 export function localizeArr<T>(
-  field: { pl: T[]; en?: T[]; uk?: T[] } | undefined | null,
+  field: T[] | { pl?: T[]; en?: T[]; uk?: T[] } | undefined | null,
   locale: Locale,
 ): T[] {
   if (!field) return [];
-  return field[locale] ?? field.pl ?? [];
+  if (Array.isArray(field)) return field;
+  return field[locale] ?? field.pl ?? field.en ?? field.uk ?? [];
 }

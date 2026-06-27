@@ -32,10 +32,29 @@ body {
   overflow-x: hidden;
 }
 
-/* page wrapper sits above the fixed animated background layer */
+/* page wrapper sits above the fixed animated background layer.
+   Sticky-footer layout: the shell is at least full viewport height and <main>
+   grows to fill it, so the footer always sits at the bottom — even on pages
+   with little content (contact, etc.). */
 .page-shell {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+.page-shell > main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+/* A section that should fill the leftover viewport height and vertically
+   center its content (used on short pages so they don't look empty). */
+.section--fill {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 img,

@@ -60,7 +60,7 @@ const tech = await getTech();
 const education = await getEducation();
 const person = personLd({
   name: siteData?.name ?? 'Maksymilian Jachymczak',
-  jobTitle: localize(siteData?.role, locale) ?? 'Senior Software Engineer',
+  jobTitle: siteData?.role ?? 'Senior Software Engineer',
   url: `${site}/${locale}`,
   email: siteData?.email,
   sameAs: siteData?.socials.map((s) => s.url),
