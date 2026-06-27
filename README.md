@@ -150,6 +150,7 @@ The site is fully static, so deploys are instant, and CMS login is handled by
 2. Cloudflare → project → **Settings → Environment variables** → add (Production):
    - `GITHUB_CLIENT_ID`
    - `GITHUB_CLIENT_SECRET`
+   - `ENV` = `prod` (see "Environments" below)
 3. In `public/admin/config.yml` set:
    - `backend.repo: <owner>/<repo>`
    - `backend.base_url: https://<your-domain>`
@@ -162,6 +163,24 @@ The site is fully static, so deploys are instant, and CMS login is handled by
 > Note: Pages Functions (`functions/`) run on **Cloudflare Pages**. If you prefer the
 > "Workers + static assets" variant, there's a ready `wrangler.jsonc` (`assets → ./dist`),
 > but then OAuth needs a separate worker — Pages is faster and simpler.
+
+### Environments: `ENV` = `prod` vs `review`
+
+The `ENV` build variable controls whether placeholder/seed content is shown:
+
+| `ENV` | Behaviour | Where |
+|---|---|---|
+| `prod` | **Hides** entries flagged `placeholder: true` — shows only your real CMS content | Production env |
+| `review` (default) | Shows **everything**, incl. seed/example entries — for previewing | Preview env / local |
+
+Set it per environment in Cloudflare → Settings → Environment variables:
+**Production = `prod`**, **Preview = `review`**. Locally it defaults to `review`,
+so `npm run dev` always shows all content.
+
+In the CMS, every project / role / education / cert entry has a **"Placeholder
+(ukryj na produkcji)"** toggle. The example entries that shipped with the site are
+flagged on — switch a toggle **off** (or create a fresh entry) once the content is
+real, and it appears on production.
 
 ---
 

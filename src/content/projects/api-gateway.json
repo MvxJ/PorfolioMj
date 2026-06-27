@@ -1,10 +1,21 @@
 {
   "order": 2,
+  "placeholder": true,
   "year": "2024",
   "accent": "#06b6d4",
-  "tech": ["Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "OAuth2"],
+  "tech": [
+    "Python",
+    "FastAPI",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "OAuth2"
+  ],
   "cover": "/assets/images/projects/p2-cover.png",
-  "gallery": ["/assets/images/projects/p2-1.png", "/assets/images/projects/p2-2.png"],
+  "gallery": [
+    "/assets/images/projects/p2-1.png",
+    "/assets/images/projects/p2-2.png"
+  ],
   "title": {
     "pl": "Usługa API Gateway",
     "en": "API Gateway Service",

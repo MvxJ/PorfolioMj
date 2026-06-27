@@ -1,5 +1,6 @@
 {
   "order": 3,
+  "placeholder": true,
   "company": "Kramsoft",
   "logo": "/assets/images/tech/logo-kramsoft.svg",
   "initials": "KS",
@@ -8,7 +9,13 @@
   "to": "2021-05",
   "location": "Warszawa, Polska",
   "type": "fullTime",
-  "tech": ["PHP", "Symfony", "MySQL", "JavaScript", "Git"],
+  "tech": [
+    "PHP",
+    "Symfony",
+    "MySQL",
+    "JavaScript",
+    "Git"
+  ],
   "position": {
     "pl": "Backend Developer",
     "en": "Backend Developer",

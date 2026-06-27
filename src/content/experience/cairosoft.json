@@ -1,5 +1,6 @@
 {
   "order": 5,
+  "placeholder": true,
   "company": "Cairosoft",
   "logo": "/assets/images/tech/logo-cairosoft.svg",
   "initials": "CS",
@@ -8,7 +9,13 @@
   "to": "2018-08",
   "location": "Warszawa, Polska",
   "type": "fullTime",
-  "tech": ["PHP", "JavaScript", "MySQL", "Git", "Linux"],
+  "tech": [
+    "PHP",
+    "JavaScript",
+    "MySQL",
+    "Git",
+    "Linux"
+  ],
   "position": {
     "pl": "Junior Software Developer",
     "en": "Junior Software Developer",

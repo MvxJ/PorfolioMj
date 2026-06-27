@@ -1,5 +1,6 @@
 {
   "order": 2,
+  "placeholder": true,
   "company": "ActiveCampaign",
   "logo": "/assets/images/tech/logo-activecampaign.svg",
   "initials": "AC",
@@ -8,7 +9,14 @@
   "to": "2022-12",
   "location": "Zdalnie",
   "type": "fullTime",
-  "tech": ["PHP", "Python", "MySQL", "Redis", "Docker", "REST API"],
+  "tech": [
+    "PHP",
+    "Python",
+    "MySQL",
+    "Redis",
+    "Docker",
+    "REST API"
+  ],
   "position": {
     "pl": "Software Engineer",
     "en": "Software Engineer",

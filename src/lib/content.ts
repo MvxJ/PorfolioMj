@@ -4,8 +4,13 @@ import { getCollection, getEntry } from 'astro:content';
 import type { Locale } from '../i18n';
 import { localize } from '../i18n';
 import { DEFAULT_APPEARANCE, type Appearance } from './theme';
+import { showPlaceholders } from './env';
 
 export { localize };
+
+/** Drop placeholder/seed entries when ENV=prod; keep all in review/dev. */
+const notPlaceholder = (e: { data: { placeholder?: boolean } }) =>
+  showPlaceholders || !e.data.placeholder;
 
 /* ------------------------------ settings -------------------------------- */
 export async function getSettings() {
@@ -44,19 +49,19 @@ const byOrder = (a: { data: { order: number } }, b: { data: { order: number } })
   a.data.order - b.data.order;
 
 export async function getProjects() {
-  return (await getCollection('projects')).sort(byOrder);
+  return (await getCollection('projects')).filter(notPlaceholder).sort(byOrder);
 }
 export async function getProject(slug: string) {
   return getEntry('projects', slug);
 }
 export async function getExperience() {
-  return (await getCollection('experience')).sort(byOrder);
+  return (await getCollection('experience')).filter(notPlaceholder).sort(byOrder);
 }
 export async function getEducation() {
-  return (await getCollection('education')).sort(byOrder);
+  return (await getCollection('education')).filter(notPlaceholder).sort(byOrder);
 }
 export async function getCerts() {
-  return (await getCollection('certs')).sort(byOrder);
+  return (await getCollection('certs')).filter(notPlaceholder).sort(byOrder);
 }
 export async function getTech() {
   return (await getCollection('tech')).sort(byOrder);

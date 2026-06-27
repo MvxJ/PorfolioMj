@@ -1,10 +1,21 @@
 {
   "order": 4,
+  "placeholder": true,
   "year": "2025",
   "accent": "#8b5cf6",
-  "tech": ["Python", "FastAPI", "FastMCP", "Pydantic", "PostgreSQL", "Docker"],
+  "tech": [
+    "Python",
+    "FastAPI",
+    "FastMCP",
+    "Pydantic",
+    "PostgreSQL",
+    "Docker"
+  ],
   "cover": "/assets/images/projects/p4-cover.png",
-  "gallery": ["/assets/images/projects/p4-1.png", "/assets/images/projects/p4-2.png"],
+  "gallery": [
+    "/assets/images/projects/p4-1.png",
+    "/assets/images/projects/p4-2.png"
+  ],
   "title": {
     "pl": "Platforma integracji MCP",
     "en": "MCP Integration Platform",

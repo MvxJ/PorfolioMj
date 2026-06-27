@@ -28,6 +28,8 @@ const i18nArr = z.union([
 ]);
 const base = z.object({
   order: z.number().default(0),
+  // Seed/example entries are flagged true; hidden when ENV=prod (see lib/env.ts).
+  placeholder: z.boolean().default(false),
 });
 
 /* Singleton files store one flat object (what Sveltia writes). Wrap it as a

@@ -1,10 +1,20 @@
 {
   "order": 1,
+  "placeholder": true,
   "year": "2024",
   "accent": "#6366f1",
-  "tech": ["PHP", "Symfony", "MySQL", "Redis", "Docker"],
+  "tech": [
+    "PHP",
+    "Symfony",
+    "MySQL",
+    "Redis",
+    "Docker"
+  ],
   "cover": "/assets/images/projects/p1-cover.png",
-  "gallery": ["/assets/images/projects/p1-1.png", "/assets/images/projects/p1-2.png"],
+  "gallery": [
+    "/assets/images/projects/p1-1.png",
+    "/assets/images/projects/p1-2.png"
+  ],
   "title": {
     "pl": "Platforma E-Commerce",
     "en": "E-Commerce Platform",

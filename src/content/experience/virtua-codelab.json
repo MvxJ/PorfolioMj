@@ -1,5 +1,6 @@
 {
   "order": 4,
+  "placeholder": true,
   "company": "Virtua Codelab",
   "logo": "/assets/images/tech/logo-virtua.svg",
   "initials": "VC",
@@ -8,7 +9,13 @@
   "to": "2019-12",
   "location": "Warszawa, Polska",
   "type": "contract",
-  "tech": ["PHP", "JavaScript", "jQuery", "MySQL", "Linux"],
+  "tech": [
+    "PHP",
+    "JavaScript",
+    "jQuery",
+    "MySQL",
+    "Linux"
+  ],
   "position": {
     "pl": "Full-stack Developer",
     "en": "Full-stack Developer",

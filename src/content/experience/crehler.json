@@ -1,5 +1,6 @@
 {
   "order": 1,
+  "placeholder": true,
   "company": "Crehler",
   "logo": "/assets/images/tech/logo-crehler.svg",
   "initials": "CR",
@@ -8,7 +9,14 @@
   "to": null,
   "location": "Warszawa, Polska",
   "type": "fullTime",
-  "tech": ["PHP", "Symfony", "Vue", "MySQL", "Redis", "Docker"],
+  "tech": [
+    "PHP",
+    "Symfony",
+    "Vue",
+    "MySQL",
+    "Redis",
+    "Docker"
+  ],
   "position": {
     "pl": "Senior Software Engineer",
     "en": "Senior Software Engineer",

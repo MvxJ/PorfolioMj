@@ -167,6 +167,7 @@ collections:
     identifier_field: title
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
       - label: "Tytuł"
         name: title
         widget: object
@@ -210,6 +211,7 @@ collections:
     identifier_field: company
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
       - { label: "Firma", name: company, widget: string }
       - { label: "Logo", name: logo, widget: image, required: false }
       - { label: "Inicjały", name: initials, widget: string }
@@ -256,6 +258,7 @@ collections:
     format: json
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
       - { label: "Rok", name: year, widget: string }
       - label: "Tytuł / stopień"
         name: degree
@@ -287,6 +290,7 @@ collections:
     format: json
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
+      - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
       - { label: "Nazwa", name: name, widget: string }
       - { label: "Rok", name: year, widget: string }
 
