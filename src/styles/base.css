@@ -122,6 +122,7 @@ h4 {
 
 /* ----------------------------- layout primitives ------------------------- */
 .container {
+  width: 100%;
   max-width: var(--container);
   margin: 0 auto;
   padding: 0 2rem;
