@@ -45,8 +45,8 @@ for (const s of site?.socials ?? []) {
         rel={tile.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
       >
         <span class="contact-tile-icon"><Icon name={tile.icon} size={22} /></span>
-        <span>
-          <span class="contact-tile-label">{tile.label}</span><br />
+        <span class="contact-tile-body">
+          <span class="contact-tile-label">{tile.label}</span>
           <span class="contact-tile-value">{tile.value}</span>
         </span>
         <Icon name="arrow" size={16} class="arrow" />

@@ -1080,6 +1080,7 @@ body[data-hover='glow'] .project-card:hover {
   align-items: center;
   gap: 1rem;
   padding: 1.4rem;
+  min-width: 0;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
@@ -1109,6 +1110,13 @@ body[data-hover='glow'] .project-card:hover {
   width: 22px;
   height: 22px;
 }
+.contact-tile-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
 .contact-tile-label {
   font-family: var(--font-mono);
   font-size: 0.74rem;
@@ -1119,9 +1127,12 @@ body[data-hover='glow'] .project-card:hover {
 .contact-tile-value {
   font-weight: 600;
   color: var(--text-1);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .contact-tile .arrow {
   margin-left: auto;
+  flex: none;
   width: 16px;
   height: 16px;
   color: var(--text-3);
