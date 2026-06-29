@@ -1,19 +1,19 @@
 {
-  "pl": {
-    "order": 2,
-    "year": "2020 - 2024",
-    "degree": "Inżynier",
-    "institution": "WSEI",
-    "desc": "Studia inżynierskie"
+  "order": 2,
+  "year": "2020 - 2024",
+  "degree": {
+    "pl": "Inżynier",
+    "en": "Engineer's degree",
+    "uk": "Інженер"
   },
-  "en": {
-    "degree": "Inżynier",
-    "institution": "WSEI",
-    "desc": "Studia inżynierskie"
+  "institution": {
+    "pl": "WSEI",
+    "en": "WSEI",
+    "uk": "WSEI"
   },
-  "uk": {
-    "degree": "Inżynier",
-    "institution": "WSEI",
-    "desc": "Studia inżynierskie"
+  "desc": {
+    "pl": "Studia inżynierskie",
+    "en": "Engineering studies",
+    "uk": "Інженерна освіта"
   }
 }
