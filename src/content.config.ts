@@ -32,6 +32,55 @@ const base = z.object({
   placeholder: z.boolean().default(false),
 });
 
+/* ---------------------- defensive shape normalization -------------------
+   Sveltia's i18n can write an entry as a per-locale RECORD instead of our
+   per-field shape, e.g. { pl: { year, degree, … }, en: { degree, … } }.
+   normalizeRecord() flattens that to per-field { year, degree: {pl,en,uk}, … }:
+   a key present in only one locale stays a plain value (non-localized fields
+   like order/year), a key present in several becomes a { pl, en, uk } object.
+   Per-field entries (the normal shape) pass through untouched. */
+const LOCALE_KEYS = ['pl', 'en', 'uk'];
+
+function isLocaleRecord(raw: unknown): raw is Record<string, Record<string, unknown>> {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return false;
+  const keys = Object.keys(raw);
+  if (keys.length === 0) return false;
+  return (
+    keys.every((k) => LOCALE_KEYS.includes(k)) &&
+    keys.some((k) => {
+      const v = (raw as Record<string, unknown>)[k];
+      return v != null && typeof v === 'object';
+    })
+  );
+}
+
+function normalizeRecord(raw: unknown): unknown {
+  if (!isLocaleRecord(raw)) return raw;
+  const present = LOCALE_KEYS.filter((l) => raw[l] && typeof raw[l] === 'object');
+  const fieldKeys = new Set<string>();
+  for (const l of present) for (const k of Object.keys(raw[l])) fieldKeys.add(k);
+
+  const out: Record<string, unknown> = {};
+  for (const k of fieldKeys) {
+    const withVal = present.filter((l) => {
+      const v = raw[l][k];
+      return v !== undefined && v !== null && v !== '';
+    });
+    if (withVal.length <= 1) {
+      const src = present.find((l) => raw[l][k] !== undefined) ?? present[0];
+      out[k] = raw[src][k]; // non-localized / single-language → plain value
+    } else {
+      const obj: Record<string, unknown> = {};
+      for (const l of withVal) obj[l] = raw[l][k];
+      out[k] = obj; // translated → { pl, en, uk }
+    }
+  }
+  return out;
+}
+
+/** Wrap a collection schema so per-locale-record entries are flattened first. */
+const tolerant = <T extends z.ZodTypeAny>(schema: T) => z.preprocess(normalizeRecord, schema);
+
 /* Singleton files store one flat object (what Sveltia writes). Wrap it as a
    single entry keyed by `id` so getEntry(collection, id) resolves it. */
 const single = (id: string) => ({
@@ -102,7 +151,7 @@ const contact = defineCollection({
 /* ------------------------------ collections ----------------------------- */
 const projects = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/projects' }),
-  schema: base.extend({
+  schema: tolerant(base.extend({
     title: i18nStr,
     year: z.string(),
     role: i18nStr,
@@ -112,12 +161,12 @@ const projects = defineCollection({
     cover: z.string(),
     gallery: z.array(z.string()).default([]),
     highlights: i18nArr,
-  }),
+  })),
 });
 
 const experience = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/experience' }),
-  schema: base.extend({
+  schema: tolerant(base.extend({
     company: z.string(),
     logo: z.string().optional(),
     initials: z.string(),
@@ -131,37 +180,37 @@ const experience = defineCollection({
     shortDesc: i18nStr,
     fullDesc: i18nStr,
     achievements: i18nArr,
-  }),
+  })),
 });
 
 const education = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/education' }),
-  schema: base.extend({
+  schema: tolerant(base.extend({
     year: z.string(),
     degree: i18nStr,
     institution: i18nStr,
     desc: i18nStr,
-  }),
+  })),
 });
 
 const certs = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/certs' }),
-  schema: base.extend({
+  schema: tolerant(base.extend({
     name: z.string(),
     year: z.string(),
-  }),
+  })),
 });
 
 const tech = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/tech' }),
-  schema: base.extend({
+  schema: tolerant(base.extend({
     name: z.string(),
     color: z.string().default('#6366f1'),
     fg: z.string().default('#ffffff'),
     abbr: z.string(),
     category: z.enum(['backend', 'frontend', 'database', 'tools']),
     logo: z.string().nullable().optional(),
-  }),
+  })),
 });
 
 export const collections = {
