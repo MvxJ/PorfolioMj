@@ -14,16 +14,17 @@ const logo = data?.logo ?? null;
 const abbr = data?.abbr ?? name.slice(0, 2);
 const color = data?.color ?? '#6366f1';
 const fg = data?.fg ?? '#ffffff';
+const alt = data?.alt?.trim() || name;
 ---
 {
   logo ? (
-    <span class={`tech-ico tech-ico--logo ${className}`} title={name}>
-      <img src={logo} alt={`${name} logo`} loading="lazy" decoding="async" />
+    <span class={`tech-ico tech-ico--logo ${className}`} title={alt}>
+      <img src={logo} alt={alt} loading="lazy" decoding="async" />
     </span>
   ) : (
     <span
       class={`tech-ico ${className}`}
-      title={name}
+      title={alt}
       style={`background:${color};color:${fg};`}
     >
       {abbr}

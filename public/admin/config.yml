@@ -308,4 +308,5 @@ collections:
       - { label: "Monogram (2 litery)", name: abbr, widget: string }
       - { label: "Kategoria", name: category, widget: select, options: [backend, frontend, database, tools] }
       - { label: "Logo", name: logo, widget: image, required: false }
+      - { label: "Tekst alternatywny (alt)", name: alt, widget: string, required: false, hint: "Wyświetlany po najechaniu myszką i odczytywany przez czytniki ekranu. Domyślnie nazwa technologii." }
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }

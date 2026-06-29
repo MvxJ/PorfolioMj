@@ -207,6 +207,7 @@ const tech = defineCollection({
     abbr: z.string(),
     category: z.enum(['backend', 'frontend', 'database', 'tools']),
     logo: z.string().nullable().optional(),
+    alt: z.string().optional(),
   })),
 });
 
