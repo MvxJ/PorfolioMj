@@ -19,7 +19,7 @@ const appearance = await getAppearance();
 const useTilt = appearance.animations && appearance.hoverEffect === 'tilt';
 ---
 <BaseSection id="featured" pad="lg" labelledby="featured-title">
-  <div class="section-head">
+  <div class="section-head" style="text-align:center;">
     <p class="eyebrow aos">{t('sections.featuredEyebrow')}</p>
     <h2 class="section-title aos" id="featured-title">{t('sections.featuredTitle')}</h2>
   </div>
@@ -36,7 +36,7 @@ const useTilt = appearance.animations && appearance.hoverEffect === 'tilt';
       </div>
     ))}
   </div>
-  <div style="margin-top:2.5rem;" class="aos">
+  <div style="margin-top:2.5rem; text-align:center;" class="aos">
     <Button href={localizedPath(locale, 'projects')} variant="secondary">{t('actions.viewAll')}</Button>
   </div>
 </BaseSection>

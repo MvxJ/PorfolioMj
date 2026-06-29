@@ -368,6 +368,8 @@
 .hero-inner {
   max-width: 1040px;
   width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 .hero-greeting {
   font-family: var(--font-mono);
@@ -398,13 +400,14 @@
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   color: var(--text-2);
   max-width: 800px;
-  margin-bottom: 2.2rem;
+  margin: 0 auto 2.2rem;
   min-height: 1.5em;
 }
 .hero-ctas {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 .scroll-indicator {
   position: absolute;
