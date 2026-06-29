@@ -78,9 +78,6 @@ function normalizeRecord(raw: unknown): unknown {
   return out;
 }
 
-/** Wrap a collection schema so per-locale-record entries are flattened first. */
-const tolerant = <T extends z.ZodTypeAny>(schema: T) => z.preprocess(normalizeRecord, schema);
-
 /* Singleton files store one flat object (what Sveltia writes). Wrap it as a
    single entry keyed by `id` so getEntry(collection, id) resolves it. */
 const single = (id: string) => ({
@@ -151,7 +148,7 @@ const contact = defineCollection({
 /* ------------------------------ collections ----------------------------- */
 const projects = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/projects' }),
-  schema: tolerant(base.extend({
+  schema: z.preprocess(normalizeRecord, base.extend({
     title: i18nStr,
     year: z.string(),
     role: i18nStr,
@@ -166,7 +163,7 @@ const projects = defineCollection({
 
 const experience = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/experience' }),
-  schema: tolerant(base.extend({
+  schema: z.preprocess(normalizeRecord, base.extend({
     company: z.string(),
     logo: z.string().optional(),
     initials: z.string(),
@@ -185,7 +182,7 @@ const experience = defineCollection({
 
 const education = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/education' }),
-  schema: tolerant(base.extend({
+  schema: z.preprocess(normalizeRecord, base.extend({
     year: z.string(),
     degree: i18nStr,
     institution: i18nStr,
@@ -195,7 +192,7 @@ const education = defineCollection({
 
 const certs = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/certs' }),
-  schema: tolerant(base.extend({
+  schema: z.preprocess(normalizeRecord, base.extend({
     name: z.string(),
     year: z.string(),
   })),
@@ -203,7 +200,7 @@ const certs = defineCollection({
 
 const tech = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/tech' }),
-  schema: tolerant(base.extend({
+  schema: z.preprocess(normalizeRecord, base.extend({
     name: z.string(),
     color: z.string().default('#6366f1'),
     fg: z.string().default('#ffffff'),
