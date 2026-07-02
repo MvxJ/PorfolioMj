@@ -19,7 +19,17 @@ const i18nStr = z.union([
   }),
 ]);
 const i18nArr = z.union([
+  // preferred CMS shape: a list where each item carries its own translations
+  z.array(
+    z.object({
+      pl: z.string().optional(),
+      en: z.string().optional(),
+      uk: z.string().optional(),
+    }),
+  ),
+  // plain, un-localized list of strings
   z.array(z.string()),
+  // legacy per-locale record of lists
   z.object({
     pl: z.array(z.string()).optional(),
     en: z.array(z.string()).optional(),

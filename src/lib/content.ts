@@ -84,12 +84,23 @@ export async function getTechByCategory() {
 }
 
 /* ----------------------------- localized arrays -------------------------
-   Tolerant of both a plain T[] and a { pl, en, uk } object of arrays. */
-export function localizeArr<T>(
-  field: T[] | { pl?: T[]; en?: T[]; uk?: T[] } | undefined | null,
-  locale: Locale,
-): T[] {
+   Tolerant of every shape the content can take:
+   1. a list of per-item translations — [{ pl, en, uk }, …] (current CMS shape)
+   2. a plain, un-localized list of strings — ["…", …]
+   3. a legacy per-locale record of lists — { pl: […], en: […], uk: […] }
+   Always returns the strings for `locale`, falling back per item to pl/en/uk. */
+type LocItem = { pl?: string; en?: string; uk?: string };
+type LocArr = string[] | LocItem[] | { pl?: string[]; en?: string[]; uk?: string[] };
+
+export function localizeArr(field: LocArr | undefined | null, locale: Locale): string[] {
   if (!field) return [];
-  if (Array.isArray(field)) return field;
+  if (Array.isArray(field)) {
+    return field
+      .map((item) => {
+        if (typeof item === 'string') return item;
+        return item[locale] ?? item.pl ?? item.en ?? item.uk ?? '';
+      })
+      .filter((v) => v !== '');
+  }
   return field[locale] ?? field.pl ?? field.en ?? field.uk ?? [];
 }

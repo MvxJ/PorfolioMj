@@ -191,16 +191,29 @@ collections:
           - { label: "English", name: en, widget: text, required: false }
           - { label: "Українська", name: uk, widget: text, required: false }
       - { label: "Akcent", name: accent, widget: color, default: "#6366f1" }
-      - { label: "Technologie", name: tech, widget: list, allow_add: true }
+      - label: "Technologie"
+        name: tech
+        widget: relation
+        collection: tech
+        search_fields: [name]
+        value_field: name
+        display_fields: [name]
+        multiple: true
+        required: false
+        hint: "Wybierz z listy technologii (kolekcja „Technologie”). Zacznij pisać, aby wyszukać."
       - { label: "Okładka", name: cover, widget: image }
       - { label: "Galeria", name: gallery, widget: list, field: { label: Obraz, name: image, widget: image } }
       - label: "Highlighty"
         name: highlights
-        widget: object
+        widget: list
+        required: false
+        label_singular: "Highlight"
+        summary: "{{fields.pl}}"
+        hint: "Każdy punkt tłumaczysz od razu na 3 języki. Angielski i ukraiński są opcjonalne — puste = fallback do polskiego."
         fields:
-          - { label: "Polski", name: pl, widget: list, field: { label: Punkt, name: item, widget: string } }
-          - { label: "English", name: en, widget: list, required: false, field: { label: Item, name: item, widget: string } }
-          - { label: "Українська", name: uk, widget: list, required: false, field: { label: Пункт, name: item, widget: string } }
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
 
   - name: experience
     label: "Doświadczenie"
@@ -220,7 +233,16 @@ collections:
       - { label: "Do (RRRR-MM, puste = obecnie)", name: to, widget: string, required: false }
       - { label: "Lokalizacja", name: location, widget: string }
       - { label: "Typ", name: type, widget: select, options: [fullTime, partTime, contract] }
-      - { label: "Technologie", name: tech, widget: list, allow_add: true }
+      - label: "Technologie"
+        name: tech
+        widget: relation
+        collection: tech
+        search_fields: [name]
+        value_field: name
+        display_fields: [name]
+        multiple: true
+        required: false
+        hint: "Wybierz z listy technologii (kolekcja „Technologie”). Zacznij pisać, aby wyszukać."
       - label: "Stanowisko"
         name: position
         widget: object
@@ -244,11 +266,15 @@ collections:
           - { label: "Українська", name: uk, widget: text, required: false }
       - label: "Osiągnięcia"
         name: achievements
-        widget: object
+        widget: list
+        required: false
+        label_singular: "Osiągnięcie"
+        summary: "{{fields.pl}}"
+        hint: "Każdy punkt tłumaczysz od razu na 3 języki. Angielski i ukraiński są opcjonalne — puste = fallback do polskiego."
         fields:
-          - { label: "Polski", name: pl, widget: list, field: { label: Punkt, name: item, widget: string } }
-          - { label: "English", name: en, widget: list, required: false, field: { label: Item, name: item, widget: string } }
-          - { label: "Українська", name: uk, widget: list, required: false, field: { label: Пункт, name: item, widget: string } }
+          - { label: "Polski", name: pl, widget: string }
+          - { label: "English", name: en, widget: string, required: false }
+          - { label: "Українська", name: uk, widget: string, required: false }
 
   - name: education
     label: "Edukacja"
