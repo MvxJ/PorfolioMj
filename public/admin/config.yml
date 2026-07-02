@@ -165,6 +165,7 @@ collections:
     create: true
     format: json
     identifier_field: title
+    summary: "{{fields.title.pl}} ({{fields.year}})"
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
       - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
@@ -222,6 +223,7 @@ collections:
     create: true
     format: json
     identifier_field: company
+    summary: "{{fields.company}} | {{fields.position.pl}}"
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
       - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
@@ -282,6 +284,7 @@ collections:
     folder: "src/content/education"
     create: true
     format: json
+    summary: "{{fields.desc.pl}} | {{fields.institution.pl}}"
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
       - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
@@ -314,6 +317,8 @@ collections:
     folder: "src/content/certs"
     create: true
     format: json
+    identifier_field: name
+    summary: "{{fields.name}} ({{fields.year}})"
     fields:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
       - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
