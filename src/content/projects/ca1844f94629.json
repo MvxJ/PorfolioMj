@@ -1,0 +1,32 @@
+{
+  "order": 0,
+  "placeholder": false,
+  "title": {
+    "pl": "Strona Przedszkola",
+    "en": "Strona Przedszkola",
+    "uk": "Strona Przedszkola"
+  },
+  "year": "2021",
+  "url": "https://www.przedszkolemagnificat.pl/",
+  "role": {
+    "pl": "Fullstack Developer",
+    "en": "Fullstack Developer",
+    "uk": "Fullstack Developer"
+  },
+  "desc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "accent": "#fff700",
+  "tech": [
+    "JavaScript",
+    "jQuery"
+  ],
+  "cover": "/assets/images/uploads/pasted-image-1783878647045.png",
+  "gallery": [
+    "/assets/images/uploads/pasted-image-1783878674767.png",
+    "/assets/images/uploads/pasted-image-1783878692923.png"
+  ],
+  "highlights": []
+}
