@@ -1,0 +1,21 @@
+{
+  "order": 1,
+  "placeholder": false,
+  "year": "2020 - 2024",
+  "logo": "/assets/images/uploads/wsei-logo.png",
+  "degree": {
+    "pl": "Inżynier",
+    "en": "Inżynier",
+    "uk": "Inżynier"
+  },
+  "institution": {
+    "pl": "WSEI",
+    "en": "WSEI",
+    "uk": "WSEI"
+  },
+  "desc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  }
+}
