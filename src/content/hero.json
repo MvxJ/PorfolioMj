@@ -5,9 +5,9 @@
     "uk": "Привіт 👋"
   },
   "role": {
-    "pl": "Senior Software Engineer | Lead Backend Developer 👨‍💻",
-    "en": "Senior Software Engineer | Lead Backend Developer 👨‍💻",
-    "uk": "Senior Software Engineer | Lead Backend Developer 👨‍💻"
+    "pl": "Senior Software Engineer | Lead Backend Developer",
+    "en": "Senior Software Engineer | Lead Backend Developer",
+    "uk": "Senior Software Engineer | Lead Backend Developer"
   },
   "tagline": {
     "pl": "Projektuję i buduję solidne systemy backendowe oraz API. Łączę PHP i Symfony z Pythonem i FastAPI, by dostarczać wydajne, skalowalne i utrzymywalne rozwiązania.",
@@ -15,13 +15,13 @@
     "uk": "Проєктую та створюю надійні бекенд-системи та API. Поєдную PHP і Symfony з Python та FastAPI, щоб постачати швидкі, масштабовані й підтримувані рішення."
   },
   "ctaProjects": {
-    "pl": "Zobacz moje projekty 🚀",
-    "en": "View my projects 🚀",
-    "uk": "Переглянути проєкти 🚀"
+    "pl": "Zobacz moje projekty",
+    "en": "View my projects",
+    "uk": "Переглянути проєкти"
   },
   "ctaContact": {
-    "pl": "Skontaktuj się ze mną 📲",
-    "en": "Get in touch 📲",
-    "uk": "Зв'язатися 📲"
+    "pl": "Skontaktuj się ze mną",
+    "en": "Get in touch",
+    "uk": "Зв'язатися"
   }
 }
