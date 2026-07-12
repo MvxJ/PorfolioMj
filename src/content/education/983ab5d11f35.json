@@ -1,0 +1,20 @@
+{
+  "order": 0,
+  "placeholder": false,
+  "year": "2024 - 2025",
+  "degree": {
+    "pl": "Magister",
+    "en": "Magister",
+    "uk": "Magister"
+  },
+  "institution": {
+    "pl": "WSEI",
+    "en": "WSEI",
+    "uk": "WSEI"
+  },
+  "desc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  }
+}

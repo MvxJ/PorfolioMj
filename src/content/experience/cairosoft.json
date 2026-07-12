@@ -1,0 +1,41 @@
+{
+  "order": 3,
+  "placeholder": false,
+  "company": "CairoSoft",
+  "logo": "/assets/images/uploads/cairosoft.jpg",
+  "initials": "CairoSoft",
+  "color": "#ff0000",
+  "from": "2023-01",
+  "to": "2024-01",
+  "location": "Olsztyn (Remote)",
+  "type": "fullTime",
+  "tech": [
+    "PHP",
+    "jQuery",
+    "JavaScript",
+    "Git",
+    "Linux",
+    "Symfony",
+    "Docker",
+    "MySQL",
+    "Vue",
+    "REST API",
+    "GraphQL"
+  ],
+  "position": {
+    "pl": "PHP Developer",
+    "en": "PHP Developer",
+    "uk": "PHP Developer"
+  },
+  "shortDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "fullDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "achievements": []
+}

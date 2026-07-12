@@ -1,0 +1,40 @@
+{
+  "order": 1,
+  "placeholder": false,
+  "company": "Crehler",
+  "logo": "/assets/images/uploads/crehler-logo.svg",
+  "initials": "Crehler",
+  "color": "#ff7300",
+  "from": "2024-07",
+  "to": "",
+  "location": "Remote",
+  "type": "contract",
+  "tech": [
+    "MySQL",
+    "PHP",
+    "Symfony",
+    "Docker",
+    "Redis",
+    "JavaScript",
+    "Vue",
+    "Linux",
+    "Git",
+    "CI/CD"
+  ],
+  "position": {
+    "pl": "Backend Developer | Lead Backend Developer",
+    "en": "Backend Developer | Lead Backend Developer",
+    "uk": "Backend Developer | Lead Backend Developer"
+  },
+  "shortDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "fullDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "achievements": []
+}

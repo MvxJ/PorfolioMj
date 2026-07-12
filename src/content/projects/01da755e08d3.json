@@ -1,0 +1,27 @@
+{
+  "order": 0,
+  "placeholder": true,
+  "title": {
+    "pl": "Strona Parafialna",
+    "en": "Parish Website",
+    "uk": "Parish Website"
+  },
+  "year": "2023 - 2026",
+  "role": {
+    "pl": "Fullstack Developer",
+    "en": "Fullstack Developer",
+    "uk": "Fullstack Developer"
+  },
+  "desc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "accent": "#315026",
+  "tech": [],
+  "cover": "/assets/images/uploads/pasted-image-1783876643090.png",
+  "gallery": [
+    "/assets/images/uploads/pasted-image-1783876677324.png"
+  ],
+  "highlights": []
+}

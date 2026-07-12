@@ -1,0 +1,35 @@
+{
+  "order": 0,
+  "placeholder": false,
+  "company": "ActiveCampaign",
+  "logo": "/assets/images/uploads/ActiveCampaign.jpeg",
+  "initials": "AC",
+  "color": "#9a75f0",
+  "from": "2024-06",
+  "to": "",
+  "location": "Kraków",
+  "type": "fullTime",
+  "tech": [
+    "MySQL",
+    "GraphQL",
+    "PHP",
+    "JavaScript",
+    "Vue"
+  ],
+  "position": {
+    "pl": "Senior Software Engineer",
+    "en": "Senior Software Engineer",
+    "uk": "Senior Software Engineer"
+  },
+  "shortDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "fullDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "achievements": []
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Playwright",
+  "color": "#11ff00",
+  "fg": "#ffffff",
+  "abbr": "PW",
+  "category": "tools",
+  "logo": "/assets/images/uploads/PW.png",
+  "alt": "Playwright tests",
+  "order": 0
+}
