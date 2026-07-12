@@ -1,0 +1,10 @@
+{
+  "name": "WordPress",
+  "color": "#107ef4",
+  "fg": "#ffffff",
+  "abbr": "WP",
+  "category": "backend",
+  "logo": "/assets/images/uploads/wp-logo.png",
+  "alt": "Wordpress logo",
+  "order": 0
+}
