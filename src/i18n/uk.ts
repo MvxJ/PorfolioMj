@@ -20,6 +20,8 @@ const uk: Dict = {
     showDetails: 'Показати деталі',
     hideDetails: 'Сховати деталі',
     scrollTop: 'Догори',
+    downloadCert: 'Завантажити сертифікат',
+    visitSite: 'Відвідати сайт',
   },
   sections: {
     techEyebrow: 'Технології',

@@ -10,6 +10,7 @@ import BaseSection from '../BaseSection.astro';
 import Icon from '../primitives/Icon.astro';
 import TechIcon from '../primitives/TechIcon.astro';
 import Badge from '../primitives/Badge.astro';
+import Button from '../primitives/Button.astro';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -35,6 +36,19 @@ const highlights = localizeArr(d.highlights, locale);
     </div>
     <h1 class="detail-title">{title}</h1>
     <p class="detail-role">{role}</p>
+    {d.url && (
+      <div class="detail-actions">
+        <Button
+          href={d.url}
+          variant="primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          ariaLabel={`${t('actions.visitSite')}: ${title}`}
+        >
+          {t('actions.visitSite')}
+        </Button>
+      </div>
+    )}
   </div>
 
   <div class="detail-hero">

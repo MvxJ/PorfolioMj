@@ -20,6 +20,8 @@ const en: Dict = {
     showDetails: 'Show details',
     hideDetails: 'Hide details',
     scrollTop: 'Back to top',
+    downloadCert: 'Download certificate',
+    visitSite: 'Visit site',
   },
   sections: {
     techEyebrow: 'Tech stack',

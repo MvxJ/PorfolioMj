@@ -18,6 +18,8 @@ const pl = {
     showDetails: 'Pokaż szczegóły',
     hideDetails: 'Ukryj szczegóły',
     scrollTop: 'Do góry',
+    downloadCert: 'Pobierz certyfikat',
+    visitSite: 'Odwiedź stronę',
   },
   sections: {
     techEyebrow: 'Stos technologiczny',

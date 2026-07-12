@@ -27,7 +27,20 @@ const certs = await getCerts();
         {education.map((entry) => (
           <div class="edu-item">
             <p class="edu-year">{entry.data.year}</p>
-            <h3 class="edu-degree">{localize(entry.data.degree, locale)}</h3>
+            <div class="edu-head">
+              {entry.data.logo && (
+                <img
+                  class="edu-logo"
+                  src={entry.data.logo}
+                  alt={localize(entry.data.institution, locale)}
+                  loading="lazy"
+                  decoding="async"
+                  width="48"
+                  height="48"
+                />
+              )}
+              <h3 class="edu-degree">{localize(entry.data.degree, locale)}</h3>
+            </div>
             <p class="edu-inst">{localize(entry.data.institution, locale)}</p>
             <p class="edu-desc">{localize(entry.data.desc, locale)}</p>
           </div>
@@ -42,6 +55,19 @@ const certs = await getCerts();
           <div class="cert-item">
             <Icon name="star" size={20} />
             <span class="cert-name">{cert.data.name}</span>
+            {cert.data.file && (
+              <a
+                class="cert-download"
+                href={cert.data.file}
+                target="_blank"
+                rel="noopener"
+                download
+                aria-label={`${t('actions.downloadCert')}: ${cert.data.name}`}
+              >
+                <Icon name="arrow" size={14} />
+                <span>PDF</span>
+              </a>
+            )}
             <span class="cert-year">{cert.data.year}</span>
           </div>
         ))}

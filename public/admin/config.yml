@@ -177,6 +177,7 @@ collections:
           - { label: "English", name: en, widget: string, required: false }
           - { label: "Українська", name: uk, widget: string, required: false }
       - { label: "Rok", name: year, widget: string }
+      - { label: "Link do projektu (URL)", name: url, widget: string, required: false, hint: "Adres działającego projektu / demo. Jeśli podany, na stronie projektu pojawi się przycisk „Odwiedź stronę”." }
       - label: "Rola"
         name: role
         widget: object
@@ -289,6 +290,7 @@ collections:
       - { label: "Kolejność", name: order, widget: number, default: 0, value_type: int }
       - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
       - { label: "Rok", name: year, widget: string }
+      - { label: "Logo Uczelni", name: logo, widget: image, required: false }
       - label: "Tytuł / stopień"
         name: degree
         widget: object
@@ -324,6 +326,7 @@ collections:
       - { label: "Placeholder (ukryj na produkcji)", name: placeholder, widget: boolean, default: false, required: false }
       - { label: "Nazwa", name: name, widget: string }
       - { label: "Rok", name: year, widget: string }
+      - { label: "Plik PDF (potwierdzenie)", name: file, widget: file, required: false, media_library: { config: { max_file_size: 10485760 } }, hint: "Dokument PDF potwierdzający umiejętności. Widoczny na froncie jako link do pobrania." }
 
   - name: tech
     label: "Technologie"

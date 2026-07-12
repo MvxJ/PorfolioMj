@@ -161,6 +161,7 @@ const projects = defineCollection({
   schema: z.preprocess(normalizeRecord, base.extend({
     title: i18nStr,
     year: z.string(),
+    url: z.string().optional(),
     role: i18nStr,
     desc: i18nStr,
     accent: z.string().default('#6366f1'),
@@ -194,6 +195,7 @@ const education = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/content/education' }),
   schema: z.preprocess(normalizeRecord, base.extend({
     year: z.string(),
+    logo: z.string().optional(),
     degree: i18nStr,
     institution: i18nStr,
     desc: i18nStr,
@@ -205,6 +207,7 @@ const certs = defineCollection({
   schema: z.preprocess(normalizeRecord, base.extend({
     name: z.string(),
     year: z.string(),
+    file: z.string().optional(),
   })),
 });
 

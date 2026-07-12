@@ -724,9 +724,25 @@ body[data-hover='glow'] .project-card:hover {
   color: var(--accent);
   font-weight: 600;
 }
+.edu-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0.25rem 0;
+}
+.edu-logo {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 4px;
+}
 .edu-degree {
   font-size: 1.15rem;
-  margin: 0.25rem 0;
+  margin: 0;
 }
 .edu-inst {
   color: var(--text-2);
@@ -758,11 +774,30 @@ body[data-hover='glow'] .project-card:hover {
   flex: none;
 }
 .cert-name {
+  flex: 1;
   font-weight: 600;
   font-size: 0.95rem;
 }
+.cert-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent-soft);
+  border-radius: 999px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.cert-download:hover,
+.cert-download:focus-visible {
+  background: var(--accent);
+  color: #fff;
+}
 .cert-year {
-  margin-left: auto;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--text-3);
@@ -988,6 +1023,9 @@ body[data-hover='glow'] .project-card:hover {
   color: var(--accent);
   font-weight: 600;
   margin-top: 0.5rem;
+}
+.detail-actions {
+  margin-top: 1.5rem;
 }
 .detail-hero {
   border-radius: var(--radius-card);
