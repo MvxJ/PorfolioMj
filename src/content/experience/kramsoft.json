@@ -13,7 +13,9 @@
     "PHP",
     "Docker",
     "MySQL",
-    "CI/CD"
+    "CI/CD",
+    "Cypress",
+    "React"
   ],
   "position": {
     "pl": "Mid PHP Developer",
