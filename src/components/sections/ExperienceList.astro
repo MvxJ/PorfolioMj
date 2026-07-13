@@ -5,6 +5,7 @@ import type { Locale } from '../../i18n';
 import { useT, localize } from '../../i18n';
 import { getExperience, getTech, localizeArr } from '../../lib/content';
 import { fmtDate } from '../../lib/dates';
+import { marked } from 'marked';
 import BaseSection from '../BaseSection.astro';
 import ExperienceAccordion from '../islands/ExperienceAccordion.tsx';
 import type { ExpItem, TechMeta } from '../islands/ExperienceAccordion.tsx';
@@ -29,6 +30,10 @@ for (const entry of tech) {
 const resolveTech = (name: string): TechMeta =>
   techMap.get(name.toLowerCase()) ?? { name, logo: null, color: '#6366f1', fg: '#ffffff' };
 
+// fullDesc is authored in the CMS WYSIWYG (markdown) — render it to HTML here
+// (build-time, server-side; not shipped to the client). Owner-authored content.
+const renderMd = (md: string) => (md ? (marked.parse(md, { async: false }) as string) : '');
+
 const items: ExpItem[] = roles.map((r) => {
   const d = r.data;
   const isPresent = !d.to;
@@ -43,7 +48,7 @@ const items: ExpItem[] = roles.map((r) => {
     typeLabel: t(`experience.${d.type}`),
     isPresent,
     position: localize(d.position, locale) ?? '',
-    fullDesc: localize(d.fullDesc, locale) ?? '',
+    fullDescHtml: renderMd(localize(d.fullDesc, locale) ?? ''),
     achievements: localizeArr(d.achievements, locale),
     tech: d.tech.map(resolveTech),
   };

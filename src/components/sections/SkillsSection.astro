@@ -23,7 +23,10 @@ const groups = (await getTechByCategory()).filter((g) => g.items.length > 0);
   <div class="skills-grid">
     {groups.map((group) => (
       <div class="skill-card aos">
-        <h3 class="skill-card-title">{t(`skills.${group.category}`)}</h3>
+        <h3 class="skill-card-title">
+          <span>{t(`skills.${group.category}`)}</span>
+          <span class="skill-card-count">{group.items.length}</span>
+        </h3>
         <div class="skill-card-chips">
           {group.items.map((item) => (
             <span class="tech-chip">

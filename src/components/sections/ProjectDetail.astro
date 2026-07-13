@@ -67,27 +67,28 @@ const lightboxImages = [
     </div>
 
     <aside class="detail-aside">
-      <h3>{t('projects.technologies')}</h3>
-      <div>
-        {d.tech.map((name) => (
-          <span class="tech-chip">
-            <TechIcon name={name} />
-            {name}
-          </span>
-        ))}
+      <div class="detail-tech-box">
+        <h3>{t('projects.technologies')}</h3>
+        <div>
+          {d.tech.map((name) => (
+            <span class="tech-chip">
+              <TechIcon name={name} />
+              {name}
+            </span>
+          ))}
+        </div>
       </div>
       {d.url && (
-        <div class="detail-actions">
-          <Button
-            href={d.url}
-            variant="primary"
-            target="_blank"
-            rel="noopener noreferrer"
-            ariaLabel={`${t('actions.visitSite')}: ${title}`}
-          >
-            {t('actions.visitSite')}
-          </Button>
-        </div>
+        <Button
+          href={d.url}
+          variant="primary"
+          class="detail-visit"
+          target="_blank"
+          rel="noopener noreferrer"
+          ariaLabel={`${t('actions.visitSite')}: ${title}`}
+        >
+          {t('actions.visitSite')}
+        </Button>
       )}
     </aside>
   </div>

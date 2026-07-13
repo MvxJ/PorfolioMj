@@ -113,76 +113,55 @@
   height: 18px;
 }
 
-/* theme toggle switch */
+/* theme toggle switch — pill track with a sliding knob that carries the icon */
 .theme-switch {
-  display: inline-flex;
-  align-items: center;
-  padding: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.theme-switch-track {
   position: relative;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 52px;
-  height: 28px;
-  padding: 0 6px;
+  width: 58px;
+  height: 30px;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--bg-card);
+  background: var(--bg-alt);
+  cursor: pointer;
   transition:
     border-color var(--tr),
     background var(--tr);
 }
-.theme-switch:hover .theme-switch-track {
+.theme-switch:hover {
   border-color: var(--border-s);
 }
 .theme-switch:focus-visible {
-  outline: none;
-}
-.theme-switch:focus-visible .theme-switch-track {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-.theme-switch-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transition: color var(--tr);
-}
-/* light/minimal active → knob is under the sun (left) */
-.theme-switch-icon--sun {
-  color: #fff;
-}
-.theme-switch-icon--moon {
-  color: var(--text-3);
-}
-/* dark active → knob slides under the moon (right) */
-.theme-switch[aria-checked='true'] .theme-switch-icon--sun {
-  color: var(--text-3);
-}
-.theme-switch[aria-checked='true'] .theme-switch-icon--moon {
-  color: #fff;
 }
 .theme-switch-knob {
   position: absolute;
   top: 50%;
   left: 3px;
-  z-index: 0;
-  width: 22px;
-  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background: var(--accent);
-  transform: translate(0, -50%);
-  transition: transform var(--tr);
+  background: var(--bg-card);
+  color: #f5a623; /* sun — warm amber */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transform: translateY(-50%);
+}
+/* only animate the slide AFTER mount (avoids a flip on every navigation) */
+.theme-switch.is-ready .theme-switch-knob {
+  transition:
+    transform var(--tr),
+    color var(--tr),
+    background var(--tr);
 }
 .theme-switch[aria-checked='true'] .theme-switch-knob {
-  transform: translate(24px, -50%);
+  transform: translate(28px, -50%);
+  color: var(--text-1); /* moon */
+  background: var(--bg-alt);
 }
 
 /* mobile slide-down menu */
@@ -743,27 +722,56 @@ body[data-hover='glow'] .project-card:hover {
 /* ================================ SKILLS =============================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.4rem;
+  /* size each card to its own content — no stretching to the tallest sibling */
+  align-items: start;
 }
 .skill-card {
+  display: flex;
+  flex-direction: column;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
-  padding: 1.5rem;
+  padding: 1.4rem;
   box-shadow: var(--sh-sm);
+  transition:
+    border-color var(--tr),
+    box-shadow var(--tr),
+    transform var(--tr);
+}
+.skill-card:hover {
+  border-color: var(--border-s);
+  box-shadow: var(--sh-md);
+  transform: translateY(-2px);
 }
 .skill-card-title {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
   font-weight: 700;
-  margin-bottom: 1.1rem;
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.skill-card-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.72rem;
+  letter-spacing: 0;
 }
 .skill-card-chips {
   display: flex;
@@ -871,6 +879,13 @@ body[data-hover='glow'] .project-card:hover {
   border: 1px solid var(--accent-soft);
   border-radius: 999px;
   transition: background 0.18s ease, color 0.18s ease;
+}
+/* the download glyph must follow the link's color (accent → white on hover),
+   not the star's forced `.cert-item .icon` accent, or it vanishes on hover */
+.cert-download .icon {
+  width: 14px;
+  height: 14px;
+  color: inherit;
 }
 .cert-download:hover,
 .cert-download:focus-visible {
@@ -1024,6 +1039,35 @@ body[data-hover='glow'] .project-card:hover {
   color: var(--text-2);
   margin-bottom: 1.15rem;
 }
+/* rendered WYSIWYG (markdown) content */
+.exp-full > :first-child { margin-top: 0; }
+.exp-full > :last-child { margin-bottom: 0; }
+.exp-full p { margin: 0 0 0.75rem; }
+.exp-full ul,
+.exp-full ol {
+  margin: 0 0 0.85rem;
+  padding-left: 1.25rem;
+}
+.exp-full li { margin: 0.2rem 0; }
+.exp-full a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.exp-full strong { color: var(--text-1); font-weight: 600; }
+.exp-full code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--bg-alt);
+  padding: 0.1em 0.4em;
+  border-radius: 5px;
+}
+.exp-full blockquote {
+  margin: 0 0 0.85rem;
+  padding-left: 0.9rem;
+  border-left: 3px solid var(--accent-soft);
+  color: var(--text-3);
+}
 .exp-section-h {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -1155,13 +1199,18 @@ body[data-hover='glow'] .project-card:hover {
 .detail-aside {
   position: sticky;
   top: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.detail-tech-box {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-card);
   padding: 1.5rem;
   box-shadow: var(--sh-sm);
 }
-.detail-aside h3 {
+.detail-tech-box h3 {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.1em;
@@ -1169,8 +1218,12 @@ body[data-hover='glow'] .project-card:hover {
   color: var(--text-3);
   margin-bottom: 1rem;
 }
-.detail-aside .tech-chip {
+.detail-tech-box .tech-chip {
   margin: 0 0.4rem 0.4rem 0;
+}
+.detail-visit {
+  width: 100%;
+  justify-content: center;
 }
 .gallery {
   display: grid;

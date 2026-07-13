@@ -20,7 +20,8 @@ export interface ExpItem {
   typeLabel: string;
   isPresent: boolean;
   position: string;
-  fullDesc: string;
+  /** HTML rendered from the CMS WYSIWYG (markdown) at build time. */
+  fullDescHtml: string;
   achievements: string[];
   tech: TechMeta[];
 }
@@ -101,7 +102,12 @@ export default function ExperienceAccordion({ items, labels }: Props) {
                     ))}
                   </div>
                 )}
-                <p className="exp-full">{item.fullDesc}</p>
+                {item.fullDescHtml && (
+                  <div
+                    className="exp-full"
+                    dangerouslySetInnerHTML={{ __html: item.fullDescHtml }}
+                  />
+                )}
                 {item.achievements.length > 0 && (
                   <>
                     <h4 className="exp-section-h">{labels.keyAchievements}</h4>

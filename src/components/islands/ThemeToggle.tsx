@@ -1,5 +1,8 @@
-/* ThemeToggle.tsx — flips minimal⇄dark with a View Transitions circular wipe
-   (clip-path ripple fallback for Safari/Firefox). Persists to localStorage.theme. */
+/* ThemeToggle.tsx — pill switch that flips minimal⇄dark with a View Transitions
+   circular wipe (clip-path ripple fallback for Safari/Firefox). Reads the theme
+   already applied to <body> by the pre-paint script in BaseLayout, so it renders
+   in the correct position with NO animation on load (transitions are enabled one
+   frame after mount). Persists to localStorage.theme. */
 import { useEffect, useRef, useState } from 'react';
 import { SunIcon, MoonIcon } from './icons';
 
@@ -11,11 +14,16 @@ interface Props {
 
 export default function ThemeToggle({ label = 'Toggle theme' }: Props) {
   const [theme, setTheme] = useState<Theme>('minimal');
+  // Gates the CSS transition — off until one frame after mount so syncing the
+  // knob to the persisted theme doesn't animate on every page navigation.
+  const [ready, setReady] = useState(false);
   const btnRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const current = (document.body.dataset.theme as Theme) || 'minimal';
     setTheme(current);
+    const id = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(id);
   }, []);
 
   function applyTheme(next: Theme) {
@@ -61,17 +69,15 @@ export default function ThemeToggle({ label = 'Toggle theme' }: Props) {
     <button
       ref={btnRef}
       type="button"
-      className="theme-switch"
+      className={`theme-switch ${ready ? 'is-ready' : ''}`.trim()}
       onClick={toggle}
       role="switch"
       aria-checked={isDark}
       aria-label={label}
       title={label}
     >
-      <span className="theme-switch-track">
-        <span className="theme-switch-icon theme-switch-icon--sun"><SunIcon size={13} /></span>
-        <span className="theme-switch-icon theme-switch-icon--moon"><MoonIcon size={12} /></span>
-        <span className="theme-switch-knob" />
+      <span className="theme-switch-knob">
+        {isDark ? <MoonIcon size={13} /> : <SunIcon size={14} />}
       </span>
     </button>
   );

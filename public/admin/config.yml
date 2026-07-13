@@ -272,10 +272,11 @@ collections:
       - label: "Opis pełny"
         name: fullDesc
         widget: object
+        hint: "Edytor wizualny (WYSIWYG) — możesz formatować tekst, dodawać listy, pogrubienia, emoji itp."
         fields:
-          - { label: "Polski", name: pl, widget: text }
-          - { label: "English", name: en, widget: text, required: false }
-          - { label: "Українська", name: uk, widget: text, required: false }
+          - { label: "Polski", name: pl, widget: markdown, buttons: [bold, italic, link, bulleted-list, numbered-list, quote, code], editor_components: [] }
+          - { label: "English", name: en, widget: markdown, required: false, buttons: [bold, italic, link, bulleted-list, numbered-list, quote, code], editor_components: [] }
+          - { label: "Українська", name: uk, widget: markdown, required: false, buttons: [bold, italic, link, bulleted-list, numbered-list, quote, code], editor_components: [] }
       - label: "Osiągnięcia"
         name: achievements
         widget: list
