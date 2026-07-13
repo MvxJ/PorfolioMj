@@ -1,0 +1,10 @@
+{
+  "name": "Cypress",
+  "color": "#4fb38d",
+  "fg": "#ffffff",
+  "abbr": "CY",
+  "category": "tools",
+  "logo": "/assets/images/uploads/cypress-logo.png",
+  "alt": "Cypress logo",
+  "order": 0
+}
