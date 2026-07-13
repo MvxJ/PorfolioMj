@@ -7,6 +7,7 @@
     "uk": "Parish Website"
   },
   "year": "2023 - 2026",
+  "url": "https://www.franciszek-zabierzow.pl/",
   "role": {
     "pl": "Fullstack Developer",
     "en": "Fullstack Developer",
@@ -18,7 +19,15 @@
     "uk": "..."
   },
   "accent": "#315026",
-  "tech": [],
+  "tech": [
+    "MySQL",
+    "PHP",
+    "jQuery",
+    "JavaScript",
+    "Git",
+    "CI/CD",
+    "WordPress"
+  ],
   "cover": "/assets/images/uploads/pasted-image-1783876643090.png",
   "gallery": [
     "/assets/images/uploads/pasted-image-1783876677324.png"

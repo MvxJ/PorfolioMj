@@ -1,0 +1,21 @@
+{
+  "order": 2,
+  "placeholder": false,
+  "year": "2016 - 2020",
+  "logo": "/assets/images/uploads/zse-krakow.png",
+  "degree": {
+    "pl": "Technik Informatyk",
+    "en": "Technik Informatyk",
+    "uk": "Technik Informatyk"
+  },
+  "institution": {
+    "pl": "Zespół Szkół Energetycznych | Akademia Loretańska",
+    "en": "Zespół Szkół Energetycznych | Akademia Loretańska",
+    "uk": "Zespół Szkół Energetycznych | Akademia Loretańska"
+  },
+  "desc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  }
+}

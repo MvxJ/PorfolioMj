@@ -1,0 +1,41 @@
+{
+  "order": 4,
+  "placeholder": false,
+  "company": "Virtua",
+  "logo": "/assets/images/uploads/virtua.png",
+  "initials": "Virtua",
+  "color": "#ff7b00",
+  "from": "2021-03",
+  "to": "2022-12",
+  "location": "Kraków",
+  "type": "fullTime",
+  "tech": [
+    "PHP",
+    "MySQL",
+    "Vue",
+    "Linux",
+    "Docker",
+    "Git",
+    "JavaScript",
+    "Symfony",
+    "Shopware",
+    "Windows",
+    "jQuery"
+  ],
+  "position": {
+    "pl": "PHP Junior Developer",
+    "en": "PHP Junior Developer",
+    "uk": "PHP Junior Developer"
+  },
+  "shortDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "fullDesc": {
+    "pl": "...",
+    "en": "...",
+    "uk": "..."
+  },
+  "achievements": []
+}

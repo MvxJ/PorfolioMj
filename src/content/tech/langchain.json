@@ -1,0 +1,10 @@
+{
+  "name": "LangChain",
+  "color": "#1c1c1c",
+  "fg": "#ffffff",
+  "abbr": "LC",
+  "category": "backend",
+  "logo": "/assets/images/uploads/lang-chain.webp",
+  "alt": "LangChain logo",
+  "order": 0
+}

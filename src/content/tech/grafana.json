@@ -1,0 +1,10 @@
+{
+  "name": "Grafana",
+  "color": "#f7841f",
+  "fg": "#ffffff",
+  "abbr": "GR",
+  "category": "tools",
+  "logo": "/assets/images/uploads/grafana-logo.jpeg",
+  "alt": "Grafana logo",
+  "order": 0
+}

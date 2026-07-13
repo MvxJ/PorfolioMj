@@ -1,12 +1,12 @@
 {
-  "order": 0,
+  "order": 1,
   "placeholder": false,
-  "year": "2024 - 2025",
+  "year": "2020 - 2024",
   "logo": "/assets/images/uploads/wsei-logo.png",
   "degree": {
-    "pl": "Magister",
-    "en": "Magister",
-    "uk": "Magister"
+    "pl": "Inżynier",
+    "en": "Inżynier",
+    "uk": "Inżynier"
   },
   "institution": {
     "pl": "WSEI",
