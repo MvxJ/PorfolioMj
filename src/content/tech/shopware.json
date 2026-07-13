@@ -1,0 +1,10 @@
+{
+  "name": "Shopware",
+  "color": "#189eff",
+  "fg": "#ffffff",
+  "abbr": "SW",
+  "category": "backend",
+  "logo": "/assets/images/uploads/shopware.png",
+  "alt": "Shopware logo",
+  "order": 0
+}
