@@ -3,15 +3,18 @@
   "locationValue": "Kraków",
   "stats": [
     {
+      "source": "manual",
       "value": "6+",
       "label": "Doświadczenie"
     },
     {
-      "value": "1+",
+      "source": "projects",
+      "value": "",
       "label": "Projekty"
     },
     {
-      "value": "20+",
+      "source": "tech",
+      "value": "",
       "label": "Technologie"
     }
   ]

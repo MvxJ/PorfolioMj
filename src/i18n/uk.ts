@@ -81,6 +81,10 @@ const uk: Dict = {
     toggleTheme: 'Змінити тему',
     changeLanguage: 'Змінити мову',
     viewProject: 'Переглянути проєкт',
+    openGallery: 'Збільшити зображення',
+    close: 'Закрити',
+    prev: 'Попереднє зображення',
+    next: 'Наступне зображення',
   },
 };
 

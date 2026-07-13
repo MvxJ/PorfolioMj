@@ -61,13 +61,18 @@ export default function ThemeToggle({ label = 'Toggle theme' }: Props) {
     <button
       ref={btnRef}
       type="button"
-      className="icon-btn"
+      className="theme-switch"
       onClick={toggle}
+      role="switch"
+      aria-checked={isDark}
       aria-label={label}
-      aria-pressed={isDark}
       title={label}
     >
-      {isDark ? <SunIcon /> : <MoonIcon />}
+      <span className="theme-switch-track">
+        <span className="theme-switch-icon theme-switch-icon--sun"><SunIcon size={13} /></span>
+        <span className="theme-switch-icon theme-switch-icon--moon"><MoonIcon size={12} /></span>
+        <span className="theme-switch-knob" />
+      </span>
     </button>
   );
 }

@@ -79,6 +79,10 @@ const pl = {
     toggleTheme: 'Przełącz motyw',
     changeLanguage: 'Zmień język',
     viewProject: 'Zobacz projekt',
+    openGallery: 'Powiększ zdjęcie',
+    close: 'Zamknij',
+    prev: 'Poprzednie zdjęcie',
+    next: 'Następne zdjęcie',
   },
 };
 

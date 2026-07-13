@@ -136,7 +136,16 @@ collections:
             name: stats
             widget: list
             fields:
-              - { label: "Wartość", name: value, widget: string }
+              - label: "Źródło wartości"
+                name: source
+                widget: select
+                default: manual
+                hint: "„Ręczna” = wpisujesz wartość poniżej. „Projekty” / „Technologie” = liczba jest liczona automatycznie z odpowiedniej kolekcji (pole „Wartość” ignorowane)."
+                options:
+                  - { label: "Ręczna", value: manual }
+                  - { label: "Liczba projektów", value: projects }
+                  - { label: "Liczba technologii", value: tech }
+              - { label: "Wartość", name: value, widget: string, required: false, hint: "Używane tylko gdy źródło = „Ręczna”." }
               - label: "Etykieta"
                 name: label
                 widget: object

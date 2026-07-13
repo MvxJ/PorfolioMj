@@ -60,11 +60,11 @@ const certs = await getCerts();
                 class="cert-download"
                 href={cert.data.file}
                 target="_blank"
-                rel="noopener"
-                download
+                rel="noopener noreferrer"
                 aria-label={`${t('actions.downloadCert')}: ${cert.data.name}`}
+                title={t('actions.downloadCert')}
               >
-                <Icon name="arrow" size={14} />
+                <Icon name="download" size={14} />
                 <span>PDF</span>
               </a>
             )}

@@ -81,6 +81,10 @@ const en: Dict = {
     toggleTheme: 'Toggle theme',
     changeLanguage: 'Change language',
     viewProject: 'View project',
+    openGallery: 'Enlarge image',
+    close: 'Close',
+    prev: 'Previous image',
+    next: 'Next image',
   },
 };
 

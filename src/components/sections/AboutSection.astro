@@ -2,7 +2,7 @@
 /* AboutSection.astro — photo (placeholder or CMS photo), bio, location, 3 stats. */
 import type { Locale } from '../../i18n';
 import { useT, localize } from '../../i18n';
-import { getAbout, getAppearance } from '../../lib/content';
+import { getAbout, getAppearance, getProjects, getTech } from '../../lib/content';
 import BaseSection from '../BaseSection.astro';
 import Icon from '../primitives/Icon.astro';
 import CountUp from '../islands/CountUp.tsx';
@@ -17,9 +17,20 @@ const appearance = await getAppearance();
 
 const bio = localize(about?.bio, locale) ?? '';
 const location = localize(about?.locationValue, locale) ?? '';
-const stats = about?.stats ?? [];
 const photo = about?.photo;
 const countUp = appearance.animations && appearance.animStyle !== 'subtle';
+
+// Stats flagged `projects`/`tech` are counted live from their collections;
+// `manual` keeps the CMS-entered value. Suffix a "+" so live counts read as "6+".
+const [projectCount, techCount] = await Promise.all([
+  getProjects().then((p) => p.length),
+  getTech().then((tch) => tch.length),
+]);
+const stats = (about?.stats ?? []).map((s) => {
+  if (s.source === 'projects') return { ...s, value: `${projectCount}+` };
+  if (s.source === 'tech') return { ...s, value: `${techCount}+` };
+  return s;
+});
 
 const paragraphs = bio.split('\n\n').filter(Boolean);
 ---

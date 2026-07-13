@@ -144,7 +144,16 @@ const about = defineCollection({
     bio: i18nStr,
     locationValue: i18nStr,
     photo: z.string().optional(),
-    stats: z.array(z.object({ value: z.string(), label: i18nStr })).default([]),
+    stats: z
+      .array(
+        z.object({
+          // Dynamic stats compute their value from a collection count; manual uses `value`.
+          source: z.enum(['manual', 'projects', 'tech']).default('manual'),
+          value: z.string().default(''),
+          label: i18nStr,
+        }),
+      )
+      .default([]),
   }),
 });
 

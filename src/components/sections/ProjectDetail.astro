@@ -11,6 +11,7 @@ import Icon from '../primitives/Icon.astro';
 import TechIcon from '../primitives/TechIcon.astro';
 import Badge from '../primitives/Badge.astro';
 import Button from '../primitives/Button.astro';
+import Lightbox from '../islands/Lightbox.tsx';
 
 interface Props {
   project: CollectionEntry<'projects'>;
@@ -23,6 +24,12 @@ const title = localize(d.title, locale) ?? '';
 const role = localize(d.role, locale) ?? '';
 const desc = localize(d.desc, locale) ?? '';
 const highlights = localizeArr(d.highlights, locale);
+
+// Cover + gallery form one navigable set for the lightbox (index 0 = cover).
+const lightboxImages = [
+  { src: d.cover, alt: title },
+  ...d.gallery.map((src, i) => ({ src, alt: `${title} — ${i + 1}` })),
+];
 ---
 <BaseSection pad="xl" class="project-detail" style={`--accent:${d.accent}`}>
   <a class="detail-back" href={localizedPath(locale, 'projects')}>
@@ -36,23 +43,12 @@ const highlights = localizeArr(d.highlights, locale);
     </div>
     <h1 class="detail-title">{title}</h1>
     <p class="detail-role">{role}</p>
-    {d.url && (
-      <div class="detail-actions">
-        <Button
-          href={d.url}
-          variant="primary"
-          target="_blank"
-          rel="noopener noreferrer"
-          ariaLabel={`${t('actions.visitSite')}: ${title}`}
-        >
-          {t('actions.visitSite')}
-        </Button>
-      </div>
-    )}
   </div>
 
   <div class="detail-hero">
-    <img src={d.cover} alt={title} width="1280" height="720" decoding="async" />
+    <button type="button" class="lightbox-trigger" data-lightbox="0" aria-label={t('a11y.openGallery')}>
+      <img src={d.cover} alt={title} width="1280" height="720" decoding="async" />
+    </button>
   </div>
 
   <div class="detail-grid">
@@ -80,6 +76,19 @@ const highlights = localizeArr(d.highlights, locale);
           </span>
         ))}
       </div>
+      {d.url && (
+        <div class="detail-actions">
+          <Button
+            href={d.url}
+            variant="primary"
+            target="_blank"
+            rel="noopener noreferrer"
+            ariaLabel={`${t('actions.visitSite')}: ${title}`}
+          >
+            {t('actions.visitSite')}
+          </Button>
+        </div>
+      )}
     </aside>
   </div>
 
@@ -88,9 +97,13 @@ const highlights = localizeArr(d.highlights, locale);
       <h2 class="exp-section-label" style="margin-top:3rem;">{t('projects.gallery')}</h2>
       <div class="gallery">
         {d.gallery.map((src, i) => (
-          <img src={src} alt={`${title} — ${i + 1}`} loading="lazy" decoding="async" width="640" height="400" />
+          <button type="button" class="lightbox-trigger" data-lightbox={i + 1} aria-label={t('a11y.openGallery')}>
+            <img src={src} alt={`${title} — ${i + 1}`} loading="lazy" decoding="async" width="640" height="400" />
+          </button>
         ))}
       </div>
     </>
   )}
+
+  <Lightbox client:load images={lightboxImages} closeLabel={t('a11y.close')} prevLabel={t('a11y.prev')} nextLabel={t('a11y.next')} />
 </BaseSection>
