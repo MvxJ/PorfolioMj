@@ -1,0 +1,10 @@
+{
+  "name": "Windows",
+  "color": "#000000",
+  "fg": "#ffffff",
+  "abbr": "WD",
+  "category": "tools",
+  "logo": "/assets/images/uploads/windows-logo.png",
+  "alt": "Windows logo",
+  "order": 0
+}
