@@ -1,10 +1,11 @@
 {
   "bio": "Test",
   "locationValue": "Kraków",
+  "photo": "/assets/images/uploads/profesional_02.png",
   "stats": [
     {
       "source": "manual",
-      "value": "6+",
+      "value": "6+ lat",
       "label": "Doświadczenie"
     },
     {
