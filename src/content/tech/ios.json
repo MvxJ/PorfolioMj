@@ -1,0 +1,10 @@
+{
+  "name": "IOS",
+  "color": "#ffffff",
+  "fg": "#000000",
+  "abbr": "IOS",
+  "category": "tools",
+  "logo": "/assets/images/uploads/apple logo.svg",
+  "alt": "IOS logo",
+  "order": 0
+}
