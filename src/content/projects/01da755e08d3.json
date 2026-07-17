@@ -9,14 +9,14 @@
   "year": "2023 - 2026",
   "url": "https://www.franciszek-zabierzow.pl/",
   "role": {
-    "pl": "Fullstack Developer",
-    "en": "Fullstack Developer",
-    "uk": "Fullstack Developer"
+    "pl": "Twórca, Web Developer i Administrator (Sole Developer)",
+    "en": "Sole Developer",
+    "uk": "Sole Developer"
   },
   "desc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "Strona internetowa Parafii pw. św. Franciszka z Asyżu w Zabierzowie to projekt, który stworzyłem od podstaw w 2023 roku i od tamtej pory rozwijam jako jedyny developer i administrator. Witryna powstała z myślą o ułatwieniu parafianom dostępu do aktualnych informacji i dzięki ścisłej współpracy z proboszczem, szybko przekształciła się z prostej strony informacyjnej w nowoczesny, dynamiczny serwis. W ramach opieki nad projektem (opartym na CMS WordPress) odpowiadam za pełen cykl życia oprogramowania: od projektowania i wdrażania nowych funkcji (takich jak moduły dostępności A11y, dynamiczne kalendarze Mszy czy zaawansowana wyszukiwarka), przez audyty bezpieczeństwa i aktualizacje, aż po bieżące zarządzanie treścią i publikację wpisów.",
+    "en": "The website of the St. Francis of Assisi Parish in Zabierzów is a project I created from scratch in 2023 and have been developing ever since as the sole developer and administrator. The site was created to make it easier for parishioners to access up-to-date information, and thanks to close cooperation with the parish priest, it quickly transformed from a simple informational page into a modern, dynamic platform. As part of maintaining the project (based on WordPress CMS), I am responsible for the full software development lifecycle: from designing and implementing new features (such as A11y accessibility modules, dynamic Mass calendars, and an advanced search engine), through security audits and updates, to ongoing content management and publishing posts.",
+    "uk": "Вебсайт парафії св. Франциска Ассізького у Забежові – це проєкт, який я створив з нуля у 2023 році і з того часу розвиваю як єдиний розробник та адміністратор. Сайт був створений, щоб полегшити парафіянам доступ до актуальної інформації, і завдяки тісній співпраці з настоятелем він швидко перетворився з простої інформаційної сторінки на сучасну динамічну платформу. У рамках підтримки проєкту (на базі WordPress CMS) я відповідаю за повний життєвий цикл розробки програмного забезпечення: від проєктування та впровадження нових функцій (таких як модулі доступності A11y, динамічні календарі Мес та розширена система пошуку), через аудити безпеки й оновлення, до поточного управління контентом та публікації записів."
   },
   "accent": "#315026",
   "tech": [
