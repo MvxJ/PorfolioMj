@@ -118,8 +118,8 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  width: 58px;
-  height: 30px;
+  width: 62px;
+  height: 40px; /* match .lang-btn / .icon-btn control height */
   padding: 0;
   border-radius: 999px;
   border: 1px solid var(--border);
@@ -139,12 +139,12 @@
 .theme-switch-knob {
   position: absolute;
   top: 50%;
-  left: 3px;
+  left: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background: var(--bg-card);
   color: #f5a623; /* sun — warm amber */
@@ -159,7 +159,7 @@
     background var(--tr);
 }
 .theme-switch[aria-checked='true'] .theme-switch-knob {
-  transform: translate(28px, -50%);
+  transform: translate(22px, -50%);
   color: var(--text-1); /* moon */
   background: var(--bg-alt);
 }
