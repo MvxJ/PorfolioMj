@@ -5,17 +5,17 @@
   "logo": "/assets/images/uploads/wsei-logo.png",
   "degree": {
     "pl": "Magister",
-    "en": "Magister",
-    "uk": "Magister"
+    "en": "Master's Degree",
+    "uk": "Магістр"
   },
   "institution": {
-    "pl": "WSEI",
-    "en": "WSEI",
-    "uk": "WSEI"
+    "pl": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie | WSEI",
+    "en": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie | WSEI",
+    "uk": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie | WSEI"
   },
   "desc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "Informatyka stosowana – cyfrowa transformacja biznesu",
+    "en": "Applied Computer Science – Digital Business Transformation",
+    "uk": "Прикладна інформатика – цифрова трансформація бізнесу"
   }
 }
