@@ -2,26 +2,39 @@
   "order": 0,
   "placeholder": false,
   "title": {
-    "pl": "Strona Przedszkola",
-    "en": "Strona Przedszkola",
-    "uk": "Strona Przedszkola"
+    "pl": "Oficjalna strona internetowa Prywatnego Przedszkola „Magnificat”",
+    "en": "Official website of the \"Magnificat\" Private Kindergarten",
+    "uk": "Офіційний вебсайт приватного дитячого садка «Magnificat»"
   },
   "year": "2021",
   "url": "https://www.przedszkolemagnificat.pl/",
   "role": {
-    "pl": "Fullstack Developer",
-    "en": "Fullstack Developer",
-    "uk": "Fullstack Developer"
+    "pl": "Web Developer / Website Administrator",
+    "en": "Web Developer / Website Administrator",
+    "uk": "Web Developer / Website Administrator"
   },
   "desc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "Kompleksowa realizacja, rozwój oraz stałe utrzymanie oficjalnej wizytówki internetowej niepublicznego przedszkola „Magnificat” w Bolechowicach. Celem projektu było stworzenie przejrzystego i przyjaznego dla użytkownika serwisu, który pełni funkcję głównego centrum informacyjnego dla obecnych oraz przyszłych rodziców wychowanków. Jako twórca i administrator witryny odpowiadam za jej stabilne działanie, wdrażanie nowych funkcjonalności oraz ciągłe zarządzanie treścią. Dzięki mojej pracy strona stanowi płynny kanał komunikacji między placówką a rodzicami, ułatwiając m.in. procesy rekrutacyjne i obieg dokumentów.",
+    "en": "Comprehensive implementation, development, and ongoing maintenance of the official website for the \"Magnificat\" private kindergarten in Bolechowice. The goal of the project was to create a clear and user-friendly platform serving as the main information hub for current and prospective parents. As the creator and administrator of the website, I am responsible for its stable operation, implementation of new functionalities, and continuous content management. Thanks to my work, the website provides a seamless communication channel between the institution and parents, facilitating, among other things, recruitment processes and document",
+    "uk": "Комплексна реалізація, розвиток та постійна підтримка офіційного сайту-візитки приватного дитячого садка «Magnificat» у Болеховіцах. Метою проєкту було створення зрозумілого та зручного для користувачів сервісу, який виконує функцію головного інформаційного центру для нинішніх та майбутніх батьків вихованців. Як творець та адміністратор сайту, я відповідаю за його стабільну роботу, впровадження нового функціоналу та постійне управління контентом. Завдяки моїй роботі сайт є безперебійним каналом комунікації між закладом та батьками, що полегшує, зокрема, процеси набору та документообіг."
   },
   "accent": "#f1a459",
   "tech": [
     "JavaScript",
-    "jQuery"
+    "jQuery",
+    "Bootstrap",
+    "Bootstrap",
+    "Bootstrap",
+    "Bootstrap",
+    "Bootstrap",
+    "Bootstrap",
+    "Bootstrap",
+    "Playwright",
+    "Pydantic",
+    "Pydantic",
+    "Bootstrap",
+    "Symfony",
+    "Symfony"
   ],
   "cover": "/assets/images/uploads/pasted-image-1783878647045.png",
   "gallery": [
