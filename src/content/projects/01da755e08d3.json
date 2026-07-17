@@ -61,6 +61,21 @@
       "pl": "Style SCSS budowane podczas deploymentu",
       "en": "SCSS styles built during deployment",
       "uk": "Стилі SCSS, що збираються під час розгортання"
+    },
+    {
+      "pl": "Implementacja trybu ciemnego/jasnego oraz wersji o wysokim kontraście, wspierająca starszych i niedowidzących użytkowników.",
+      "en": "Digital accessibility (A11y): Implementation of dark/light modes and a high-contrast version, supporting elderly and visually impaired users.",
+      "uk": "Цифрова доступність (A11y): Впровадження темного/світлого режимів та версії з високим контрастом для підтримки літніх людей та користувачів із вадами зору."
+    },
+    {
+      "pl": "Dynamiczne moduły czasowe: Zautomatyzowane sekcje informujące o najbliższej Mszy Świętej (z uwzględnieniem okresów wakacyjnych) oraz o najbliższym otwarciu kancelarii.",
+      "en": "Dynamic time modules: Automated sections providing information about the upcoming Holy Mass (including holiday schedules) and the next opening of the parish office.",
+      "uk": "Динамічні часові модулі: Автоматизовані розділи, що інформують про найближчу Святу Месу (з урахуванням літніх розкладів) та найближче відкриття парафіяльної канцелярії."
+    },
+    {
+      "pl": "Zaawansowana struktura danych: Przejrzysty podział na intencje, ogłoszenia, kalendarz wydarzeń i sekcje dla kilkunastu grup parafialnych.",
+      "en": "Advanced data structure: Clear division into Mass intentions, announcements, event calendar, and dedicated sections for over a dozen parish groups.",
+      "uk": "Розширена структура даних: Чіткий поділ на інтенції, оголошення, календар подій та розділи для понад десятка парафіяльних груп."
     }
   ]
 }
