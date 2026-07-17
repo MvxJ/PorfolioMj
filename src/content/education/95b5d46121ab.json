@@ -5,17 +5,17 @@
   "logo": "/assets/images/uploads/wsei-logo.png",
   "degree": {
     "pl": "Inżynier",
-    "en": "Inżynier",
-    "uk": "Inżynier"
+    "en": "Engineer",
+    "uk": "Інженер"
   },
   "institution": {
-    "pl": "WSEI",
-    "en": "WSEI",
-    "uk": "WSEI"
+    "pl": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie | WSEI",
+    "en": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie | WSEI",
+    "uk": "Wyższa Szkoła Ekonomii i Informatyki w Krakowie | WSEI"
   },
   "desc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "Informatyka stosowana – programowanie aplikacji webowych",
+    "en": "Applied Computer Science – Web Application Programming",
+    "uk": "Прикладна інформатика – програмування веб-додатків"
   }
 }
