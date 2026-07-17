@@ -30,7 +30,37 @@
   ],
   "cover": "/assets/images/uploads/pasted-image-1783876643090.png",
   "gallery": [
-    "/assets/images/uploads/pasted-image-1783876677324.png"
+    "/assets/images/uploads/pasted-image-1783876677324.png",
+    "/assets/images/uploads/pasted-image-1784293840731.png",
+    "/assets/images/uploads/pasted-image-1784293856814.png",
+    "/assets/images/uploads/pasted-image-1784293883905.png",
+    "/assets/images/uploads/pasted-image-1784293917024.png"
   ],
-  "highlights": []
+  "highlights": [
+    {
+      "pl": "Strona główna z dynamicznie pojawiającymi się wyróżnionymi treściami",
+      "en": "Homepage with dynamically appearing featured content",
+      "uk": "Головна сторінка з динамічною появою виділеного контенту"
+    },
+    {
+      "pl": "Personalizowana wyszukiwarka treści na stronie",
+      "en": "Personalized on-site content search",
+      "uk": "Персоналізована система пошуку контенту на сайті"
+    },
+    {
+      "pl": "Nowe typy postów",
+      "en": "New post types",
+      "uk": "Нові типи записів"
+    },
+    {
+      "pl": "Dynamiczne personalizowane menu",
+      "en": "Dynamic personalized menu",
+      "uk": "Динамічне персоналізоване меню"
+    },
+    {
+      "pl": "Style SCSS budowane podczas deploymentu",
+      "en": "SCSS styles built during deployment",
+      "uk": "Стилі SCSS, що збираються під час розгортання"
+    }
+  ]
 }
