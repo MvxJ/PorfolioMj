@@ -5,8 +5,8 @@
   "logo": "/assets/images/uploads/zse-krakow.png",
   "degree": {
     "pl": "Technik Informatyk",
-    "en": "Technik Informatyk",
-    "uk": "Technik Informatyk"
+    "en": "IT Technician",
+    "uk": "Технік-інформатик"
   },
   "institution": {
     "pl": "Zespół Szkół Energetycznych | Akademia Loretańska",
@@ -14,8 +14,8 @@
     "uk": "Zespół Szkół Energetycznych | Akademia Loretańska"
   },
   "desc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "Solidne fundamenty z zakresu administracji systemami operacyjnymi, budowy i konfiguracji sieci komputerowych, zarządzania sieciowymi systemami operacyjnymi oraz podstaw programowania.",
+    "en": "Solid fundamentals in operating systems administration, building and configuring computer networks, managing network operating systems, and programming basics.",
+    "uk": "Міцні основи адміністрування операційних систем, побудови та налаштування комп'ютерних мереж, управління мережевими операційними системами, а також основи програмування."
   }
 }

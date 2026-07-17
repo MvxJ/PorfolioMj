@@ -1,0 +1,10 @@
+{
+  "name": "PostgresSQL",
+  "color": "#336791",
+  "fg": "#ffffff",
+  "abbr": "PQ",
+  "category": "database",
+  "logo": "/assets/images/uploads/postgressql.webp",
+  "alt": "PostgresSQL logo",
+  "order": 0
+}
