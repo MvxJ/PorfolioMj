@@ -1,22 +1,42 @@
 {
-  "bio": "Test",
-  "locationValue": "Kraków",
+  "bio": {
+    "pl": "Test",
+    "en": "Test",
+    "uk": "Test"
+  },
+  "locationValue": {
+    "pl": "Kraków",
+    "en": "Kraków",
+    "uk": "Краків"
+  },
   "photo": "/assets/images/uploads/profesional_02.png",
   "stats": [
     {
       "source": "manual",
       "value": "6+ lat",
-      "label": "Doświadczenie"
+      "label": {
+        "pl": "Doświadczenie",
+        "en": "Experience",
+        "uk": "Досвід"
+      }
     },
     {
       "source": "projects",
       "value": "",
-      "label": "Projekty"
+      "label": {
+        "pl": "Projekty",
+        "en": "Projects",
+        "uk": "Проєкти"
+      }
     },
     {
       "source": "tech",
       "value": "",
-      "label": "Technologie"
+      "label": {
+        "pl": "Technologie",
+        "en": "Technologies",
+        "uk": "Технології"
+      }
     }
   ]
 }

@@ -6,6 +6,7 @@ import { useT, localize } from '../../i18n';
 import { getContact, getSite } from '../../lib/content';
 import BaseSection from '../BaseSection.astro';
 import Icon from '../primitives/Icon.astro';
+import { marked } from 'marked';
 
 interface Props {
   locale: Locale;
@@ -14,7 +15,9 @@ const { locale } = Astro.props;
 const t = useT(locale);
 const contact = await getContact();
 const site = await getSite();
-const intro = localize(contact?.intro, locale) ?? '';
+// intro is authored in the CMS WYSIWYG (markdown) — render to HTML at build time.
+const introMd = localize(contact?.intro, locale) ?? '';
+const introHtml = introMd ? (marked.parse(introMd, { async: false }) as string) : '';
 
 type Tile = { label: string; value: string; href: string; icon: string };
 const tiles: Tile[] = [];
@@ -34,7 +37,7 @@ for (const s of site?.socials ?? []) {
     <h2 class="section-title aos" id="contact-title">{t('sections.contactTitle')}</h2>
   </div>
 
-  <p class="contact-intro aos">{intro}</p>
+  {introHtml && <div class="contact-intro aos" set:html={introHtml} />}
 
   <div class="contact-tiles">
     {tiles.map((tile) => (

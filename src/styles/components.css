@@ -458,10 +458,10 @@
 }
 .hero-tagline {
   font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.65;
   color: var(--text-2);
-  max-width: 800px;
+  max-width: 720px;
   margin: 0 auto 2.2rem;
-  min-height: 1.5em;
 }
 .hero-ctas {
   display: flex;
@@ -886,6 +886,7 @@ body[data-hover='glow'] .project-card:hover {
 }
 .cert-name {
   flex: 1;
+  font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1.4;
@@ -1367,10 +1368,31 @@ body[data-hover='glow'] .project-card:hover {
 
 /* =============================== CONTACT ============================== */
 .contact-intro {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  line-height: 1.65;
   color: var(--text-2);
-  max-width: 600px;
+  max-width: 640px;
   margin-bottom: 2.5rem;
+}
+/* rendered WYSIWYG (markdown) content — paragraphs, bullet/numbered lists */
+.contact-intro > :first-child { margin-top: 0; }
+.contact-intro > :last-child { margin-bottom: 0; }
+.contact-intro p { margin: 0 0 0.9rem; }
+.contact-intro ul,
+.contact-intro ol {
+  margin: 0 0 0.9rem;
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.contact-intro li { padding-left: 0.2rem; }
+.contact-intro li::marker { color: var(--accent); }
+.contact-intro strong { color: var(--text-1); font-weight: 600; }
+.contact-intro a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .contact-tiles {
   display: grid;
