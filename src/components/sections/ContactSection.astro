@@ -37,23 +37,25 @@ for (const s of site?.socials ?? []) {
     <h2 class="section-title aos" id="contact-title">{t('sections.contactTitle')}</h2>
   </div>
 
-  {introHtml && <div class="contact-intro aos" set:html={introHtml} />}
+  <div class="contact-layout">
+    {introHtml && <div class="contact-intro aos" set:html={introHtml} />}
 
-  <div class="contact-tiles">
-    {tiles.map((tile) => (
-      <a
-        class="contact-tile aos"
-        href={tile.href}
-        target={tile.href.startsWith('mailto:') ? undefined : '_blank'}
-        rel={tile.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-      >
-        <span class="contact-tile-icon"><Icon name={tile.icon} size={22} /></span>
-        <span class="contact-tile-body">
-          <span class="contact-tile-label">{tile.label}</span>
-          <span class="contact-tile-value">{tile.value}</span>
-        </span>
-        <Icon name="arrow" size={16} class="arrow" />
-      </a>
-    ))}
+    <div class="contact-tiles aos">
+      {tiles.map((tile) => (
+        <a
+          class="contact-tile"
+          href={tile.href}
+          target={tile.href.startsWith('mailto:') ? undefined : '_blank'}
+          rel={tile.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+        >
+          <span class="contact-tile-icon"><Icon name={tile.icon} size={22} /></span>
+          <span class="contact-tile-body">
+            <span class="contact-tile-label">{tile.label}</span>
+            <span class="contact-tile-value">{tile.value}</span>
+          </span>
+          <Icon name="arrow" size={16} class="arrow" />
+        </a>
+      ))}
+    </div>
   </div>
 </BaseSection>

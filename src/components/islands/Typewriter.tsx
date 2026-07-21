@@ -46,7 +46,8 @@ export default function Typewriter({ text, className = '', speed = 55, startDela
   return (
     <span className={className}>
       {shown}
-      {!done && <span className="cursor">|</span>}
+      {/* cursor stays after typing finishes and blinks at the end */}
+      <span className={`cursor ${done ? 'cursor--blink' : ''}`.trim()} aria-hidden="true">|</span>
     </span>
   );
 }

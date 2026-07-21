@@ -120,10 +120,11 @@ collections:
           - label: "Bio"
             name: bio
             widget: object
+            hint: "Edytor wizualny (WYSIWYG) — nagłówki (H1–H3), pogrubienia, listy, linki itp."
             fields:
-              - { label: "Polski", name: pl, widget: text }
-              - { label: "English", name: en, widget: text, required: false }
-              - { label: "Українська", name: uk, widget: text, required: false }
+              - { label: "Polski", name: pl, widget: markdown, buttons: [bold, italic, link, heading-one, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [] }
+              - { label: "English", name: en, widget: markdown, required: false, buttons: [bold, italic, link, heading-one, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [] }
+              - { label: "Українська", name: uk, widget: markdown, required: false, buttons: [bold, italic, link, heading-one, heading-two, heading-three, bulleted-list, numbered-list, quote], editor_components: [] }
           - label: "Lokalizacja"
             name: locationValue
             widget: object
