@@ -10,9 +10,9 @@
     "uk": "Senior Software Engineer | Lead Backend Developer"
   },
   "tagline": {
-    "pl": "Projektuję i buduję solidne systemy backendowe oraz API. Łączę PHP i Symfony z Pythonem i FastAPI, by dostarczać wydajne, skalowalne i utrzymywalne rozwiązania.",
-    "en": "I design and build robust backend systems and APIs. I pair PHP and Symfony with Python and FastAPI to ship fast, scalable and maintainable software.",
-    "uk": "Проєктую та створюю надійні бекенд-системи та API. Поєдную PHP і Symfony з Python та FastAPI, щоб постачати швидкі, масштабовані й підтримувані рішення."
+    "pl": "Specjalizuję się w tworzeniu systemów backendowych w środowiskach PHP i Python. Zajmuję się projektowaniem architektury, wdrażaniem rozwiązań opartych na AI (agenci, serwery MCP) oraz budową platform e-commerce opartych na Shopware. Dodatkowo tworzę aplikacje frontowe (SPA) i strony na WordPressie, odpowiadając za kod i kierunek techniczny projektów jako Lead Developer.",
+    "en": "I specialize in building backend systems using PHP and Python. I handle architecture design, the implementation of AI solutions (agents, MCP servers), and the development of e-commerce platforms based on Shopware. Additionally, I create frontend applications (SPA) and WordPress sites, taking responsibility for the code and technical direction of projects as a Lead Developer.",
+    "uk": "Я спеціалізуюся на створенні бекенд-систем на базі PHP та Python. Займаюся проєктуванням архітектури, впровадженням рішень на базі AI (агенти, MCP-сервери) та розробкою e-commerce платформ на Shopware. Крім того, я створюю фронтенд-додатки (SPA) та сайти на WordPress, відповідаючи за код і технічний напрямок проєктів як Lead Developer."
   },
   "ctaProjects": {
     "pl": "Zobacz moje projekty",
