@@ -27,7 +27,7 @@
   },
   "seo": {
     "defaultTitle": "Maksymilian Jachymczak | Senior Software Engineer",
-    "defaultDescription": "Projektuję i buduję solidne systemy backendowe oraz API. Łączę PHP i Symfony z Pythonem i FastAPI, by dostarczać wydajne, skalowalne i utrzymywalne rozwiązania.",
+    "defaultDescription": "I have been developing web applications for 6 years. My work involves creating backends (Symfony, FastAPI), integrating language models, developing e-commerce stores (Shopware), and building SPA business cards. I guide projects from technical analysis, through deployment, to ongoing maintenance.",
     "ogImage": "/assets/images/og-default.png"
   }
 }
