@@ -58,8 +58,8 @@ const names = LOCALE_NAMES;
     </nav>
 
     <div class="nav-actions">
-      <LangSwitcher client:idle current={locale} flags={flags} names={names} label={t('a11y.changeLanguage')} />
       <ThemeToggle client:load label={t('a11y.toggleTheme')} />
+      <LangSwitcher client:idle current={locale} flags={flags} names={names} label={t('a11y.changeLanguage')} />
       <button class="nav-toggle" id="nav-toggle" type="button" aria-label={t('a11y.openMenu')} aria-expanded="false" aria-controls="mobile-menu">
         <Icon name="hamburger" size={22} />
       </button>
