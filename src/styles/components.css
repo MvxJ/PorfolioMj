@@ -118,8 +118,8 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  width: 62px;
-  height: 40px; /* match .lang-btn / .icon-btn control height */
+  width: 54px;
+  height: 32px; /* match .lang-btn control height */
   padding: 0;
   border-radius: 999px;
   border: 1px solid var(--border);
@@ -139,12 +139,12 @@
 .theme-switch-knob {
   position: absolute;
   top: 50%;
-  left: 4px;
+  left: 3px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--bg-card);
   color: #f5a623; /* sun — warm amber */
@@ -160,6 +160,7 @@
 }
 .theme-switch[aria-checked='true'] .theme-switch-knob {
   transform: translate(22px, -50%);
+  /* knob 24px, track inner 52px, 3px inset both sides → 22px travel */
   color: var(--text-1); /* moon */
   background: var(--bg-alt);
 }
@@ -199,14 +200,14 @@
 .lang-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  height: 40px;
-  padding: 0 0.7rem;
-  border-radius: 9px;
+  gap: 0.35rem;
+  height: 32px;
+  padding: 0 0.55rem;
+  border-radius: 8px;
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-1);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   transition: border-color var(--tr);
 }
@@ -304,14 +305,13 @@
   box-shadow: 0 10px 28px var(--accent-strong);
 }
 .btn-secondary {
-  background: var(--bg-card);
+  background: transparent;
   color: var(--text-1);
   border-color: var(--border);
 }
 .btn-secondary:hover {
   border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-2px);
 }
 
 /* =========================== CHIPS / BADGES ============================== */
@@ -575,18 +575,35 @@
   padding: 1.3rem;
   flex: 1;
 }
+/* Fixed section heights so every card lines up regardless of content length —
+   short content just leaves the reserved space empty (no misaligned cards). */
 .project-card-title {
   font-size: 1.25rem;
+  line-height: 1.25;
+  min-height: 3.1rem; /* up to 2 lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .project-card-role {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--accent);
   font-weight: 600;
+  min-height: 1.1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .project-card-desc {
   color: var(--text-2);
   font-size: 0.92rem;
+  line-height: 1.5;
+  min-height: 4.15rem; /* 3 lines */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   line-clamp: 3;
@@ -596,8 +613,10 @@
 .project-card-tech {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   gap: 0.4rem;
   margin-top: 0.2rem;
+  min-height: 4.3rem; /* reserve 2 chip rows */
 }
 .project-link {
   display: inline-flex;
@@ -788,8 +807,8 @@ body[data-hover='glow'] .project-card:hover {
 }
 .edu-item {
   position: relative;
-  padding-left: 1.5rem;
-  padding-bottom: 1.8rem;
+  padding-left: 1.75rem;
+  padding-bottom: 2.4rem;
   border-left: 2px solid var(--border);
 }
 .edu-item:last-child {
@@ -799,7 +818,7 @@ body[data-hover='glow'] .project-card:hover {
   content: '';
   position: absolute;
   left: -7px;
-  top: 4px;
+  top: 3px;
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -815,31 +834,33 @@ body[data-hover='glow'] .project-card:hover {
 .edu-head {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin: 0.25rem 0;
+  gap: 0.75rem;
+  margin: 0.55rem 0 0.3rem;
 }
+/* logo fills its box — no backdrop/border/padding behind it */
 .edu-logo {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   flex: none;
-  object-fit: contain;
-  border-radius: 8px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 4px;
+  object-fit: cover;
+  border-radius: 9px;
 }
 .edu-degree {
   font-size: 1.15rem;
+  line-height: 1.2;
   margin: 0;
 }
 .edu-inst {
-  color: var(--text-2);
-  font-weight: 500;
+  color: var(--text-1);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-top: 0.1rem;
 }
 .edu-desc {
-  color: var(--text-3);
+  color: var(--text-2);
   font-size: 0.9rem;
-  margin-top: 0.35rem;
+  line-height: 1.55;
+  margin-top: 0.5rem;
 }
 .certs-list {
   display: flex;

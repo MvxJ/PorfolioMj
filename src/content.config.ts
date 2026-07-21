@@ -42,6 +42,27 @@ const base = z.object({
   placeholder: z.boolean().default(false),
 });
 
+/* Tech relations are a `multiple` relation widget in the CMS, which historically
+   lets the same option be picked more than once. Duplicates break the CMS entry
+   editor and render repeated chips on the site, so we defensively de-duplicate
+   here (case-insensitive, first occurrence wins) — the site is safe even if a
+   duplicate ever gets saved again. */
+const techList = z
+  .array(z.string())
+  .default([])
+  .transform((arr) => {
+    const seen = new Set<string>();
+    const out: string[] = [];
+    for (const raw of arr) {
+      const name = raw.trim();
+      const key = name.toLowerCase();
+      if (!name || seen.has(key)) continue;
+      seen.add(key);
+      out.push(name);
+    }
+    return out;
+  });
+
 /* ---------------------- defensive shape normalization -------------------
    Sveltia's i18n can write an entry as a per-locale RECORD instead of our
    per-field shape, e.g. { pl: { year, degree, … }, en: { degree, … } }.
@@ -174,7 +195,7 @@ const projects = defineCollection({
     role: i18nStr,
     desc: i18nStr,
     accent: z.string().default('#6366f1'),
-    tech: z.array(z.string()).default([]),
+    tech: techList,
     cover: z.string(),
     gallery: z.array(z.string()).default([]),
     highlights: i18nArr,
@@ -192,7 +213,7 @@ const experience = defineCollection({
     to: z.string().nullable().optional(),
     location: z.string(),
     type: z.enum(['fullTime', 'partTime', 'contract']),
-    tech: z.array(z.string()).default([]),
+    tech: techList,
     position: i18nStr,
     shortDesc: i18nStr,
     fullDesc: i18nStr,

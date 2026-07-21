@@ -46,7 +46,11 @@ const techItems = await Promise.all(
     <h3 class="project-card-title"><a href={href}>{title}</a></h3>
     <p class="project-card-role">{role}</p>
     <p class="project-card-desc">{desc}</p>
-    {techItems.length > 0 && <TechChips client:visible items={techItems} />}
+    {techItems.length > 0 ? (
+      <TechChips client:visible items={techItems} />
+    ) : (
+      <div class="project-card-tech" aria-hidden="true"></div>
+    )}
     <a class="project-link" href={href} aria-label={`${t('actions.viewDetails')}: ${title}`}>
       <span>{t('actions.viewDetails')}</span>
       <Icon name="arrow" size={15} />
