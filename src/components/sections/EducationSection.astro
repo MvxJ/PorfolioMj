@@ -22,7 +22,7 @@ const certs = await getCerts();
 
   <div class="edu-grid">
     <div class="edu-col aos">
-      <p class="exp-section-label">{t('education.education')}</p>
+      <h3 class="edu-col-title">{t('education.education')}</h3>
       <div class="edu-list">
         {education.map((entry) => (
           <div class="edu-item">
@@ -49,7 +49,7 @@ const certs = await getCerts();
     </div>
 
     <div class="cert-col aos">
-      <p class="exp-section-label">{t('education.certifications')}</p>
+      <h3 class="edu-col-title">{t('education.certifications')}</h3>
       <div class="certs-list">
         {certs.map((cert) => (
           <div class="cert-item">

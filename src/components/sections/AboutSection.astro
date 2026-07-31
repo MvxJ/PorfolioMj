@@ -1,5 +1,5 @@
 ---
-/* AboutSection.astro — photo (placeholder or CMS photo), bio, location, 3 stats. */
+/* AboutSection.astro — photo (placeholder or CMS photo), bio, 3 stats. */
 import type { Locale } from '../../i18n';
 import { useT, localize } from '../../i18n';
 import { getAbout, getAppearance, getProjects, getTech } from '../../lib/content';
@@ -19,7 +19,6 @@ const appearance = await getAppearance();
 // bio is authored in the CMS WYSIWYG (markdown) — render to HTML at build time.
 const bioMd = localize(about?.bio, locale) ?? '';
 const bioHtml = bioMd ? (marked.parse(bioMd, { async: false }) as string) : '';
-const location = localize(about?.locationValue, locale) ?? '';
 const photo = about?.photo;
 const countUp = appearance.animations && appearance.animStyle !== 'subtle';
 
@@ -50,13 +49,6 @@ const stats = (about?.stats ?? []).map((s) => {
           <Icon name="person" size="45%" class="placeholder" />
         )}
       </div>
-
-      {location && (
-        <p class="about-location">
-          <Icon name="pin" size={16} />
-          <span>{location}</span>
-        </p>
-      )}
 
       <div class="stats">
         {stats.map((s) => (
