@@ -23,14 +23,14 @@
     "uk": "Mid PHP Developer"
   },
   "shortDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W Kramsoft jako Mid PHP Developer rozwijałem i utrzymywałem aplikacje webowe w PHP, dbając o jakość kodu dzięki testom automatycznym i procesom CI/CD.",
+    "en": "At Kramsoft, as a Mid PHP Developer, I developed and maintained web applications in PHP, ensuring code quality through automated testing and CI/CD processes.",
+    "uk": "У Kramsoft на посаді Mid PHP Developer я розробляв і підтримував вебзастосунки на PHP, дбаючи про якість коду завдяки автоматизованим тестам і процесам CI/CD."
   },
   "fullDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W Kramsoft pracowałem jako Mid PHP Developer przy rozwoju aplikacji webowych. Odpowiadałem za implementację nowych funkcjonalności po stronie backendu (PHP, MySQL) oraz współtworzyłem interfejsy użytkownika w React.\n\nDużą wagę przykładałem do jakości i stabilności dostarczanego oprogramowania — pisałem testy automatyczne w Cypress, pracowałem w środowiskach opartych na Dockerze i rozwijałem pipeline’y CI/CD, które usprawniały proces wdrażania zmian.",
+    "en": "At Kramsoft, I worked as a Mid PHP Developer on web application development. I was responsible for implementing new backend features (PHP, MySQL) and co-created user interfaces in React.\n\nI placed strong emphasis on the quality and stability of the delivered software — I wrote automated tests in Cypress, worked in Dockerized environments, and improved CI/CD pipelines that streamlined the deployment process.",
+    "uk": "У Kramsoft я працював на посаді Mid PHP Developer над розробкою вебзастосунків. Відповідав за впровадження нових функцій на бекенді (PHP, MySQL) та брав участь у створенні користувацьких інтерфейсів на React.\n\nВелику увагу приділяв якості та стабільності програмного забезпечення — писав автоматизовані тести в Cypress, працював у середовищах на базі Docker і вдосконалював CI/CD-пайплайни, які спрощували процес розгортання змін."
   },
   "achievements": []
 }

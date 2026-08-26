@@ -35,14 +35,14 @@
     "uk": "Senior Software Engineer"
   },
   "shortDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W ActiveCampaign rozwijam globalną platformę marketing automation, z której korzystają dziesiątki tysięcy firm na całym świecie. Jako Senior Software Engineer łączę backend w PHP z usługami w Pythonie oraz rozwiązaniami AI — w tym serwerami MCP i agentami AI.",
+    "en": "At ActiveCampaign, I develop a global marketing automation platform used by tens of thousands of businesses worldwide. As a Senior Software Engineer, I combine PHP backend work with Python services and AI-driven solutions — including MCP servers and AI agents.",
+    "uk": "В ActiveCampaign я розвиваю глобальну платформу автоматизації маркетингу, якою користуються десятки тисяч компаній по всьому світу. Як Senior Software Engineer я поєдную бекенд на PHP із сервісами на Python та рішеннями на базі ШІ — зокрема MCP-серверами та AI-агентами."
   },
   "fullDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W ActiveCampaign pracuję jako Senior Software Engineer przy rozwoju jednej z wiodących platform marketing automation na świecie. Na co dzień rozwijam usługi backendowe w PHP (Symfony) i Pythonie (FastAPI, Pydantic), projektuję API w standardach REST i GraphQL oraz dbam o wydajność rozwiązań opartych na MySQL i Redis.\n\nDużą część mojej pracy stanowią rozwiązania oparte na sztucznej inteligencji — buduję serwery MCP (FastMCP) oraz agentów AI, którzy automatyzują procesy wewnątrz platformy. Odpowiadam również za jakość i niezawodność: piszę testy end-to-end w Playwright, monitoruję usługi w Grafanie oraz rozwijam interfejsy w React i TypeScript.",
+    "en": "At ActiveCampaign, I work as a Senior Software Engineer on one of the world's leading marketing automation platforms. On a daily basis, I develop backend services in PHP (Symfony) and Python (FastAPI, Pydantic), design REST and GraphQL APIs, and take care of the performance of solutions built on MySQL and Redis.\n\nA significant part of my work involves AI-driven solutions — I build MCP servers (FastMCP) and AI agents that automate processes within the platform. I am also responsible for quality and reliability: I write end-to-end tests in Playwright, monitor services with Grafana, and develop user interfaces in React and TypeScript.",
+    "uk": "В ActiveCampaign я працюю на посаді Senior Software Engineer над однією з провідних у світі платформ автоматизації маркетингу. Щодня розробляю бекенд-сервіси на PHP (Symfony) та Python (FastAPI, Pydantic), проєктую REST і GraphQL API та дбаю про продуктивність рішень на базі MySQL і Redis.\n\nЗначну частину моєї роботи становлять рішення на основі штучного інтелекту — я створюю MCP-сервери (FastMCP) та AI-агентів, які автоматизують процеси всередині платформи. Також відповідаю за якість і надійність: пишу end-to-end тести в Playwright, моніторю сервіси в Grafana та розвиваю інтерфейси на React і TypeScript."
   },
   "achievements": []
 }

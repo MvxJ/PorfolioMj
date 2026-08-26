@@ -28,14 +28,14 @@
     "uk": "PHP Developer"
   },
   "shortDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W CairoSoft jako PHP Developer budowałem aplikacje webowe w oparciu o Symfony — od projektowania API w standardach REST i GraphQL po rozwój frontendu w Vue.",
+    "en": "At CairoSoft, as a PHP Developer, I built web applications based on Symfony — from designing REST and GraphQL APIs to developing the frontend in Vue.",
+    "uk": "У CairoSoft на посаді PHP Developer я створював вебзастосунки на базі Symfony — від проєктування REST і GraphQL API до розробки фронтенду на Vue."
   },
   "fullDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W CairoSoft pracowałem w pełni zdalnie jako PHP Developer, rozwijając aplikacje webowe oparte na Symfony. Projektowałem i implementowałem API w standardach REST oraz GraphQL, modelowałem bazy danych MySQL i dbałem o konteneryzację środowisk przy użyciu Dockera.\n\nPoza backendem rozwijałem również warstwę frontendową — tworzyłem komponenty w Vue oraz utrzymywałem starsze widoki oparte na jQuery. Praca w rozproszonym zespole nauczyła mnie samodzielności, dobrej komunikacji i dyscypliny w prowadzeniu zadań.",
+    "en": "At CairoSoft, I worked fully remotely as a PHP Developer, building web applications based on Symfony. I designed and implemented REST and GraphQL APIs, modeled MySQL databases, and containerized environments using Docker.\n\nBeyond the backend, I also worked on the frontend layer — creating Vue components and maintaining legacy views built with jQuery. Working in a distributed team taught me self-reliance, clear communication, and discipline in managing my tasks.",
+    "uk": "У CairoSoft я працював повністю віддалено на посаді PHP Developer, розробляючи вебзастосунки на базі Symfony. Проєктував і впроваджував REST і GraphQL API, моделював бази даних MySQL та контейнеризував середовища за допомогою Docker.\n\nОкрім бекенду, я також розвивав фронтенд — створював компоненти на Vue та підтримував старіші інтерфейси на jQuery. Робота в розподіленій команді навчила мене самостійності, чіткої комунікації та дисципліни у веденні завдань."
   },
   "achievements": []
 }

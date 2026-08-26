@@ -28,14 +28,14 @@
     "uk": "Backend Developer | Lead Backend Developer"
   },
   "shortDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W Crehler — najpierw jako Backend Developer, a obecnie Lead Backend Developer — buduję sklepy internetowe oparte na Shopware 6: od architektury wtyczek po integracje z systemami zewnętrznymi.",
+    "en": "At Crehler — first as a Backend Developer and now as Lead Backend Developer — I build e-commerce stores based on Shopware 6: from plugin architecture to integrations with external systems.",
+    "uk": "У Crehler — спочатку як Backend Developer, а нині як Lead Backend Developer — я створюю інтернет-магазини на базі Shopware 6: від архітектури плагінів до інтеграцій із зовнішніми системами."
   },
   "fullDesc": {
-    "pl": "...",
-    "en": "...",
-    "uk": "..."
+    "pl": "W Crehler zajmuję się rozwojem sklepów internetowych opartych na Shopware 6 dla klientów z różnych branż. Tworzę dedykowane wtyczki, rozszerzenia Store API oraz integracje z systemami zewnętrznymi (m.in. ERP i dostawcami płatności), dbając o czystą architekturę i zgodność z konwencjami Symfony.\n\nJako Lead Backend Developer odpowiadam także za nadzór techniczny nad projektami: projektuję architekturę rozwiązań, prowadzę code review, wspieram zespół w codziennej pracy i rozwijam procesy CI/CD, które przyspieszają dostarczanie zmian na produkcję.",
+    "en": "At Crehler, I develop e-commerce stores based on Shopware 6 for clients across various industries. I create dedicated plugins, Store API extensions, and integrations with external systems (including ERP and payment providers), with a strong focus on clean architecture and Symfony conventions.\n\nAs Lead Backend Developer, I am also responsible for the technical oversight of projects: I design solution architecture, run code reviews, support the team in their daily work, and improve CI/CD processes that speed up delivery to production.",
+    "uk": "У Crehler я займаюся розробкою інтернет-магазинів на базі Shopware 6 для клієнтів із різних галузей. Створюю спеціалізовані плагіни, розширення Store API та інтеграції із зовнішніми системами (зокрема ERP і платіжними провайдерами), приділяючи особливу увагу чистій архітектурі та конвенціям Symfony.\n\nЯк Lead Backend Developer я також відповідаю за технічний нагляд над проєктами: проєктую архітектуру рішень, проводжу code review, підтримую команду в щоденній роботі та вдосконалюю процеси CI/CD, які прискорюють доставлення змін на продакшн."
   },
   "achievements": []
 }

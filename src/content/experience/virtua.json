@@ -33,9 +33,9 @@
     "uk": "У компанії Virtua я розпочав свій професійний шлях у розробці програмного забезпечення. Почавши як стажер, а згодом отримавши посаду Junior PHP Developer, я відповідав за розробку та постійну підтримку інтернет-магазинів на базі платформ Shopware 5 та Shopware 6."
   },
   "fullDesc": {
-    "pl": "Pracę w firmie Virtua zacząłem od 3 miesięcznego stażu podczas którego tworzyłem swój projekt w oparciu o Symfony a później wdrażałem się w system Shopware.",
-    "en": "...",
-    "uk": "..."
+    "pl": "Pracę w Virtua rozpocząłem od trzymiesięcznego stażu, podczas którego zbudowałem własny projekt w oparciu o Symfony, a następnie wdrażałem się w ekosystem Shopware. Po stażu awansowałem na stanowisko Junior PHP Developera.\n\nOdpowiadałem za rozwój i bieżące utrzymanie sklepów internetowych opartych na Shopware 5 i Shopware 6 — tworzyłem wtyczki, wdrażałem nowe funkcjonalności i poprawiałem błędy, ucząc się przy tym dobrych praktyk pracy z kodem produkcyjnym (Git, Docker, Linux). To właśnie tutaj zbudowałem fundamenty, na których opiera się moja dalsza kariera.",
+    "en": "I started at Virtua with a three-month internship, during which I built my own project based on Symfony and then got up to speed with the Shopware ecosystem. After the internship, I was promoted to Junior PHP Developer.\n\nI was responsible for developing and maintaining e-commerce stores built on Shopware 5 and Shopware 6 — creating plugins, implementing new features, and fixing bugs, while learning best practices for working with production code (Git, Docker, Linux). This is where I built the foundations my further career stands on.",
+    "uk": "Свій шлях у Virtua я розпочав із тримісячного стажування, під час якого створив власний проєкт на базі Symfony, а потім опановував екосистему Shopware. Після стажування отримав підвищення до посади Junior PHP Developer.\n\nЯ відповідав за розробку та постійну підтримку інтернет-магазинів на базі Shopware 5 і Shopware 6 — створював плагіни, впроваджував нові функції та виправляв помилки, водночас опановуючи найкращі практики роботи з продакшн-кодом (Git, Docker, Linux). Саме тут я заклав фундамент, на якому будується моя подальша кар’єра."
   },
   "achievements": []
 }
