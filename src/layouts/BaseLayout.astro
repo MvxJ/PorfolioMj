@@ -89,7 +89,7 @@ const allLd = [person, ...jsonLd];
     {seo.alternates.map((a) => (
       <link rel="alternate" hreflang={a.locale} href={a.href} />
     ))}
-    <link rel="alternate" hreflang="x-default" href={seo.alternates.find((a) => a.locale === 'pl')?.href} />
+    <link rel="alternate" hreflang="x-default" href={seo.alternates.find((a) => a.locale === 'en')?.href} />
 
     <!-- Open Graph -->
     <meta property="og:type" content={seo.type} />

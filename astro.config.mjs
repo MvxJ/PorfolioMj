@@ -18,17 +18,18 @@ export default defineConfig({
   output: 'static',
   i18n: {
     locales: ['pl', 'en', 'uk'],
-    defaultLocale: 'pl',
+    defaultLocale: 'en',
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: true,
+      // "/" renders the EN homepage itself (src/pages/index.astro) — no redirect.
+      redirectToDefaultLocale: false,
     },
   },
   integrations: [
     react(),
     sitemap({
       i18n: {
-        defaultLocale: 'pl',
+        defaultLocale: 'en',
         locales: { pl: 'pl-PL', en: 'en', uk: 'uk-UA' },
       },
     }),

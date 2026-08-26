@@ -8,7 +8,7 @@ const DICT = { pl, en, uk } as const;
 
 export type Locale = keyof typeof DICT;
 export const LOCALES = ['pl', 'en', 'uk'] as const;
-export const DEFAULT_LOCALE: Locale = 'pl';
+export const DEFAULT_LOCALE: Locale = 'en';
 
 export const LOCALE_NAMES: Record<Locale, string> = {
   pl: 'Polski',
@@ -26,7 +26,7 @@ export function isLocale(value: string | undefined): value is Locale {
   return value === 'pl' || value === 'en' || value === 'uk';
 }
 
-/** Dot-path lookup into a locale dictionary, falling back to PL, then the key. */
+/** Dot-path lookup into a locale dictionary, falling back to EN, then the key. */
 export function t(locale: Locale, path: string): string {
   const get = (o: unknown) =>
     path.split('.').reduce<unknown>((a, k) => (a as Record<string, unknown>)?.[k], o);
@@ -39,7 +39,7 @@ export function useT(locale: Locale) {
   return (path: string) => t(locale, path);
 }
 
-/** Resolve a localized CMS string field, falling back to PL → EN → UK.
+/** Resolve a localized CMS string field, falling back to EN → PL → UK.
  *  Tolerates a plain string (returned as-is) for un-localized/legacy content. */
 export function localize(
   field: string | { pl?: string; en?: string; uk?: string } | undefined | null,
@@ -47,5 +47,5 @@ export function localize(
 ): string | undefined {
   if (field == null) return undefined;
   if (typeof field === 'string') return field;
-  return field[locale] ?? field.pl ?? field.en ?? field.uk ?? undefined;
+  return field[locale] ?? field.en ?? field.pl ?? field.uk ?? undefined;
 }

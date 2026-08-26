@@ -1,7 +1,32 @@
 ---
-/* Root redirect to the default locale. The CMS default language could differ,
-   but URLs always prefix the locale; /pl is the canonical default entry. */
-import { getAppearance } from '../lib/content';
+/* Root page — serves the default-locale (EN) homepage directly at "/", with no
+   redirect. The canonical points at the prefixed /en URL, so search engines
+   keep a single canonical entry while visitors get instant English content. */
+import type { Locale } from '../i18n';
+import { localize } from '../i18n';
+import PageLayout from '../layouts/PageLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import TechStripSection from '../components/sections/TechStripSection.astro';
+import FeaturedProjectsSection from '../components/sections/FeaturedProjectsSection.astro';
+import { getHero, getSite, getSeoDefaults, getAppearance } from '../lib/content';
+import { websiteLd } from '../lib/seo';
+
 const appearance = await getAppearance();
-return Astro.redirect(`/${appearance.defaultLanguage}`, 302);
+const locale = appearance.defaultLanguage as Locale;
+const hero = await getHero();
+const site = await getSite();
+const seoDefaults = await getSeoDefaults();
+const origin = Astro.site?.toString().replace(/\/+$/, '') ?? 'https://maks.dev';
+
+const name = site?.name ?? 'Maksymilian Jachymczak';
+const role = site?.role ?? 'Senior Software Engineer';
+const title = `${name} — ${role}`;
+const description = localize(hero?.tagline, locale) ?? seoDefaults?.defaultDescription ?? '';
+
+const jsonLd = [websiteLd(name, `${origin}/${locale}`, locale, `${origin}/${locale}`)];
 ---
+<PageLayout title={title} description={description} barePath="" locale={locale} type="profile" jsonLd={jsonLd}>
+  <HeroSection locale={locale} />
+  <TechStripSection locale={locale} />
+  <FeaturedProjectsSection locale={locale} />
+</PageLayout>

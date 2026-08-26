@@ -22,10 +22,10 @@ export function stripLocale(pathname: string): string {
   return stripped.replace(/^\/+/, '').replace(/\/+$/, '');
 }
 
-/** Detect the locale from a pathname; defaults to 'pl'. */
+/** Detect the locale from a pathname; defaults to 'en'. */
 export function localeFromUrl(pathname: string): Locale {
   const m = pathname.match(LOCALE_RE);
-  return (m?.[1] as Locale) ?? 'pl';
+  return (m?.[1] as Locale) ?? 'en';
 }
 
 /** Build absolute hreflang alternates for a bare path. */
