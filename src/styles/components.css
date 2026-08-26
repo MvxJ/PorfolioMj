@@ -1135,11 +1135,26 @@ body[data-hover='glow'] .project-card:hover {
 .exp-full > :first-child { margin-top: 0; }
 .exp-full > :last-child { margin-bottom: 0; }
 .exp-full p { margin: 0 0 0.75rem; }
+.exp-full h1,
+.exp-full h2,
+.exp-full h3,
+.exp-full h4 {
+  color: var(--text-1);
+  line-height: 1.25;
+  margin: 1.2rem 0 0.55rem;
+}
+.exp-full h1 { font-size: 1.25rem; }
+.exp-full h2 { font-size: 1.1rem; }
+.exp-full h3 { font-size: 1rem; }
+.exp-full h4 { font-size: 0.95rem; }
 .exp-full ul,
 .exp-full ol {
   margin: 0 0 0.85rem;
   padding-left: 1.25rem;
 }
+.exp-full ul { list-style: disc; }
+.exp-full ol { list-style: decimal; }
+.exp-full li::marker { color: var(--accent); }
 .exp-full li { margin: 0.2rem 0; }
 .exp-full a {
   color: var(--accent);
